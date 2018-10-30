@@ -1,0 +1,92 @@
+\ProvidesPackage{proposal}[2018/02/27]
+
+\usepackage[usenames,dvipsnames,svgnames]{xcolor}
+\usepackage[ngerman, english]{babel}
+\usepackage{amsmath}
+%\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+\usepackage[headheight = 28pt, tmargin = 70pt, lmargin = 55pt, rmargin = 55pt, bmargin = 70pt]{geometry}
+\usepackage[exponent-product = \cdot]{siunitx}
+\usepackage{rotating}
+\usepackage{helvet}
+\usepackage{lastpage}
+\usepackage{scrlayer-scrpage}
+\usepackage{eurosym}
+\usepackage{fp}
+\usepackage{pgfgantt}
+\usepackage{xspace}
+\usepackage{verbatim}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage[backend = biber,
+    style = alphabetic,%numeric
+    firstinits = true,
+    natbib = true,
+    hyperref = true,
+    maxbibnames = 10%,
+    %sorting=none,%remove this to have things sorted, e.g. use style=alphabetic
+    ]{biblatex}
+\renewcommand*{\labelalphaothers}{}
+
+%% von Hurenkindern und Schusterjungen
+\clubpenalty = 10000
+\widowpenalty = 10000 \displaywidowpenalty = 10000
+
+%% weniger underful hboxes
+\tolerance=3000
+\emergencystretch=15pt
+\hbadness=2000 %% too many underfull hbox warnings
+
+%% keine zwei Trennstriche in untereinanderliegenden Zeilen
+\hyphenpenalty 3000
+\doublehyphendemerits 50000000
+
+\newcommand{\total}{}
+\DeclareOption{german}{
+    \sisetup{locale=DE}
+    \AtBeginDocument{\selectlanguage{ngerman}}
+    \renewcommand{\pagemark}{Seite \thepage~von \pageref{LastPage}}
+    \renewcommand{\total}{Summe}
+}
+\DeclareOption{english}{
+    \sisetup{locale=US}
+    \AtBeginDocument{\selectlanguage{english}}
+	\renewcommand{\pagemark}{page \thepage~of \pageref{LastPage}}
+    \renewcommand{\total}{Total}
+}
+\ExecuteOptions{german}
+\ProcessOptions\relax
+\ohead{\pagemark}
+\cfoot{}
+\chead{}
+
+\KOMAoptions{paper=a4}
+\KOMAoption{fontsize}{11pt}
+\pagestyle{scrheadings}
+\setkomafont{section}{\normalsize}
+\setkomafont{subsection}{\normalsize}
+\renewcommand{\familydefault}{\sfdefault}
+\renewcommand{\headfont}{\sffamily\footnotesize}
+\setlength{\parskip}{0.5em}
+\setlength{\parindent}{0em}
+
+\newcommand{\subsubsubsection}[1]{\paragraph{#1} \mbox{} \par}
+\setcounter{secnumdepth}{5}
+
+% Ensure that if round-precision is specified, the give number of decimals is printed (necessary for prices in Euro)
+\sisetup{round-integer-to-decimal} 
+
+% Place this environment in funds section to automatically add up costs using the macro 'position'.
+\newenvironment{funds}[1][]
+    % Define variable funds for calculation. Store argument (description of total) in new command.
+    {\def\funds{0.00} \newcommand{\totaldescr}{#1}}
+    % Print total of environment with provided description. 
+    {\rule{\textwidth}{0.5pt} \par \total~\totaldescr \hfill \num[round-mode = places, round-precision = 2]{\funds}\,\euro}
+    
+% To be used inside a funds environment. Place text and add given price to totals.
+\newcommand{\position}[2]{\par #1 \hfill \num[round-mode = places, round-precision = 2]{#2}\,\euro \FPeval{\funds}{\funds + #2}}
+% Same as above but with multiples of a position.
+\newcommand{\positionmul}[3]{\par #1 \hfill \num{#3} $\times$ \num[round-mode = places, round-precision = 2]{#2}\,\euro \FPeval{\funds}{\funds + #3*#2}}

@@ -1,0 +1,304 @@
+\documentclass{scrartcl}
+
+%This template is based on the current DFG rtf form 53_01_en
+%
+%Author: Martin Hoelzer, https://github.com/hoelzer
+%
+%Date: 29.10.2018
+
+\usepackage{lipsum}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{proposal}
+\usepackage[pdftex, colorlinks=true, linkcolor=MidnightBlue, citecolor=MidnightBlue, urlcolor=MidnightBlue, pdfauthor={Dr.\ Martin Hoelzer}, pdfpagelayout=SinglePage, bookmarks, bookmarksopen]{hyperref}
+
+\graphicspath{{figures/}}
+\addbibresource{literature.bib}
+\AtBeginBibliography{\small}
+
+\newcommand{\todo}[1]{\xspace{\textcolor{red}{\bfseries[TODO: #1]}}\xspace}
+
+\newcommand{\applicants}{Dr.\ Martin H\"olzer, Jena}
+\newcommand{\project}{Project title}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Declare your Bibliography
+\DeclareBibliographyCategory{reviewed}
+\DeclareBibliographyCategory{nonreviewed}
+\DeclareBibliographyCategory{patents_pending}
+\DeclareBibliographyCategory{patents}
+%
+\addtocategory{reviewed}{Hoelzer:16} 
+\addtocategory{nonreviewed}{Desiro:18} 
+\addtocategory{patents_pending}{} 
+\addtocategory{patents}{} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  TITELSEITE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\pagestyle{empty}
+\setcounter{page}{0}
+
+\input{title_page}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  MAIN MATTER  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cleardoublepage
+\pagestyle{plain}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% For first-time proposals, please also note the following: Please provide a
+% concise description of your previous postgraduate training and research,
+% highlighting your abilities and demonstrating that you are capable of carrying
+% out the proposed project. Describe your scientific track record to date,
+% mentioning research topics that you’ve worked on so far. Previous scientific
+% accomplishments must not be directly related to the project.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  PROJECT DESCRIPTION - PROJECT PROPOSALS  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\raggedright{} \normalsize \bfseries 
+	Part~B: Project Description -- Project Proposals \par
+	\applicants{} \par
+	\project{} \par
+	\rule{\textwidth}{0.5pt} \par
+	Project Description
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  STATE OF THE ART AND PRELIMINARY WORK %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{State of the art and preliminary work}
+\label{sec:work-report}
+% For renewal proposals, please report on your previous work. This report
+% should also be understandable without referring to additional literature.
+
+This is a dummy citation~\cite{Hoelzer:17}. Yeah. And another
+one~\cite{Gerst:18}. Wuhuh. These citations~\cite{Hoelzer:16, Desiro:18} will
+not be shown in the  "\ref{sec:bib}~Bibliography" section, because they are
+already listed as \verb=\addtocategory{reviewed}{Hoelzer:16}= and
+\verb=\addtocategory{nonreviewed}{Desiro:18}= in the praeambl and therefore
+shown in subsubsections \emph{Articles published by outlets with scientific
+quality \dots} and \emph{Other publications}. 
+
+\lipsum[1]
+
+
+\subsection{Project-related publications}
+%Please include a list of own publications that are related to the proposed
+%project. 
+
+\subsubsection{Articles published by outlets with scientific quality assurance, book publications, and works accepted for publication but not yet published}
+%a maximum of ten publications
+\printbibliography[category=reviewed, heading=none]
+
+\subsubsection{Other publications}
+\printbibliography[category=nonreviewed, heading=none]
+
+\subsubsection{Patents}
+
+\subsubsubsection{Pending}
+\printbibliography[category=patents_pending, heading=none]
+None.
+
+\subsubsubsection{Issued}
+\printbibliography[category=patents, heading=none]
+None.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  OBJECTIVES AND WP %%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Objectives and work programme}
+
+\subsection{Anticipated total duration of the project}
+Financial support is requested for \todo{three years}.
+
+\subsection{Objectives}
+\let\oldpara=\theparagraph
+\addtocounter{secnumdepth}{1}
+\renewcommand{\theparagraph}{Goal \arabic{paragraph}}
+
+\paragraph{\textnormal{Goal one is ...}}
+
+\subsection{Work programme incl.\ proposed research methods}
+%For each applicant
+\todo{ca.\ 6-8 Seiten; ca. 4-8 WPs}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%% BEGIN OF WORK PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\addtocounter{secnumdepth}{1}
+%\newcommand\WP{WP\arabic{paragraph}}
+\renewcommand{\theparagraph}{WP\arabic{paragraph}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{First Workpackage.}
+\label{wp:1}
+\lipsum[2]
+
+\paragraph{Second Workpackage.}
+\label{wp:2}
+\lipsum[5]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  END OF WORK PACKAGES  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  TIMELINE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\let\theparagraph=\oldpara
+\paragraph*{Time considerations}
+\todo{put timeline here}
+
+\subsection{Data handling}
+Data generated during this project will be used for scientific publications in
+preprint and peer-reviewed journals. Therefore, all necessary data (such as raw
+sequencing data) will be deposited in publicly available repositories
+(\href{https://www.ncbi.nlm.nih.gov/geo/}{NCBI GEO} and
+\href{https://www.ncbi.nlm.nih.gov/sra}{SRA}, \href{https://osf.io/}{OSF}). To
+allow complete reproducibility of all analyses, the source code and executed
+comands will be also made publicly available
+(\href{https://github.com/}{GitHub}).  Thus, all relevant data will become
+accessible for future use. 
+
+\subsection{Other information}
+%Please use this section for any additional information you feel is relevant
+%which has not been provided elsewhere.
+None.
+
+\subsection{Descriptions of proposed investigations involving experiments on humans, human materials or animals as well as dual use research of concern}
+Not applicable.
+
+\subsection{Information on scientific and financial involvement of international cooperation partners}
+Not applicable.
+
+
+\section{Bibliography}
+\label{sec:bib}
+%\AtNextBibliography{\small}
+\printbibliography[notcategory=reviewed, notcategory=nonreviewed, notcategory=patents_pending, notcategory=patents, heading=none]
+
+\section{Requested modules/funds}
+%Explain each item for each applicant (stating last name, first name)
+
+\subsection{Basic Module}
+
+\subsubsection{Funding for Staff}
+\begin{funds}[funding for staff]
+The following staff positions are requested for \todo{xx} years each:
+
+\positionmul{Research associate, TV-L 13, 36 months}{5375}{36}
+\positionmul{Hiwi, TV-L 13, 12 months}{450}{12}
+
+\end{funds}
+
+\subsubsection{Direct Project Costs}
+\begin{funds}[direct project costs]
+
+\subsubsubsection{Equipment up to 10\,000\,\euro, Software and Consumables}
+
+\position{Next-Generation Sequencing, Illumina HiSeq\,2500}{3000}
+
+\subsubsubsection{Travel Expenses}
+We apply for a total of 10\,000\,\euro\ for travel expenses.
+\position{Travel}{10000}
+
+\subsubsubsection{Visiting Researchers}
+None.
+
+\subsubsubsection{Expenses for Laboratory Animals}
+None.
+
+\subsubsubsection{Other Costs}
+None.
+
+\subsubsubsection{Project-related publication expenses}
+We apply for a total of 1500\euro\ for publication expenses (750\,\euro\ per
+year). Furthermore, we will submit articles to open access preprint repositories
+such as \href{https://www.biorxiv.org/}{\textit{bioRxiv}}.
+\position{Publication costs}{1500}
+
+\end{funds}
+
+\subsubsection{Instrumentation}
+
+\subsubsubsection{Equipment exceeding 10\,000\,\euro}
+Our lab is well equipped; all required instruments are available.
+
+\subsubsubsection{Major Instrumentation exceeding 50\,000\,\euro}
+Our lab is equipped well; all required instruments are available.
+
+\subsection{Module Temporary Position for Principal Investigator}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  PROJECT REQUIREMENTS  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Project requirements}
+
+\subsection{Employment status information}
+%for each applicant, state the last name, first name, and employment status
+%(including duration of contract and funding body, if on a fixed-term contract)
+H\"olzer, Martin -- postdoctoral researcher, \todo{additional information}
+
+\subsection{First-time proposal data}
+%only if applicable: Last name, first name of first-time applicant
+H\"olzer, Martin.
+
+\subsection{Composition of the project group}
+%List only those individuals who will work on the project but will not be paid
+%out of the project funds. State each person's name, academic title, employment
+%status, and type of funding. 
+The following individuals will work on the project but will not be paid out of
+the project funds:
+
+\begin{itemize}
+\item Dude1
+\item Dude2
+\end{itemize}
+
+\subsection{Cooperation with other researchers}
+
+\subsubsection{Researchers with whom you have agreed to cooperate on this project}
+%Prof.\ Dr.\ Friedemann Weber
+
+\subsubsection{Researchers with whom you have collaborated scientifically within the past three years}
+\begin{itemize}
+  \item Prof.\ Dr.\ Foo Bar
+\end{itemize}
+
+\subsection{Scientific equipment}
+%List larger instruments that will be available to you for the project. These
+%may include large computer facilities if computing capacity will be needed.
+
+\subsection{Project-relevant cooperation with commercial enterprises}
+%If applicable, please note the EU guidelines on state aid or contract your
+%research institution in this regard.
+None.
+
+\subsection{Project-relevant participation in commercial enterprises}
+%Information on connections between the project and the production branch of the enterprise
+None.
+
+\section{Additional information}
+%If applicable, please list proposals requesting major instrumentation and/or
+%those previously submitted to a thrid party here.
+In submitting a proposal to the DFG, I agree to adhere to the DFG's rules of
+good scientific practice.
+
+\section{Signature}
+
+\includegraphics[width=0.18\textwidth]{/signature/signature.pdf}\\
+Dr.\ Martin H\"olzer
+
+\section{List of attachments}
+\begin{itemize}
+  \item Curriculum Vit\ae, Dr.\ Martin H\"olzer
+\end{itemize}
+
+
+
+\end{document}
