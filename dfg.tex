@@ -11,6 +11,18 @@
 \usepackage[english]{proposal}
 \usepackage[pdftex, colorlinks=true, linkcolor=MidnightBlue, citecolor=MidnightBlue, urlcolor=MidnightBlue, pdfauthor={Dr.\ Martin Hoelzer}, pdfpagelayout=SinglePage, bookmarks, bookmarksopen]{hyperref}
 
+\usepackage{gensymb}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+
+\usepackage{mathtools}
+\usepackage{relsize}
+
+\usepackage{titlesec}
+
+\usepackage[font=small,labelfont=bf]{caption}
+\captionsetup{format=plain}
+
 \graphicspath{{figures/}}
 \addbibresource{literature.bib}
 \AtBeginBibliography{\small}
@@ -131,14 +143,18 @@ Financial support is requested for \todo{three years}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %%%%% BEGIN OF WORK PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\titlespacing*{\paragraph}{0pt}{-0.2\baselineskip}{0.2\baselineskip}
 \addtocounter{secnumdepth}{1}
 %\newcommand\WP{WP\arabic{paragraph}}
 \renewcommand{\theparagraph}{WP\arabic{paragraph}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\paragraph{First Workpackage.}
+\vspace*{0.5cm}\hrulefill
+\paragraph{First Workpackage.}\mbox{}\\
+\hrulefill
 \label{wp:1}
-\lipsum[2]
+
+\input{wp/wp1.tex}
 
 \bigskip
 \noindent\myTip[1.0\textwidth]{t}{1}{%
@@ -146,9 +162,12 @@ Financial support is requested for \todo{three years}.
 \lipsum[1]
 }}
 
-\paragraph{Second Workpackage.}
+\vspace*{0.5cm}\hrulefill
+\paragraph{Second Workpackage.}\mbox{}\\
+\hrulefill
 \label{wp:2}
-\lipsum[5]
+
+\input{wp/wp2.tex}
 
 \bigskip
 \noindent\myTip[1.0\textwidth]{t}{2}{%
