@@ -48,4 +48,4 @@ The environment `funds` can be used to automatically sum up all costs specified 
 
 ## Disclaimer
 
-As of now, I did not use this template for an actual proposal submission to the DFG.
+I used this template for an actual proposal submission to the DFG that was accepted and send out for review. Just be aware of the 20 pages maximum... -.- 
