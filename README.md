@@ -1,6 +1,6 @@
 # LaTeX DFG template 
 
-A LaTeX template for a basic DFG (Deutsche Forschungsgemeinschaft, German Research Foundation) grant proposal.
+A LaTeX template for a basic DFG (Deutsche Forschungsgemeinschaft, German Research Foundation) grant proposal. __Attention__: you need ``pdflatex`` and ``biber`` (not ``bibtex``) to compile the document. 
 
 ## Acknowledgements
 
@@ -11,14 +11,25 @@ Group](https://github.com/emtpb/proposal_dfg) and is based on the current RTF
 
 ## Compilation
 
-    pdflatex
-    biber
-    pdflatex
-    pdflatex
-
+```bash
+pdflatex
+biber
+pdflatex
+pdflatex
+```
 or
+```
+make
+```
 
-    make
+### Biber
+
+If you do not have ``biber`` installed try to install it from the package sources of your system. There is also a ``conda`` install that you can try:
+
+```bash
+conda create -n biber -c malramsay biber 
+conda activate biber
+```
 
 ## Customization
 
@@ -28,23 +39,43 @@ Most of customization (citation style, etc.) can be done by changes in the `prop
 
 To add references to different parts of the proposal, you can define categories:
 
-    \DeclareBibliographyCategory{reviewed}
-    \addtocategory{reviewed}{Hoelzer:16}
+```latex
+\DeclareBibliographyCategory{reviewed}
+\addtocategory{reviewed}{Hoelzer:16}
 
 that can be later used in the sections:
 
-    \printbibliography[category=reviewed, heading=none]
+```latex
+\printbibliography[category=reviewed, heading=none]
+```
+
+### Bib Style
+
+To change the style of your bibliography you have to change the following code snippet in the ``proposal.sty`` file:
+
+```latex
+\usepackage[backend = biber,
+    style = numeric, %numeric, alphabetic
+    firstinits = true,
+    natbib = true,
+    hyperref = true,
+    maxbibnames = 11, % number of authors shown
+    sorting=none, % remove this to have things sorted, e.g. use style=alphabetic
+    ]{biblatex}
+```
 
 ## Sum up costs
 
 The environment `funds` can be used to automatically sum up all costs specified like this:
 
-    \begin{funds}[funding for staff]
+```latex
+\begin{funds}[funding for staff]
 
-    \positionmul{Research associate, TV-L 13, 36 months}{5375}{36}
-    \positionmul{Student assistant, TV-L 13, 12 months}{450}{12}
+\positionmul{Research associate, TV-L 13, 36 months}{5375}{36}
+\positionmul{Student assistant, TV-L 13, 12 months}{450}{12}
 
-    \end{funds}
+\end{funds}
+```
 
 ## Disclaimer
 
