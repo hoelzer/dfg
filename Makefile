@@ -1,4 +1,4 @@
-dizz.pdf:
+dfg.pdf:
 	pdflatex dfg.tex
 	biber dfg
 	pdflatex dfg.tex
