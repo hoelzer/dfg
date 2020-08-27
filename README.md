@@ -80,4 +80,10 @@ The environment `funds` can be used to automatically sum up all costs specified 
 
 ## Disclaimer
 
-I used this template for an actual proposal submission to the DFG that was accepted and send out for review. Just be aware of the 20 pages maximum... -.- 
+I used this template for an actual proposal submission in 2019 to the DFG that was accepted and send out for review (unfortunately, not accepted in the end). 
+
+If you use this template and receive a confirmation, please let me know and I will be happy to reference your successful application here! :)
+
+Furthermore, please be aware that since May 2020 the proposal is split into a more research focused part (sections 1-4, max. 15 pages) and all the supplementary information (starting section 5, max. 10 pages). Please also always check if there are any changes to the [DFG template](https://www.dfg.de/foerderung/programme/einzelfoerderung/sachbeihilfe/formulare_merkblaetter/index.jsp)!
+
+
