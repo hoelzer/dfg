@@ -1,13 +1,14 @@
 # LaTeX DFG template 
 
+__Last updated: August 2020__
+
 A LaTeX template for a basic DFG (Deutsche Forschungsgemeinschaft, German Research Foundation) grant proposal. __Attention__: you need ``pdflatex`` and ``biber`` (not ``bibtex``) to compile the document. 
 
 ## Acknowledgements
 
 This template is based on the template of the [Measurement Engineering
-Group](https://github.com/emtpb/proposal_dfg) and is based on the current RTF
-[DFG form
-53.10](http://www.dfg.de/foerderung/programme/einzelfoerderung/sachbeihilfe/formulare_merkblaetter/index.jsp).
+Group](https://github.com/emtpb/proposal_dfg) and based on the RTF
+[DFG form 53_01_en 04/20](http://www.dfg.de/formulare/53_01_elan/53_01_en_elan.rtf), __last accessed in August 2020__.
 
 ## Compilation
 

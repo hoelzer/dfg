@@ -1,10 +1,10 @@
 \documentclass{scrartcl}
 
-%This template is based on the current DFG rtf form 53_01_en
+%This template is based on the DFG rtf form 53_01_en 04/20, last accessed in August 2020
 %
 %Author: Martin Hoelzer, hoelzer.martin@gmail.com
 %
-%Date: 02.03.2020
+%Date: 27.08.2020
 
 \usepackage{lipsum}
 \usepackage[utf8]{inputenc}
@@ -19,6 +19,7 @@
 \usepackage{relsize}
 
 %\usepackage{titlesec}
+%\usepackage{placeins}
 
 \usepackage[font=small,labelfont={bf,it},textfont=it]{caption}
 \captionsetup{format=plain}
@@ -28,8 +29,9 @@
 \AtBeginBibliography{\small}
 
 \newcommand{\todo}[1]{\xspace{\textcolor{red}{\bfseries[TODO: #1]}}\xspace}
+\newcommand{\cp}[1]{\xspace{\textcolor{blue}{\bfseries[COPIED: #1]}}\xspace}
 
-\newcommand{\applicants}{Dr.\ Martin H\"olzer, Jena}
+\newcommand{\applicants}{Dr.\ Martin H\"olzer, Robert Koch Institute, Berlin}
 \newcommand{\project}{Project title}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -40,6 +42,7 @@
 \DeclareBibliographyCategory{patents}
 %
 \addtocategory{reviewed}{Hoelzer:16} 
+\nocite{}
 \addtocategory{nonreviewed}{Desiro:18} 
 \addtocategory{patents_pending}{} 
 \addtocategory{patents}{} 
@@ -73,42 +76,45 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%  PROJECT DESCRIPTION - PROJECT PROPOSALS  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Sections 1-4 must not exceed 15 pages in total.
 {\raggedright{} \normalsize \bfseries 
-	Part~B: Project Description -- Project Proposals \par
+	Project Description -- Project Proposals \par
 	\applicants{} \par
 	\project{} \par
 	\rule{\textwidth}{0.5pt} \par
-	Project Description
+	%Project Description
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%  STATE OF THE ART AND PRELIMINARY WORK %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{State of the art and preliminary work}
+\section{Starting Point}
 \label{sec:work-report}
+
+\subsection{State of the art and preliminary work}
 % For renewal proposals, please report on your previous work. This report
 % should also be understandable without referring to additional literature.
 
 This is a dummy citation~\cite{Hoelzer:17}. Yeah. And another
 one~\cite{Gerst:18}. Wuhuh. These citations~\cite{Hoelzer:16, Desiro:18} will
-not be shown in the  "\ref{sec:bib}~Bibliography" section, because they are
+not be shown in the "\ref{sec:bib}~Bibliography" section, because they are
 already listed as \verb=\addtocategory{reviewed}{Hoelzer:16}= and
 \verb=\addtocategory{nonreviewed}{Desiro:18}= in the praeambl and therefore
 shown in subsubsections \emph{Articles published by outlets with scientific
-quality \dots} and \emph{Other publications}. 
+quality \dots} and \emph{Other publications, both peer-reviewed and non-peer-reviewed}. 
 
 \lipsum[1]
 
 
 \subsection{Project-related publications}
-%Please include a list of own publications that are related to the proposed
-%project. 
+%Please include a list of own publications that are related to the proposed project. 
+%Sections 1.2.1 and 1.2.2 together must not exceed 10 publications; please number them consecutively.
 
-\subsubsection{Articles published by outlets with scientific quality assurance, book publications, and works accepted for publication but not yet published}
 %a maximum of ten publications
+\subsubsection{Articles published by outlets with scientific quality assurance, book publications, and works accepted for publication but not yet published}
 \printbibliography[category=reviewed, heading=none]
 
-\subsubsection{Other publications}
+\subsubsection{Other publications, both peer-reviewed and non-peer-reviewed}
 \printbibliography[category=nonreviewed, heading=none]
 
 \subsubsection{Patents}
@@ -136,7 +142,7 @@ Financial support is requested for \todo{three years}.
 
 \paragraph{\textnormal{Goal one is ...}}
 
-\subsection{Work programme incl.\ proposed research methods}
+\subsection{Work programme including proposed research methods}
 %For each applicant
 \todo{ca.\ 6-8 pages; ca. 4-8 WPs}
 
@@ -171,9 +177,45 @@ Financial support is requested for \todo{three years}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%  TIMELINE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This is not directly part of the DFG TRF template, but always helpful in my eyes
 \let\theparagraph=\oldpara
 \paragraph*{Time considerations}
-\todo{put timeline here}
+\todo{put timeline here, if needed}
+
+
+\section{Bibliography concerning the state of the art, the research objectives, and the work programme}
+\label{sec:bib}
+%\AtNextBibliography{\small}
+\printbibliography[notcategory=reviewed, notcategory=nonreviewed, notcategory=patents_pending, notcategory=patents, heading=none]
+
+\section{Relevance of sex, gender and/or diversity}
+\todo{Text}
+
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  SUPPLEMENT  (new since 04/2020) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Supplementary information on the research context}
+% Section 5 et seq. must not exceed 10 pages.
+
+\subsection{Ethical and/or legal aspects of the project}
+
+\subsubsection{General ethical aspects}
+\todo{Text}
+
+\subsubsection{Descriptions of proposed investigations involving experiments on humans or human materials}
+\todo{Text}
+
+\subsubsection{Descriptions of proposed investigations involving experiments on animals}
+\todo{Text}
+
+\subsubsection{Descriptions of projects involving genetic resources (or associated traditional knowledge) from a foreign country}
+\todo{Text}
+
+\subsubsection{Descriptions of investigations involving dual use research of concern, foreign trade regulations}
+\todo{Text}
+
 
 \subsection{Data handling}
 Data generated during this project will be used for scientific publications in
@@ -185,80 +227,18 @@ allow complete reproducibility of all analyses, the source code and executed
 comands will be also made publicly available
 (\href{https://github.com/}{GitHub}).  Thus, all relevant data will become
 accessible for future use. 
+\todo{FAIR principals}
 
 \subsection{Other information}
-%Please use this section for any additional information you feel is relevant
-%which has not been provided elsewhere.
-None.
-
-\subsection{Descriptions of proposed investigations involving experiments on humans, human materials or animals as well as dual use research of concern}
-Not applicable.
-
-\subsection{Information on scientific and financial involvement of international cooperation partners}
-Not applicable.
+%Please use this section for any additional information you feel is relevant which has not been provided elsewhere.
+In submitting a proposal to the DFG, I agree to adhere to the DFG's rules of good scientific practice and the \href{https://www.nature.com/articles/sdata201618}{FAIR principles}.
 
 
-\section{Bibliography}
-\label{sec:bib}
-%\AtNextBibliography{\small}
-\printbibliography[notcategory=reviewed, notcategory=nonreviewed, notcategory=patents_pending, notcategory=patents, heading=none]
-
-\section{Requested modules/funds}
-%Explain each item for each applicant (stating last name, first name)
-
-\subsection{Basic Module}
-
-\subsubsection{Funding for Staff}
-\begin{funds}[funding for staff]
-The following staff positions are requested for \todo{xx} years each:
-
-\positionmul{Research associate, TV-L 13, 36 months}{5375}{36}
-\positionmul{Hiwi, TV-L 13, 12 months}{450}{12}
-
-\end{funds}
-
-\subsubsection{Direct Project Costs}
-\begin{funds}[direct project costs]
-
-\subsubsubsection{Equipment up to 10\,000\,\euro, Software and Consumables}
-
-\position{Next-Generation Sequencing, Illumina HiSeq\,2500}{3000}
-
-\subsubsubsection{Travel Expenses}
-We apply for a total of 10\,000\,\euro\ for travel expenses.
-\position{Travel}{10000}
-
-\subsubsubsection{Visiting Researchers}
-None.
-
-\subsubsubsection{Expenses for Laboratory Animals}
-None.
-
-\subsubsubsection{Other Costs}
-None.
-
-\subsubsubsection{Project-related publication expenses}
-We apply for a total of 1500\euro\ for publication expenses (750\,\euro\ per
-year). Furthermore, we will submit articles to open access preprint repositories
-such as \href{https://www.biorxiv.org/}{\textit{bioRxiv}}.
-\position{Publication costs}{1500}
-
-\end{funds}
-
-\subsubsection{Instrumentation}
-
-\subsubsubsection{Equipment exceeding 10\,000\,\euro}
-Our lab is well equipped; all required instruments are available.
-
-\subsubsubsection{Major Instrumentation exceeding 50\,000\,\euro}
-Our lab is equipped well; all required instruments are available.
-
-\subsection{Module Temporary Position for Principal Investigator}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%  PROJECT REQUIREMENTS  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  PEOPLE/COLLAB/FUNDING  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Project requirements}
+\section{People/collaborations/funding}
 
 \subsection{Employment status information}
 %for each applicant, state the last name, first name, and employment status
@@ -281,34 +261,117 @@ the project funds:
 \item Dude2
 \end{itemize}
 
-\subsection{Cooperation with other researchers}
+\subsection{Researchers in Germany with whom you have agreed to cooperate on this project}
+\todo{Text}
 
-\subsubsection{Researchers with whom you have agreed to cooperate on this project}
-%Prof.\ Dr.\ Friedemann Weber
+\subsection{Researchers abroad with whom you have agreed to cooperate on this project}
+\todo{Text}
 
-\subsubsection{Researchers with whom you have collaborated scientifically within the past three years}
+\subsection{Researchers with whom you have collaborated scientifically within the past three years}
+% This information will help avoid potential conflicts of interest.
 \begin{itemize}
-  \item Prof.\ Dr.\ Foo Bar
+  \item Prof.\ Dr.\ Dr.\ Foo Bar
 \end{itemize}
 
-\subsection{Scientific equipment}
-%List larger instruments that will be available to you for the project. These
-%may include large computer facilities if computing capacity will be needed.
-
 \subsection{Project-relevant cooperation with commercial enterprises}
-%If applicable, please note the EU guidelines on state aid or contract your
-%research institution in this regard.
+%If applicable, please note the EU guidelines on state aid or contract your research institution in this regard.
 None.
 
 \subsection{Project-relevant participation in commercial enterprises}
 %Information on connections between the project and the production branch of the enterprise
 None.
 
-\section{Additional information}
-%If applicable, please list proposals requesting major instrumentation and/or
-%those previously submitted to a thrid party here.
-In submitting a proposal to the DFG, I agree to adhere to the DFG's rules of
-good scientific practice.
+\subsection{Scientific equipment}
+%List larger instruments that will be available to you for the project. These may include large computer facilities if computing capacity will be needed.
+\todo{Text}
+
+\subsection{Other submissions}
+%List any funding proposals for this project and/or major instrumentation previously submitted to a third party.
+\todo{Text}
+
+%\section{Requested modules/funds}
+%Explain each item for each applicant (stating last name, first name)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  REQUESTED MODULES/FUNDS  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Requested modules/funds}
+% Explain each item for each applicant (stating last name, first name).
+
+\subsection{Basic Module}
+
+\subsubsection{Funding for Staff}
+\begin{funds}[funding for staff]
+The following staff positions are requested for \todo{xx} years each:
+
+\positionmul{Research associate, TV-L 13, 36 months}{5375}{36}
+\positionmul{Hiwi, TV-L 13, 12 months}{450}{12}
+
+\end{funds}
+
+
+\subsubsection{Direct Project Costs}
+\begin{funds}[direct project costs]
+
+\subsubsubsection{Equipment up to 10\,000\,\euro, Software and Consumables}
+
+\position{Next-Generation Sequencing, Illumina HiSeq\,2500}{3000}
+
+\subsubsubsection{Travel Expenses}
+We apply for a total of 10\,000\,\euro\ for travel expenses.
+\position{Travel}{10000}
+
+\subsubsubsection{Visiting Researchers \textnormal{(excluding Mercator Fellows)}}
+None.
+
+\subsubsubsection{Expenses for Laboratory Animals}
+None.
+
+\subsubsubsection{Other Costs}
+None.
+
+\subsubsubsection{Project-related publication expenses}
+We apply for a total of 1500\euro\ for publication expenses (750\,\euro\ per
+year). Furthermore, we will submit articles to open access preprint repositories
+such as \href{https://www.biorxiv.org/}{\textit{bioRxiv}}.
+\position{Publication costs}{1500}
+
+\end{funds}
+
+\subsubsection{Instrumentation}
+
+\subsubsubsection{Equipment exceeding 10\,000\,\euro}
+Our laboratory is well equipped; all necessary instruments are available.
+
+\subsubsubsection{Major Instrumentation exceeding 50\,000\,\euro}
+Our laboratory is well equipped; all necessary instruments are available.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The following are additional/other modules one might want to apply for
+%% otherwise, just delete/comment
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace*{2cm}\todo{The following are additional/other modules one might want to apply for. Otherwise, just delete/comment}
+
+\subsection{Module Temporary Position for Principal Investigator}
+\todo{Text}
+
+\subsection{Module Replacement Funding}
+\todo{Text}
+
+\subsection{Module Temporary Clinician Substitute}
+\todo{Text}
+
+\subsection{Module Mercator Fellows}
+\todo{Text}
+
+\subsection{Module Workshop Funding}
+\todo{Text}
+
+\subsection{Module Public Relations Funding}
+\todo{Text}
+
 
 \section{Signature}
 
