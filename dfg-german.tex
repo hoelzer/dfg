@@ -1,0 +1,401 @@
+\documentclass{scrartcl}
+
+%This template is based on the DFG rtf form 53_01_en 04/20, last accessed in August 2020
+%
+%Author: Martin Hoelzer, hoelzer.martin@gmail.com
+%
+%Date: 27.08.2020
+
+\usepackage{lipsum}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{proposal}
+\usepackage[pdftex, colorlinks=true, linkcolor=MidnightBlue, citecolor=MidnightBlue, urlcolor=MidnightBlue, pdfauthor={Dr.\ Martin Hoelzer}, pdfpagelayout=SinglePage, bookmarks, bookmarksopen]{hyperref}
+
+\usepackage{gensymb}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+
+\usepackage{mathtools}
+\usepackage{relsize}
+
+%\usepackage{titlesec}
+%\usepackage{placeins}
+
+\usepackage[font=small,labelfont={bf,it},textfont=it]{caption}
+\captionsetup{format=plain}
+
+\graphicspath{{figures/}}
+\addbibresource{literature.bib}
+\AtBeginBibliography{\small}
+
+\newcommand{\todo}[1]{\xspace{\textcolor{red}{\bfseries[TODO: #1]}}\xspace}
+\newcommand{\cp}[1]{\xspace{\textcolor{blue}{\bfseries[COPIED: #1]}}\xspace}
+
+\newcommand{\applicants}{Dr.\ Martin H\"olzer, Robert Koch Institut, Berlin}
+\newcommand{\project}{Projekttitel}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Declare your Bibliography
+\DeclareBibliographyCategory{reviewed}
+\DeclareBibliographyCategory{nonreviewed}
+\DeclareBibliographyCategory{patents_pending}
+\DeclareBibliographyCategory{patents}
+%
+\addtocategory{reviewed}{Hoelzer:16} 
+\nocite{}
+\addtocategory{nonreviewed}{Desiro:18} 
+\addtocategory{patents_pending}{} 
+\addtocategory{patents}{} 
+
+\input{highlight_box.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  TITELSEITE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\pagestyle{empty}
+\setcounter{page}{0}
+
+\input{title_page-german}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  MAIN MATTER  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cleardoublepage
+\pagestyle{plain}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% For first-time proposals, please also note the following: Please provide a
+% concise description of your previous postgraduate training and research,
+% highlighting your abilities and demonstrating that you are capable of carrying
+% out the proposed project. Describe your scientific track record to date,
+% mentioning research topics that you’ve worked on so far. Previous scientific
+% accomplishments must not be directly related to the project.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  PROJECT DESCRIPTION - PROJECT PROPOSALS  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Sections 1-4 must not exceed 15 pages in total.
+{\raggedright{} \normalsize \bfseries 
+	Beschreibung des Vorhabens - Projektanträge \par
+	\applicants{[Name, Vorname, Ort aller Antragstellenden]} \par
+	\project{[Titel des Projekts]} \par
+	\rule{\textwidth}{0.5pt} \par
+	%Project Description
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  STATE OF THE ART AND PRELIMINARY WORK %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Ausgangslage}
+\label{sec:work-report}
+
+\subsection{Stand der Forschung und eigene Vorarbeiten}
+% For renewal proposals, please report on your previous work. This report
+% should also be understandable without referring to additional literature.
+
+This is a dummy citation~\cite{Hoelzer:17}. Yeah. And another
+one~\cite{Gerst:18}. Wuhuh. These citations~\cite{Hoelzer:16, Desiro:18} will
+not be shown in the "\ref{sec:bib}~Bibliography" section, because they are
+already listed as \verb=\addtocategory{reviewed}{Hoelzer:16}= and
+\verb=\addtocategory{nonreviewed}{Desiro:18}= in the praeambl and therefore
+shown in subsubsections \emph{Articles published by outlets with scientific
+quality \dots} and \emph{Other publications, both peer-reviewed and non-peer-reviewed}. 
+
+\lipsum[1]
+
+
+\subsection{Projektbezogenes Publikationsverzeichnis Ihrer Arbeiten}
+%Please include a list of own publications that are related to the proposed project. 
+%Sections 1.2.1 and 1.2.2 together must not exceed 10 publications; please number them consecutively.
+
+%a maximum of ten publications
+\subsubsection{Veröffentlichte Arbeiten aus Publikationsorganen mit
+  wissenschaftlicher Qualitätssicherung, Buchveröffentlichungen sowie
+  bereits zur Veröffentlichung angenommene, aber noch nicht
+  veröffentlichte Arbeiten.}
+\printbibliography[category=reviewed, heading=none]
+
+\subsubsection{Andere Veröffentlichungen mit und ohne
+  wissenschaftliche Qualitätssicherung}
+\printbibliography[category=nonreviewed, heading=none]
+
+\subsubsection{Patente}
+
+\subsubsubsection{Angemeldet}
+\printbibliography[category=patents_pending, heading=none]
+None.
+
+\subsubsubsection{Erteilt}
+\printbibliography[category=patents, heading=none]
+None.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  OBJECTIVES AND WP %%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Ziele und Arbeitsprogramm}
+
+\subsection{Voraussichtliche Gesamtdauer des Projekts}
+[Text]
+
+\subsection{Ziele}
+\let\oldpara=\theparagraph
+\addtocounter{secnumdepth}{1}
+\renewcommand{\theparagraph}{Ziel \arabic{paragraph}}
+
+\paragraph{\textnormal{Goal one is ...}}
+
+\subsection{Arbeitsprogramm inkl. vorgesehener Untersuchungsmethoden}
+%For each applicant
+\todo{ca.\ 6-8 pages; ca. 4-8 WPs}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%% BEGIN OF WORK PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%\titlespacing*{\paragraph}{0pt}{-0.2\baselineskip}{0.2\baselineskip}
+\addtocounter{secnumdepth}{1}
+%\newcommand\WP{WP\arabic{paragraph}}
+\renewcommand{\theparagraph}{AP\arabic{paragraph}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Für jede Antragstellerin und jeden Antragsteller
+
+\vspace*{0.5cm}\hrulefill
+\paragraph{Erstes Arbeitspaket.}\mbox{}\\
+\hrulefill
+\label{wp:1}
+
+\input{wp/wp1-german.tex}
+
+\vspace*{0.5cm}\hrulefill
+\paragraph{Zweites Arbeitspaket.}\mbox{}\\
+\hrulefill
+\label{wp:2}
+
+\input{wp/wp2-german.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  END OF WORK PACKAGES  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  TIMELINE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This is not directly part of the DFG TRF template, but always helpful in my eyes
+\let\theparagraph=\oldpara
+\paragraph*{Zeitplan}
+\todo{put timeline here, if needed}
+
+
+\section{Literaturverzeichnis zum Stand der Forschung, zu den Zielen und dem Arbeitsprogramm}
+\label{sec:bib}
+%\AtNextBibliography{\small}
+\printbibliography[notcategory=reviewed, notcategory=nonreviewed, notcategory=patents_pending, notcategory=patents, heading=none]
+
+\section{Relevanz von Geschlecht und/oder Vielfältigkeit}
+\todo{Text}
+
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  SUPPLEMENT  (new since 04/2020) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Begleitinformationen zum Forschungskontext}
+% Section 5 et seq. must not exceed 10 pages.
+
+\subsection{Angaben zu ethischen und/oder rechtlichen Aspekten des Vorhabens}
+
+\subsubsection{Allgemeine ethische Aspekte}
+\todo{Text}
+
+\subsubsection{Erläuterungen zu den vorgesehenen Untersuchungen bei Versuchen an 
+Menschen oder an vom Menschen entnommenem Material}
+\todo{Text}
+
+\subsubsection{Erläuterungen zu den vorgesehenen Untersuchungen bei Versuchen an Tieren}
+\todo{Text}
+
+\subsubsection{Erläuterungen zu Forschungsvorhaben an genetischen Ressourcen (oder 
+darauf bezogenem traditionellem Wissen) aus dem Ausland}
+\todo{Text}
+
+\subsubsection{Erläuterungen zu möglichen sicherheitsrelevanten Aspekten („Dual-Use 
+Research of Concern``, Außenwirtschaftsrecht)}
+\todo{Text}
+
+
+\subsection{Umgang mit den im Projekt erzielten Forschungsdaten}
+Data generated during this project will be used for scientific publications in
+preprint and peer-reviewed journals. Therefore, all necessary data (such as raw
+sequencing data) will be deposited in publicly available repositories
+(\href{https://www.ncbi.nlm.nih.gov/geo/}{NCBI GEO} and
+\href{https://www.ncbi.nlm.nih.gov/sra}{SRA}, \href{https://osf.io/}{OSF}). To
+allow complete reproducibility of all analyses, the source code and executed
+comands will be also made publicly available
+(\href{https://github.com/}{GitHub}).  Thus, all relevant data will become
+accessible for future use. 
+\todo{FAIR principals}
+
+\subsection{Weitere Angaben}
+%Please use this section for any additional information you feel is relevant which has not been provided elsewhere.
+In submitting a proposal to the DFG, I agree to adhere to the DFG's rules of good scientific practice and the \href{https://www.nature.com/articles/sdata201618}{FAIR principles}.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  PEOPLE/COLLAB/FUNDING  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Personen/Kooperationen/Finanzierung}
+
+\subsection{Angaben zur Dienststellung}
+%for each applicant, state the last name, first name, and employment status
+%(including duration of contract and funding body, if on a fixed-term contract)
+H\"olzer, Martin -- postdoctoral researcher, \todo{additional information}
+
+\subsection{Angaben zur Erstantragstellung}
+%only if applicable: Last name, first name of first-time applicant
+H\"olzer, Martin.
+
+\subsection{Zusammensetzung der Projektarbeitsgruppe}
+%List only those individuals who will work on the project but will not be paid
+%out of the project funds. State each person's name, academic title, employment
+%status, and type of funding. 
+The following individuals will work on the project but will not be paid out of
+the project funds:
+
+\begin{itemize}
+\item Dude1
+\item Dude2
+\end{itemize}
+
+\subsection{Zusammenarbeit mit Wissenschaftlerinnen und Wissenschaftlern in Deutschland in diesem Projekt}
+\todo{Text}
+
+\subsection{Zusammenarbeit mit Wissenschaftlerinnen und Wissenschaftlern im Ausland in diesem Projekt}
+\todo{Text}
+
+\subsection{Wissenschaftlerinnen und Wissenschaftler, mit denen in den letzten 
+drei Jahren wissenschaftlich zusammengearbeitet wurde}
+% This information will help avoid potential conflicts of interest.
+\begin{itemize}
+  \item Prof.\ Dr.\ Dr.\ Foo Bar
+\end{itemize}
+
+\subsection{Projektrelevante Zusammenarbeit mit erwerbswirtschaftlichen Unternehmen}
+%If applicable, please note the EU guidelines on state aid or contract your research institution in this regard.
+None.
+
+\subsection{Projektrelevante Beteiligungen an erwerbswirtschaftlichen Unternehmen}
+%Information on connections between the project and the production branch of the enterprise
+None.
+
+\subsection{Apparative Ausstattung}
+%List larger instruments that will be available to you for the project. These may include large computer facilities if computing capacity will be needed.
+\todo{Text}
+
+\subsection{Weitere Antragstellungen}
+%List any funding proposals for this project and/or major instrumentation previously submitted to a third party.
+\todo{Text}
+
+%\section{Requested modules/funds}
+%Explain each item for each applicant (stating last name, first name)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  REQUESTED MODULES/FUNDS  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Beantragte Module/Mittel}
+% Explain each item for each applicant (stating last name, first name).
+
+\subsection{Basismodul}
+
+\subsubsection{Personalmittel}
+\begin{funds}[funding for staff]
+The following staff positions are requested for \todo{xx} years each:
+
+\positionmul{Research associate, TV-L 13, 36 months}{5375}{36}
+\positionmul{Hiwi, TV-L 13, 12 months}{450}{12}
+
+\end{funds}
+
+
+\subsubsection{Sachmittel}
+\begin{funds}[direct project costs]
+
+\subsubsubsection{Geräte bis 10.000 Euro, Software und Verbrauchsmaterial}
+
+\position{Next-Generation Sequencing, Illumina HiSeq\,2500}{3000}
+
+\subsubsubsection{Reisemittel}
+We apply for a total of 10\,000\,\euro\ for travel expenses.
+\position{Travel}{10000}
+
+\subsubsubsection{Mittel für wissenschaftliche Gäste \textnormal{(ausgenommen Mercator Fellows)}}
+None.
+
+\subsubsubsection{Mittel für Versuchstiere}
+None.
+
+\subsubsubsection{Sonstige Mittel}
+None.
+
+\subsubsubsection{Publikationsmittel}
+We apply for a total of 1500\euro\ for publication expenses (750\,\euro\ per
+year). Furthermore, we will submit articles to open access preprint repositories
+such as \href{https://www.biorxiv.org/}{\textit{bioRxiv}}.
+\position{Publication costs}{1500}
+
+\end{funds}
+
+\subsubsection{Investitionsmittel}
+
+\subsubsubsection{Geräte über 10.000 Euro}
+Our laboratory is well equipped; all necessary instruments are available.
+
+\subsubsubsection{Großgeräte über 50.000 Euro}
+Our laboratory is well equipped; all necessary instruments are available.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The following are additional/other modules one might want to apply for
+%% otherwise, just delete/comment
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace*{2cm}\todo{The following are additional/other modules one might want to apply for. Otherwise, just delete/comment}
+
+\subsection{Modul Eigene Stelle}
+\todo{Text}
+
+\subsection{Modul Vertretung}
+\todo{Text}
+
+\subsection{Modul Rotationsstellen}
+\todo{Text}
+
+\subsection{Modul Mercator Fellow}
+\todo{Text}
+
+\subsection{Modul Projektspezifische Workshops}
+\todo{Text}
+
+\subsection{Modul Öffentlichkeitsarbeit}
+\todo{Text}
+
+
+\section{Unterschrift}
+
+\includegraphics[width=0.18\textwidth]{/signatures/signature.pdf}\\
+Dr.\ Martin H\"olzer
+
+\section{Anhänge}
+\begin{itemize}
+  \item Curriculum Vit\ae, Dr.\ Martin H\"olzer
+\end{itemize}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
