@@ -7,8 +7,6 @@ dfg.pdf:
 	pdflatex ${filename}.tex
 	pdflatex ${filename}.tex
 clean:
-	-cp ${filename}.pdf ../
-	-rm ${filename}.pdf
 	-rm ${filename}.log
 	-rm ${filename}.aux
 	-rm ${filename}.out
