@@ -25,6 +25,8 @@ or
 make
 ```
 
+You can also change the filename of the `${NAME}.tex` file and then run `make filename=${NAME}` (thx [@dl1chb](https://github.com/dl1chb)).
+
 ### Biber
 
 If you do not have ``biber`` installed try to install it from the package sources of your system. There is also a ``conda`` install that you can try:
