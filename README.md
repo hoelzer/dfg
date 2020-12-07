@@ -25,7 +25,11 @@ or
 make
 ```
 
-You can also change the filename of the `${NAME}.tex` file and then run `make filename=${NAME}` (thx [@dl1chb](https://github.com/dl1chb)).
+You can also change the filename of the `${NAME}.tex` file and then run `make filename=${NAME}` (thx [@dl1chb](https://github.com/dl1chb)). For example, to compile the German version: 
+
+```
+make filename=dfg-german
+```
 
 ### Biber
 
