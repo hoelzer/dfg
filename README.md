@@ -10,6 +10,8 @@ This template is based on the template of the [Measurement Engineering
 Group](https://github.com/emtpb/proposal_dfg) and based on the RTF
 [DFG form 53_01_en 04/20](http://www.dfg.de/formulare/53_01_elan/53_01_en_elan.rtf), __last accessed in August 2020__.
 
+Thanks to [@nneuss](https://github.com/nneuss) a German version is also available. Please use `dfg-german.tex` instead of `dfg.tex` for the German version. 
+
 ## Compilation
 
 ```bash
@@ -23,7 +25,11 @@ or
 make
 ```
 
-You can also change the filename of the `${NAME}.tex` file and then run `make filename=${NAME}` (thx [@dl1chb](https://github.com/dl1chb)).
+You can also change the filename of the `${NAME}.tex` file and then run `make filename=${NAME}` (thx [@dl1chb](https://github.com/dl1chb)). For example, to compile the German version: 
+
+```
+make filename=dfg-german
+```
 
 ### Biber
 
