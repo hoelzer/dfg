@@ -22,11 +22,13 @@
 \pgfplotsset{compat=newest}
 
 \usepackage[backend = biber,
-    style = alphabetic,%numeric
+    % style = alphabetic,
+    style = numeric,
     firstinits = true,
     natbib = true,
     hyperref = true,
-    maxbibnames = 10%,
+    maxbibnames = 10, 
+    defernumbers = true,
     %sorting=none,%remove this to have things sorted, e.g. use style=alphabetic
     ]{biblatex}
 \renewcommand*{\labelalphaothers}{}

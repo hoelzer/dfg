@@ -25,14 +25,47 @@
 \captionsetup{format=plain}
 
 \graphicspath{{figures/}}
-\addbibresource{literature.bib}
+\addbibresource{bib.bib}
+% \addbibresource{../Karl-Holger.bib}
+\addbibresource{../../Karl-Holger.bib}
 \AtBeginBibliography{\small}
 
-\newcommand{\todo}[1]{\xspace{\textcolor{red}{\bfseries[TODO: #1]}}\xspace}
-\newcommand{\cp}[1]{\xspace{\textcolor{blue}{\bfseries[COPIED: #1]}}\xspace}
 
-\newcommand{\applicants}{Dr.\ Martin H\"olzer, Robert Koch Institute, Berlin}
-\newcommand{\project}{Project title}
+%-------------
+% WP summary 
+\usepackage{tcolorbox}
+\newcommand{\wpsummary}[3]{\begin{tcolorbox}
+[title=WP\,\arabic{subsubsection} -- Summary]
+%   \tcblower 
+\noindent  \begin{tabular}{lp{0.8\textwidth}}
+\textbf{Aim}: &  #1  \\
+\textbf{Method}: & #2 \\ 
+\textbf{Outcome}: &   #3 \\
+  \end{tabular}
+\end{tcolorbox}
+}
+
+%-------------
+
+
+% TODO lists 
+\usepackage[textsize=small]{todonotes}
+\newcommand{\fmhkn}[1] {\todo[color=blue!20,inline]{Holger: #1}}
+
+%\newcommand{\todo}[1]{\xspace{\textcolor{red}{\bfseries[TODO: #1]}}\xspace}
+% \newcommand{\cp}[1]{\xspace{\textcolor{blue}{\bfseries[COPIED: #1]}}\xspace}
+
+% customization: 
+
+\newcommand{\applicants}{Prof.\ Dr.\ Holger Karl, Paderborn University}
+\newcommand{\projectshort}{ACRONYM}
+\newcommand{\projectfull}{Full project title}
+\newcommand{\project}{\projectshort: \projectfull}
+
+% SWERVE	Softwarized WavEs aRound moVing usErs 
+% DWARVES	Deployment Waves ARound moVing usErS 
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Declare your Bibliography
@@ -40,12 +73,21 @@
 \DeclareBibliographyCategory{nonreviewed}
 \DeclareBibliographyCategory{patents_pending}
 \DeclareBibliographyCategory{patents}
+\DeclareBibliographyCategory{own_general}
+\DeclareBibliographyCategory{own_project}
+
+
+% Categories for papers 
+
+
+
+
 %
-\addtocategory{reviewed}{Hoelzer:16} 
-\nocite{}
-\addtocategory{nonreviewed}{Desiro:18} 
-\addtocategory{patents_pending}{} 
-\addtocategory{patents}{} 
+% \addtocategory{reviewed}{Hoelzer:16} 
+% \nocite{}
+% \addtocategory{nonreviewed}{Desiro:18} 
+% \addtocategory{patents_pending}{} 
+% \addtocategory{patents}{} 
 
 \input{highlight_box.tex}
 
@@ -85,304 +127,83 @@
 	%Project Description
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%  STATE OF THE ART AND PRELIMINARY WORK %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Starting Point}
-\label{sec:work-report}
 
-\subsection{State of the art and preliminary work}
-% For renewal proposals, please report on your previous work. This report
-% should also be understandable without referring to additional literature.
+\input{starting_point}
 
-This is a dummy citation~\cite{Hoelzer:17}. Yeah. And another
-one~\cite{Gerst:18}. Wuhuh. These citations~\cite{Hoelzer:16, Desiro:18} will
-not be shown in the "\ref{sec:bib}~Bibliography" section, because they are
-already listed as \verb=\addtocategory{reviewed}{Hoelzer:16}= and
-\verb=\addtocategory{nonreviewed}{Desiro:18}= in the praeambl and therefore
-shown in subsubsections \emph{Articles published by outlets with scientific
-quality \dots} and \emph{Other publications, both peer-reviewed and non-peer-reviewed}. 
-
-\lipsum[1]
+%------------------------------------------------
 
 
 \subsection{Project-related publications}
 %Please include a list of own publications that are related to the proposed project. 
 %Sections 1.2.1 and 1.2.2 together must not exceed 10 publications; please number them consecutively.
 
+\newrefcontext[labelprefix=O]
+
 %a maximum of ten publications
 \subsubsection{Articles published by outlets with scientific quality assurance, book publications, and works accepted for publication but not yet published}
-\printbibliography[category=reviewed, heading=none]
+\printbibliography[notcategory=nonreviewed, notcategory=own_general, category=own_project, heading=none]
 
 \subsubsection{Other publications, both peer-reviewed and non-peer-reviewed}
 \printbibliography[category=nonreviewed, heading=none]
 
+
 \subsubsection{Patents}
 
-\subsubsubsection{Pending}
-\printbibliography[category=patents_pending, heading=none]
-None.
+Not applicable. 
 
-\subsubsubsection{Issued}
-\printbibliography[category=patents, heading=none]
-None.
+% \subsubsubsection{Pending}
+% \printbibliography[category=patents_pending, heading=none]
+% None.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%  OBJECTIVES AND WP %%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Objectives and work programme}
+% \subsubsubsection{Issued}
+% \printbibliography[category=patents, heading=none]
+% None.
+ 
 
-\subsection{Anticipated total duration of the project}
-Financial support is requested for \todo{three years}.
+%------------------------------------------------
 
-\subsection{Objectives}
-\let\oldpara=\theparagraph
-\addtocounter{secnumdepth}{1}
-\renewcommand{\theparagraph}{Goal \arabic{paragraph}}
-
-\paragraph{\textnormal{Goal one is ...}}
-
-\subsection{Work programme including proposed research methods}
-%For each applicant
-\todo{ca.\ 6-8 pages; ca. 4-8 WPs}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-%%%%% BEGIN OF WORK PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-%\titlespacing*{\paragraph}{0pt}{-0.2\baselineskip}{0.2\baselineskip}
-\addtocounter{secnumdepth}{1}
-%\newcommand\WP{WP\arabic{paragraph}}
-\renewcommand{\theparagraph}{WP\arabic{paragraph}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\vspace*{0.5cm}\hrulefill
-\paragraph{First Workpackage.}\mbox{}\\
-\hrulefill
-\label{wp:1}
-
-\input{wp/wp1.tex}
-
-\vspace*{0.5cm}\hrulefill
-\paragraph{Second Workpackage.}\mbox{}\\
-\hrulefill
-\label{wp:2}
-
-\input{wp/wp2.tex}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%  END OF WORK PACKAGES  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{objectives_wp}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%  TIMELINE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% This is not directly part of the DFG TRF template, but always helpful in my eyes
-\let\theparagraph=\oldpara
-\paragraph*{Time considerations}
-\todo{put timeline here, if needed}
 
 
 \section{Bibliography concerning the state of the art, the research objectives, and the work programme}
 \label{sec:bib}
 %\AtNextBibliography{\small}
-\printbibliography[notcategory=reviewed, notcategory=nonreviewed, notcategory=patents_pending, notcategory=patents, heading=none]
+\newrefcontext[labelprefix=S]
+\printbibliography[notcategory=own_general, notcategory=own_project, heading=none]
 
-\section{Relevance of sex, gender and/or diversity}
-\todo{Text}
 
+\input{gender}
 
 \clearpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%  SUPPLEMENT  (new since 04/2020) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Supplementary information on the research context}
-% Section 5 et seq. must not exceed 10 pages.
 
-\subsection{Ethical and/or legal aspects of the project}
-
-\subsubsection{General ethical aspects}
-\todo{Text}
-
-\subsubsection{Descriptions of proposed investigations involving experiments on humans or human materials}
-\todo{Text}
-
-\subsubsection{Descriptions of proposed investigations involving experiments on animals}
-\todo{Text}
-
-\subsubsection{Descriptions of projects involving genetic resources (or associated traditional knowledge) from a foreign country}
-\todo{Text}
-
-\subsubsection{Descriptions of investigations involving dual use research of concern, foreign trade regulations}
-\todo{Text}
-
-
-\subsection{Data handling}
-Data generated during this project will be used for scientific publications in
-preprint and peer-reviewed journals. Therefore, all necessary data (such as raw
-sequencing data) will be deposited in publicly available repositories
-(\href{https://www.ncbi.nlm.nih.gov/geo/}{NCBI GEO} and
-\href{https://www.ncbi.nlm.nih.gov/sra}{SRA}, \href{https://osf.io/}{OSF}). To
-allow complete reproducibility of all analyses, the source code and executed
-comands will be also made publicly available
-(\href{https://github.com/}{GitHub}).  Thus, all relevant data will become
-accessible for future use. 
-\todo{FAIR principals}
-
-\subsection{Other information}
-%Please use this section for any additional information you feel is relevant which has not been provided elsewhere.
-In submitting a proposal to the DFG, I agree to adhere to the DFG's rules of good scientific practice and the \href{https://www.nature.com/articles/sdata201618}{FAIR principles}.
+\input{supplements}
+\input{people}
+\input{modules}
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%  PEOPLE/COLLAB/FUNDING  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{People/collaborations/funding}
-
-\subsection{Employment status information}
-%for each applicant, state the last name, first name, and employment status
-%(including duration of contract and funding body, if on a fixed-term contract)
-H\"olzer, Martin -- postdoctoral researcher, \todo{additional information}
-
-\subsection{First-time proposal data}
-%only if applicable: Last name, first name of first-time applicant
-H\"olzer, Martin.
-
-\subsection{Composition of the project group}
-%List only those individuals who will work on the project but will not be paid
-%out of the project funds. State each person's name, academic title, employment
-%status, and type of funding. 
-The following individuals will work on the project but will not be paid out of
-the project funds:
-
-\begin{itemize}
-\item Dude1
-\item Dude2
-\end{itemize}
-
-\subsection{Researchers in Germany with whom you have agreed to cooperate on this project}
-\todo{Text}
-
-\subsection{Researchers abroad with whom you have agreed to cooperate on this project}
-\todo{Text}
-
-\subsection{Researchers with whom you have collaborated scientifically within the past three years}
-% This information will help avoid potential conflicts of interest.
-\begin{itemize}
-  \item Prof.\ Dr.\ Dr.\ Foo Bar
-\end{itemize}
-
-\subsection{Project-relevant cooperation with commercial enterprises}
-%If applicable, please note the EU guidelines on state aid or contract your research institution in this regard.
-None.
-
-\subsection{Project-relevant participation in commercial enterprises}
-%Information on connections between the project and the production branch of the enterprise
-None.
-
-\subsection{Scientific equipment}
-%List larger instruments that will be available to you for the project. These may include large computer facilities if computing capacity will be needed.
-\todo{Text}
-
-\subsection{Other submissions}
-%List any funding proposals for this project and/or major instrumentation previously submitted to a third party.
-\todo{Text}
-
-%\section{Requested modules/funds}
-%Explain each item for each applicant (stating last name, first name)
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%  REQUESTED MODULES/FUNDS  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Requested modules/funds}
-% Explain each item for each applicant (stating last name, first name).
-
-\subsection{Basic Module}
-
-\subsubsection{Funding for Staff}
-\begin{funds}[funding for staff]
-The following staff positions are requested for \todo{xx} years each:
-
-\positionmul{Research associate, TV-L 13, 36 months}{5375}{36}
-\positionmul{Hiwi, TV-L 13, 12 months}{450}{12}
-
-\end{funds}
-
-
-\subsubsection{Direct Project Costs}
-\begin{funds}[direct project costs]
-
-\subsubsubsection{Equipment up to 10\,000\,\euro, Software and Consumables}
-
-\position{Next-Generation Sequencing, Illumina HiSeq\,2500}{3000}
-
-\subsubsubsection{Travel Expenses}
-We apply for a total of 10\,000\,\euro\ for travel expenses.
-\position{Travel}{10000}
-
-\subsubsubsection{Visiting Researchers \textnormal{(excluding Mercator Fellows)}}
-None.
-
-\subsubsubsection{Expenses for Laboratory Animals}
-None.
-
-\subsubsubsection{Other Costs}
-None.
-
-\subsubsubsection{Project-related publication expenses}
-We apply for a total of 1500\euro\ for publication expenses (750\,\euro\ per
-year). Furthermore, we will submit articles to open access preprint repositories
-such as \href{https://www.biorxiv.org/}{\textit{bioRxiv}}.
-\position{Publication costs}{1500}
-
-\end{funds}
-
-\subsubsection{Instrumentation}
-
-\subsubsubsection{Equipment exceeding 10\,000\,\euro}
-Our laboratory is well equipped; all necessary instruments are available.
-
-\subsubsubsection{Major Instrumentation exceeding 50\,000\,\euro}
-Our laboratory is well equipped; all necessary instruments are available.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% The following are additional/other modules one might want to apply for
-%% otherwise, just delete/comment
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\vspace*{2cm}\todo{The following are additional/other modules one might want to apply for. Otherwise, just delete/comment}
-
-\subsection{Module Temporary Position for Principal Investigator}
-\todo{Text}
-
-\subsection{Module Replacement Funding}
-\todo{Text}
-
-\subsection{Module Temporary Clinician Substitute}
-\todo{Text}
-
-\subsection{Module Mercator Fellows}
-\todo{Text}
-
-\subsection{Module Workshop Funding}
-\todo{Text}
-
-\subsection{Module Public Relations Funding}
-\todo{Text}
-
+%---------------------------
+% backmatter 
 
 \section{Signature}
 
-\includegraphics[width=0.18\textwidth]{/signatures/signature.pdf}\\
-Dr.\ Martin H\"olzer
+\includegraphics[width=0.18\textwidth]{/signatures/signature}\\
+Prof.\ Dr.\ Holger Karl 
 
 \section{List of attachments}
 \begin{itemize}
-  \item Curriculum Vit\ae, Dr.\ Martin H\"olzer
+  \item Curriculum Vit\ae, Prof.\ Dr.\ Holger Karl 
 \end{itemize}
 
+\clearpage 
+\input{cv_karl}
+
+\textbf{Selected publications}
+
+\newrefcontext[labelprefix=K]
+\printbibliography[category=own_general, heading=none]
 
 
 \end{document}

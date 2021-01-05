@@ -1,0 +1,59 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  OBJECTIVES AND WP %%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Objectives and work programme}
+
+\subsection{Anticipated total duration of the project}
+Financial support is requested for \fmhkn{three years}
+
+\subsection{Objectives}
+
+\addtocounter{secnumdepth}{1}
+
+\begin{description}
+\item[Goal 1] Lorem ipsum 
+\end{description}
+
+\subsection{Work programme including proposed research methods}
+%For each applicant
+\fmhkn{ca.\ 6-8 pages; ca. 4-8 WPs}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%% BEGIN OF WORK PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%\titlespacing*{\paragraph}{0pt}{-0.2\baselineskip}{0.2\baselineskip}
+
+
+\let\oldpara=\theparagraph
+\let\oldsssec=\thesubsubsection 
+\addtocounter{secnumdepth}{1}
+
+\renewcommand{\thesubsubsection}{WP\,\arabic{subsubsection}}
+\renewcommand{\theparagraph}{T\,\arabic{subsubsection}.\arabic{paragraph}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \vspace*{0.5cm}\hrulefill
+
+\input{wp/wp1.tex}
+\input{wp/wp2.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  END OF WORK PACKAGES  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  TIMELINE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %% This is not directly part of the DFG TRF template, but always helpful in my eyes
+\let\thesubsubsection=\oldsssec 
+\let\theparagraph=\oldpara
+% \paragraph*{Time considerations}
+% \fmhkn{put timeline here, if needed}
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "dfg"
+%%% End:
