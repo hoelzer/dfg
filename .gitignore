@@ -240,3 +240,12 @@ TSWLatexianTemp*
 
 # generated if using elsarticle.cls
 *.spl
+
+# emacs files
+*.rel
+
+# actual signature:
+figures/signatures/karl_signature.png 
+
+# output file should be ignored
+dfg.pdf
