@@ -6,6 +6,17 @@ A LaTeX template for a basic DFG (Deutsche Forschungsgemeinschaft, German Resear
 
 ## Acknowledgements
 
+### Update by hkarl 
+This version has minor updates by @hkarl, based on the [template by
+@hoelzer](https://github.com/hoelzer/dfg)
+
+Main changes are in the biblatex handling of multiple bibliographies
+and the division in multiple files. 
+
+
+
+### Original acknowledgement 
+
 This template is based on the template of the [Measurement Engineering
 Group](https://github.com/emtpb/proposal_dfg) and based on the RTF
 [DFG form 53_01_en 04/20](http://www.dfg.de/formulare/53_01_elan/53_01_en_elan.rtf), __last accessed in August 2020__.
