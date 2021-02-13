@@ -6,52 +6,22 @@
 %
 %Date: 27.08.2020
 
-\usepackage{lipsum}
 \usepackage[utf8]{inputenc}
 \usepackage[german]{proposal}
-\usepackage[pdftex, colorlinks=true, linkcolor=MidnightBlue, citecolor=MidnightBlue, urlcolor=MidnightBlue, pdfauthor={Dr.\ Martin Hoelzer}, pdfpagelayout=SinglePage, bookmarks, bookmarksopen]{hyperref}
 
-\usepackage{gensymb}
-\usepackage{graphicx}
-\usepackage{wrapfig}
+% all config is done in Header.tex
+\input{Header.tex}
 
-\usepackage{mathtools}
-\usepackage{relsize}
+% final version?
 
-%\usepackage{titlesec}
-%\usepackage{placeins}
-
-\usepackage[font=small,labelfont={bf,it},textfont=it]{caption}
-\captionsetup{format=plain}
-
-\graphicspath{{figures/}}
-\addbibresource{literature.bib}
-\AtBeginBibliography{\small}
-
-\newcommand{\todo}[1]{\xspace{\textcolor{red}{\bfseries[TODO: #1]}}\xspace}
-\newcommand{\cp}[1]{\xspace{\textcolor{blue}{\bfseries[COPIED: #1]}}\xspace}
-
-\newcommand{\applicants}{Dr.\ Martin H\"olzer, Robert Koch Institut, Berlin}
-\newcommand{\project}{Projekttitel}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Declare your Bibliography
-\DeclareBibliographyCategory{reviewed}
-\DeclareBibliographyCategory{nonreviewed}
-\DeclareBibliographyCategory{patents_pending}
-\DeclareBibliographyCategory{patents}
-%
-\addtocategory{reviewed}{Hoelzer:16} 
-\nocite{}
-\addtocategory{nonreviewed}{Desiro:18} 
-\addtocategory{patents_pending}{} 
-\addtocategory{patents}{} 
-
-\input{highlight_box.tex}
+\setboolean{finalcompile}{false}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%  TITELSEITE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\applicants}{Dr.\ Martin H\"olzer, Robert Koch Institute, Berlin}
+\newcommand{\project}{Project title}
 
 \begin{document}
 \pagestyle{empty}
@@ -294,6 +264,13 @@ None.
 \subsection{Apparative Ausstattung}
 %List larger instruments that will be available to you for the project. These may include large computer facilities if computing capacity will be needed.
 \todo{Text}
+Man kann etwas in Abbildung~\ref{fig:some_nice_graph} sehen\todo[inline]{the figure has to be made}.
+\begin{figure}
+\centering
+\missingfigure{Fancy Laborausstattung}
+\caption{Tolle Laborausstattung}
+\label{fig:some_nice_graph}
+\end{figure}
 
 \subsection{Weitere Antragstellungen}
 %List any funding proposals for this project and/or major instrumentation previously submitted to a third party.

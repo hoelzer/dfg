@@ -1,0 +1,53 @@
+\usepackage{lipsum}
+\usepackage[pdftex, colorlinks=true, linkcolor=MidnightBlue, citecolor=MidnightBlue, urlcolor=MidnightBlue, pdfauthor={Dr.\ Martin Hoelzer}, pdfpagelayout=SinglePage, bookmarks, bookmarksopen]{hyperref}
+
+\usepackage{gensymb}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+
+\usepackage{mathtools}
+\usepackage{relsize}
+
+%\usepackage{titlesec}
+%\usepackage{placeins}
+
+\usepackage[font=small,labelfont={bf,it},textfont=it]{caption}
+\captionsetup{format=plain}
+
+\graphicspath{{figures/}}
+\addbibresource{literature.bib}
+\AtBeginBibliography{\small}
+
+% command \todo now deprecated by using todonotes
+%\newcommand{\todo}[1]{\xspace{\textcolor{red}{\bfseries[TODO: #1]}}\xspace}
+\newcommand{\cp}[1]{\xspace{\textcolor{blue}{\bfseries[COPIED: #1]}}\xspace}
+
+% todonotes and a switch for final
+
+\usepackage{ifthen}
+\newboolean{finalcompile}
+
+
+\ifthenelse{\boolean{finalcompile}}{
+\usepackage[disable]{todonotes}
+\usepackage[final]{showlabels}
+}{
+\usepackage{todonotes}
+\newcommand{\todonote}[2][]{\tikzexternaldisable\todo[#1]{#2}\tikzexternalenable} %needed for externalization
+\usepackage{showlabels}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Declare your Bibliography
+\DeclareBibliographyCategory{reviewed}
+\DeclareBibliographyCategory{nonreviewed}
+\DeclareBibliographyCategory{patents_pending}
+\DeclareBibliographyCategory{patents}
+%
+\addtocategory{reviewed}{Hoelzer:16} 
+\nocite{}
+\addtocategory{nonreviewed}{Desiro:18} 
+\addtocategory{patents_pending}{} 
+\addtocategory{patents}{} 
+
+\input{highlight_box.tex}
