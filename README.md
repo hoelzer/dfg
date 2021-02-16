@@ -40,6 +40,13 @@ conda create -n biber -c malramsay biber
 conda activate biber
 ```
 
+## ToDo-Notes and reference labels
+By default the todonotes package is enabled. You can see it working by looking at the \todo[inline]{foo} statements in the text. It is self-explaining.
+
+In addition you will se some labels at the margins. These are caused by another plugin which will just print the name of the label stated in `\label{}`. This can help by referencing sections and stuff.
+
+To turn both of them off (e.g. for the final version) jsut change `\setboolean{finalcompile}{false}` in dfg.tex to `\setboolean{finalcompile}{true}`.
+
 ## Customization
 
 Most of customization (citation style, etc.) can be done by changes in the `proposal.sty`.
