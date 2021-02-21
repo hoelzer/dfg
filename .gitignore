@@ -66,6 +66,13 @@ acs-*.bib
 # elsarticle (documentclass of Elsevier journals)
 *.spl
 
+# emacs files
+*.rel
+
+# output file should be ignored
+dfg.pdf
+dfg-german.pdf
+
 # endnotes
 *.ent
 
