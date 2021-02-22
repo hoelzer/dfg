@@ -1,6 +1,6 @@
 # LaTeX DFG template 
 
-__Last updated: August 2020__
+__Last updated: February 2021__
 
 A LaTeX template for a basic DFG (Deutsche Forschungsgemeinschaft, German Research Foundation) grant proposal. __Attention__: you need ``pdflatex`` and ``biber`` (not ``bibtex``) to compile the document. 
 
@@ -8,7 +8,7 @@ A LaTeX template for a basic DFG (Deutsche Forschungsgemeinschaft, German Resear
 
 This template is based on the template of the [Measurement Engineering
 Group](https://github.com/emtpb/proposal_dfg) and based on the RTF
-[DFG form 53_01_en 04/20](http://www.dfg.de/formulare/53_01_elan/53_01_en_elan.rtf), __last accessed in August 2020__.
+[DFG form 53_01_en 11/20](http://www.dfg.de/formulare/53_01_elan/53_01_en_elan.rtf), __last accessed in February 2021__.
 
 Thanks to [@nneuss](https://github.com/nneuss) a German version is also available. Please use `dfg-german.tex` instead of `dfg.tex` for the German version. 
 
@@ -43,6 +43,13 @@ If you do not have ``biber`` installed try to install it from the package source
 conda create -n biber -c malramsay biber 
 conda activate biber
 ```
+
+## ToDo-Notes and reference labels
+By default the todonotes package is enabled. You can see it working by looking at the \todo[inline]{foo} statements in the text. It is self-explaining.
+
+In addition you will se some labels at the margins. These are caused by another plugin which will just print the name of the label stated in `\label{}`. This can help by referencing sections and stuff.
+
+To turn both of them off (e.g. for the final version) jsut change `\setboolean{finalcompile}{false}` in dfg.tex to `\setboolean{finalcompile}{true}`.
 
 ## Customization
 

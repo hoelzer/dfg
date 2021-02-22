@@ -59,8 +59,8 @@
 }
 \ExecuteOptions{german}
 \ProcessOptions\relax
-\ohead{\pagemark}
-\cfoot{}
+\ohead*{\pagemark}
+\cfoot*{}
 \chead{}
 
 \KOMAoptions{paper=a4}
@@ -90,3 +90,18 @@
 \newcommand{\position}[2]{\par #1 \hfill \num[round-mode = places, round-precision = 2]{#2}\,\euro \FPeval{\funds}{\funds + #2}}
 % Same as above but with multiples of a position.
 \newcommand{\positionmul}[3]{\par #1 \hfill \num{#3} $\times$ \num[round-mode = places, round-precision = 2]{#2}\,\euro \FPeval{\funds}{\funds + #3*#2}}
+
+% todonotes and a switch for final
+
+\usepackage{ifthen}
+\newboolean{finalcompile}
+
+
+\ifthenelse{\boolean{finalcompile}}{
+\usepackage[disable]{todonotes}
+\usepackage[final]{showlabels}
+}{
+\usepackage{todonotes}
+\newcommand{\todonote}[2][]{\tikzexternaldisable\todo[#1]{#2}\tikzexternalenable} %needed for externalization
+\usepackage{showlabels}
+}
