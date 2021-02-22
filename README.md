@@ -12,6 +12,10 @@ Group](https://github.com/emtpb/proposal_dfg) and based on the RTF
 
 Thanks to [@nneuss](https://github.com/nneuss) a German version is also available. Please use `dfg-german.tex` instead of `dfg.tex` for the German version. 
 
+Thanks to [@dl1chb](@https://github.com/dl1chb) for better ToDo handling via the [todonotes package](https://www.ctan.org/pkg/todonotes) and updates of the template.
+
+_Please let me know if I accidentally forgot a contribution!_
+
 ## Compilation
 
 ```bash
