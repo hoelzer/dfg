@@ -131,18 +131,21 @@ Financial support is requested for \todo[inline]{three years}.
 \addtocounter{secnumdepth}{1}
 %\newcommand\WP{WP\arabic{paragraph}}
 \renewcommand{\theparagraph}{WP\arabic{paragraph}}
+\RedeclareSectionCommand[beforeskip=-2.5ex plus-1ex minus -.2ex,%
+afterskip=2.5ex plus 0.2ex minus 0.2ex]{paragraph}
+%numbered sub-workpackages are supported - just use \subparagraph{}
+\RedeclareSectionCommand[indent=0pt, beforeskip=-3.5ex plus-1ex minus -.2ex,%
+afterskip=2.5ex plus 0.2ex minus 0.2ex]{subparagraph}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\vspace*{0.5cm}\hrulefill
-\paragraph{First Workpackage.}\mbox{}\\
 \hrulefill
+\paragraph{First Workpackage.}
 \label{wp:1}
 
 \input{wp/wp1.tex}
 
-\vspace*{0.5cm}\hrulefill
-\paragraph{Second Workpackage.}\mbox{}\\
 \hrulefill
+\paragraph{Second Workpackage.}
 \label{wp:2}
 
 \input{wp/wp2.tex}
@@ -158,7 +161,13 @@ Financial support is requested for \todo[inline]{three years}.
 %% This is not directly part of the DFG TRF template, but always helpful in my eyes
 \let\theparagraph=\oldpara
 \paragraph*{Time considerations}
-\todo[inline]{put timeline here, if needed}
+\vspace{-0.5cm}
+\begin{figure}[h]
+	\centering
+  	\resizebox{\textwidth}{!}{\includestandalone[mode=tex]{gantt/gantt}}
+	\caption{Workpackage time considerations in months (M) and assigned person-months (PM) for Institute of ABC (ABC) and Institute for CDE (CDE)}
+	\label{fig:timeline}
+\end{figure}
 
 
 \section{Bibliography concerning the state of the art, the research objectives, and the work programme}
