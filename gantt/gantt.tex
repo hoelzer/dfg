@@ -1,0 +1,75 @@
+\documentclass{standalone}
+
+\usepackage{pgfgantt}
+\usepackage[binary-units = true, exponent-product = \cdot]{siunitx}
+\sisetup{detect-all}
+
+\begin{document}
+	\begin{ganttchart}[
+		canvas/.append style={fill=none, draw=black!5, line width=.75pt},
+		hgrid style/.style={draw=black!5, line width=.75pt},
+		vgrid={*1{draw=black!5, line width=.75pt}},
+		title height=1,
+		title/.style={draw=black!5, line width=.75pt},
+		include title in canvas=false,
+		title label font=\footnotesize,
+		x unit=0.7cm,
+		y unit title=0.45cm,
+		y unit chart=0.45cm,
+		bar/.append style={fill=dfgblue, draw=none},
+		bar label font=\footnotesize,
+		group/.append style={fill=dfglightblue, draw=none},
+		group label font=\bfseries\footnotesize,
+		group left shift=0,
+		group right shift=0,
+		group height=.5,
+		group peaks tip position=0
+		]{1}{12}
+		
+		\definecolor{dfgblue}{RGB}{0, 77, 162}
+		\definecolor{dfglightblue}{RGB}{104, 163, 217}
+		
+		\newcommand{\gwa}{7cm} %description
+		\newcommand{\gwb}{0.7cm} %ABC
+		\newcommand{\gwc}{0.7cm} %CDE
+		\newcommand{\gwd}{0.7cm} %EFG
+		\newcommand{\gwe}{0.7cm} %duration
+		
+		\newcommand{\gbar}[5]{\makebox[\gwa][l]{#1}\makebox[\gwb][c]{#2}\makebox[\gwc][c]{#3}\makebox[\gwd][c]{#4}\makebox[\gwe][c]{#5}}
+		%\newcommand{\gbar}[5]{\makebox[\gwa][l]{#1}.\makebox[\gwb][c]{#2}.\makebox[\gwc][c]{#3}.\makebox[\gwd][c]{#4}.\makebox[\gwe][c]{#5}.}\\ %use this to debug column width
+		\newcommand{\ggroup}[5]{\makebox[\gwa][l]{\textbf{#1}}\makebox[\gwb][c]{#2}\makebox[\gwc][c]{#3}\makebox[\gwd][c]{#4}\makebox[\gwe][c]{#5}}
+		
+		\gantttitle[
+		title label node/.append style={left =0 and 0pt,yshift=-0.5cm}, title/.style={draw=none, fill=none}
+		]{\gbar{}{ABC}{CDE}{PM}{M}}{0}
+		
+		gantttitlelist is not standalone compatible - do not use
+		\gantttitle{Year~1}{4}
+		\gantttitle{Year~2}{4}
+		\gantttitle{Year~3}{4}\\
+		\gantttitle{Q1}{1}
+		\gantttitle{Q2}{1}
+		\gantttitle{Q3}{1}
+		\gantttitle{Q4}{1}
+		\gantttitle{Q1}{1}
+		\gantttitle{Q2}{1}
+		\gantttitle{Q3}{1}
+		\gantttitle{Q4}{1}
+		\gantttitle{Q1}{1}
+		\gantttitle{Q2}{1}
+		\gantttitle{Q3}{1}
+		\gantttitle{Q4}{1}\\
+		
+		\ganttgroup{\ggroup{\ref{wp:1} First Workpackage.}{}{}{}{}}{1}{12} \\
+        \ganttgroup[group/.style={draw=none, fill=none}]{\ggroup{\hphantom{\ref{wp:1}} Second Line}{}{}{}{}}{6}{12} \\
+		\ganttbar{\gbar{Meeting Schedule}{1}{1}{2}{36}}{1}{12} \\
+		\ganttbar{\gbar{Dissemination of Results}{2}{2}{4}{24}}{5}{12} \\
+		
+		\ganttgroup{\ggroup{\ref{wp:2} Second Workpackage}{}{}{}{}}{1}{5}
+		\ganttgroup{}{10}{10} \\
+		\ganttbar{\gbar{uniqueness of the Myotis system}{4}{2}{6}{9}}{1}{3} \\
+		\ganttbar{\gbar{aspects of the Myotis system}{4}{5}{9}{12}}{3}{5}
+		\ganttbar{}{10}{10}
+		
+	\end{ganttchart}
+\end{document}
