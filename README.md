@@ -10,7 +10,7 @@ This template is based on the template of the [Measurement Engineering Group](ht
 
 Thanks to [@nneuss](https://github.com/nneuss) a German version is also available. Please use `dfg-german.tex` instead of `dfg.tex` for the German version. 
 
-Thanks to [@dl1chb](@https://github.com/dl1chb) for better ToDo handling via the [todonotes package](https://www.ctan.org/pkg/todonotes) and updates of the template.
+Thanks to [@dl1chb](https://github.com/dl1chb) for better ToDo handling via the [todonotes package](https://www.ctan.org/pkg/todonotes) and updates of the template.
 
 Thanks to [@mank4](https://github.com/mank4) for the iplementation of a gantt chart and better handling of subsections for work packages.
 
