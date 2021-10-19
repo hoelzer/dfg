@@ -135,20 +135,23 @@ None.
 \addtocounter{secnumdepth}{1}
 %\newcommand\WP{WP\arabic{paragraph}}
 \renewcommand{\theparagraph}{AP\arabic{paragraph}}
+\RedeclareSectionCommand[beforeskip=-2.5ex plus-1ex minus -.2ex,%
+afterskip=2.5ex plus 0.2ex minus 0.2ex]{paragraph}
+%numbered sub-workpackages are supported - just use \subparagraph{}
+\RedeclareSectionCommand[indent=0pt, beforeskip=-3.5ex plus-1ex minus -.2ex,%
+afterskip=2.5ex plus 0.2ex minus 0.2ex]{subparagraph}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Für jede Antragstellerin und jeden Antragsteller
 
-\vspace*{0.5cm}\hrulefill
-\paragraph{Erstes Arbeitspaket}\mbox{}\\
 \hrulefill
+\paragraph{Erstes Arbeitspaket.}
 \label{wp:1}
 
 \input{wp/wp1-german.tex}
 
-\vspace*{0.5cm}\hrulefill
-\paragraph{Zweites Arbeitspaket}\mbox{}\\
 \hrulefill
+\paragraph{Zweites Arbeitspaket.}
 \label{wp:2}
 
 \input{wp/wp2-german.tex}
@@ -164,7 +167,13 @@ Für jede Antragstellerin und jeden Antragsteller
 %% This is not directly part of the DFG TRF template, but always helpful in my eyes
 \let\theparagraph=\oldpara
 \paragraph*{Zeitplan}
-\todo[inline]{put timeline here, if needed}
+\vspace{-0.5cm}
+\begin{figure}[h]
+	\centering
+  	\resizebox{\textwidth}{!}{\includestandalone[mode=tex]{gantt/gantt}}
+	\caption{Arbeitspakete Zeitplan in Monaten (M) und zugeordneten Personenmonaten (PM) f\"ur Institute of ABC (ABC) und Institute for CDE (CDE)}
+	\label{fig:timeline}
+\end{figure}
 
 
 \section{Literaturverzeichnis zum Stand der Forschung, zu den Zielen und dem Arbeitsprogramm}

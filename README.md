@@ -1,18 +1,18 @@
 # LaTeX DFG template 
 
-__Last updated: February 2021__
+__Last updated according to the DFG original template: February 2021__
 
 A LaTeX template for a basic DFG (Deutsche Forschungsgemeinschaft, German Research Foundation) grant proposal. __Attention__: you need ``pdflatex`` and ``biber`` (not ``bibtex``) to compile the document. 
 
 ## Acknowledgements
 
-This template is based on the template of the [Measurement Engineering
-Group](https://github.com/emtpb/proposal_dfg) and based on the RTF
-[DFG form 53_01_en 11/20](http://www.dfg.de/formulare/53_01_elan/53_01_en_elan.rtf), __last accessed in February 2021__.
+This template is based on the template of the [Measurement Engineering Group](https://github.com/emtpb/proposal_dfg) and based on the RTF [DFG form 53_01_en 11/20](http://www.dfg.de/formulare/53_01_elan/53_01_en_elan.rtf), __last accessed in February 2021__.
 
 Thanks to [@nneuss](https://github.com/nneuss) a German version is also available. Please use `dfg-german.tex` instead of `dfg.tex` for the German version. 
 
 Thanks to [@dl1chb](@https://github.com/dl1chb) for better ToDo handling via the [todonotes package](https://www.ctan.org/pkg/todonotes) and updates of the template.
+
+Thanks to [@mank4](https://github.com/mank4) for the iplementation of a gantt chart and better handling of subsections for work packages.
 
 _Please let me know if I accidentally forgot a contribution!_
 
@@ -96,6 +96,10 @@ The environment `funds` can be used to automatically sum up all costs specified 
 
 \end{funds}
 ```
+
+## Gantt chart
+
+You will find a `gantt/gantt.tex` file that can be modified directly to include a gantt chart in your proposal.  
 
 ## Disclaimer
 
