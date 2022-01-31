@@ -1,3 +1,16 @@
+\ifthenelse{\boolean{finalcompile}}{
+\usepackage[disable]{todonotes}
+\usepackage[final]{showlabels}
+}{
+\usepackage{todonotes}
+%\setlength{\marginparwidth}{2cm}
+\paperwidth=\dimexpr \paperwidth + 6cm\relax
+\oddsidemargin=\dimexpr\oddsidemargin + 3cm\relax
+\evensidemargin=\dimexpr\evensidemargin + 3cm\relax
+\marginparwidth=\dimexpr \marginparwidth + 3cm\relax
+\usepackage{showlabels}
+}
+
 \usepackage{lipsum}
 \usepackage[pdftex, colorlinks=true, linkcolor=MidnightBlue, citecolor=MidnightBlue, urlcolor=MidnightBlue, pdfauthor={Dr.\ Martin Hoelzer}, pdfpagelayout=SinglePage, bookmarks, bookmarksopen]{hyperref}
 
