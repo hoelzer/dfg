@@ -91,10 +91,10 @@ quality \dots} and \emph{Other publications, both peer-reviewed and non-peer-rev
 
 %a maximum of ten publications
 \subsubsection{Articles published by outlets with scientific quality assurance, book publications, and works accepted for publication but not yet published}
-\printbibliography[category=reviewed, heading=none]
+\printbibliography[category=reviewed, heading=none, env=bibliographyNUM, resetnumbers]
 
 \subsubsection{Other publications, both peer-reviewed and non-peer-reviewed}
-\printbibliography[category=nonreviewed, heading=none]
+\printbibliography[category=nonreviewed, heading=none, env=bibliographyNUM]
 
 \subsubsection{Patents}
 
@@ -173,7 +173,8 @@ afterskip=2.5ex plus 0.2ex minus 0.2ex]{subparagraph}
 \section{Bibliography concerning the state of the art, the research objectives, and the work programme}
 \label{sec:bib}
 %\AtNextBibliography{\small}
-\printbibliography[notcategory=reviewed, notcategory=nonreviewed, notcategory=patents_pending, notcategory=patents, heading=none]
+\newrefcontext
+\printbibliography[notcategory=reviewed, notcategory=nonreviewed, notcategory=patents_pending, notcategory=patents, heading=none, env=bibliographyNUM]	
 
 \section{Relevance of sex, gender and/or diversity}
 \todo[inline]{Text}
