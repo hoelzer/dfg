@@ -70,6 +70,8 @@ that can be later used in the sections:
 \printbibliography[category=reviewed, heading=none]
 ```
 
+Recently, the DFG changed their template to have references in the sections 1.2.1 and 1.2.2 sorted consecutively. For other references in the bibliography, it seems that one can arrange them alphabetically. This was solved by [@klb2](https://github.com/klb2/dfg-proposal-template) and changes were also included in this repo (thx!). The current default is numeric labels while first the references in sections 1.2.1 and 1.2.2 are numbered followed by all other references in the order how they appear in the text. Changes can be done via the `proposal.sty` file.
+
 ### Bib Style
 
 To change the style of your bibliography you have to change the following code snippet in the ``proposal.sty`` file:
