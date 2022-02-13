@@ -14,6 +14,8 @@ Thanks to [@dl1chb](https://github.com/dl1chb) for better ToDo handling via the 
 
 Thanks to [@mank4](https://github.com/mank4) for the iplementation of a gantt chart and better handling of subsections for work packages.
 
+Thanks to [@klb2](https://github.com/klb2/dfg-proposal-template) for the implementation of consecutive section numbers for 1.2.1 and 1.2.2.
+
 _Please let me know if I accidentally forgot a contribution!_
 
 ## Compilation
@@ -36,12 +38,27 @@ make filename=dfg-german
 ```
 
 ### Biber
-
 If you do not have ``biber`` installed try to install it from the package sources of your system. There is also a ``conda`` install that you can try:
 
 ```bash
 conda create -n biber -c malramsay biber 
 conda activate biber
+```
+
+### Docker
+You can also use a Docker container that comes with all dependencies (pdflatex, biber, ...) to compile the template. Thus, no installation of LaTeX, Biber, etc... is needed on your local system.
+
+```bash
+DOCKER='nanozoo/pdflatex:3.14159265--6263fbd'
+docker pull $DOCKER
+
+# using the Makefile
+docker run --rm -v $PWD:$PWD -w $PWD $DOCKER make
+
+# using pdflatex, biber, ... 
+docker run --rm -v $PWD:$PWD -w $PWD $DOCKER pdflatex dfg.tex
+docker run --rm -v $PWD:$PWD -w $PWD $DOCKER biber dfg
+...
 ```
 
 ## ToDo-Notes, reference labels and draft mode
@@ -69,6 +86,8 @@ that can be later used in the sections:
 ```latex
 \printbibliography[category=reviewed, heading=none]
 ```
+
+Recently, the DFG changed their template to have references in the sections 1.2.1 and 1.2.2 sorted consecutively. For other references in the bibliography, it seems that one can arrange them alphabetically. This was solved by [@klb2](https://github.com/klb2/dfg-proposal-template) and changes were also included in this repo (thx!). The current default is numeric labels while first the references in sections 1.2.1 and 1.2.2 are numbered followed by all other references in the order how they appear in the text. Changes can be done via the `proposal.sty` file.
 
 ### Bib Style
 
