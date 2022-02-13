@@ -96,13 +96,3 @@
 
 \usepackage{ifthen}
 \newboolean{finalcompile}
-
-
-\ifthenelse{\boolean{finalcompile}}{
-\usepackage[disable]{todonotes}
-\usepackage[final]{showlabels}
-}{
-\usepackage{todonotes}
-\newcommand{\todonote}[2][]{\tikzexternaldisable\todo[#1]{#2}\tikzexternalenable} %needed for externalization
-\usepackage{showlabels}
-}
