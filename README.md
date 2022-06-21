@@ -1,6 +1,6 @@
 # LaTeX DFG template 
 
-__Last updated according to the DFG original template: February 2021__
+__Last updated according to the DFG original template: June 2022__
 
 A LaTeX template for a basic DFG (Deutsche Forschungsgemeinschaft, German Research Foundation) grant proposal. __Attention__: you need ``pdflatex`` and ``biber`` (not ``bibtex``) to compile the document. 
 
@@ -8,11 +8,11 @@ A LaTeX template for a basic DFG (Deutsche Forschungsgemeinschaft, German Resear
 
 This template is based on the template of the [Measurement Engineering Group](https://github.com/emtpb/proposal_dfg) and based on the RTF [DFG form 53_01_en 11/20](http://www.dfg.de/formulare/53_01_elan/53_01_en_elan.rtf), __last accessed in February 2021__.
 
-Thanks to [@nneuss](https://github.com/nneuss) a German version is also available. Please use `dfg-german.tex` instead of `dfg.tex` for the German version. 
+Thanks to [@nneuss](https://github.com/nneuss) a German version is also available. Please use `dfg-german.tex` instead of `dfg.tex` for the German version. The german version is based on [DFG form 53.01 elan 03/22](https://www.dfg.de/formulare/53_01_elan/53_01_de_elan.rtf, __last accessed in June 2022__.
 
 Thanks to [@dl1chb](https://github.com/dl1chb) for better ToDo handling via the [todonotes package](https://www.ctan.org/pkg/todonotes) and updates of the template.
 
-Thanks to [@mank4](https://github.com/mank4) for the iplementation of a gantt chart and better handling of subsections for work packages.
+Thanks to [@mank4](https://github.com/mank4) for the implementation of a gantt chart and better handling of subsections for work packages.
 
 Thanks to [@klb2](https://github.com/klb2/dfg-proposal-template) for the implementation of consecutive section numbers for 1.2.1 and 1.2.2.
 
@@ -127,6 +127,6 @@ I used this template for an actual proposal submission in 2019 to the DFG that w
 
 If you use this template and receive a confirmation, please let me know and I will be happy to reference your successful application here! :)
 
-Furthermore, please be aware that since May 2020 the proposal is split into a more research focused part (sections 1-4, max. 15 pages) and all the supplementary information (starting section 5, max. 10 pages). Please also always check if there are any changes to the [DFG template](https://www.dfg.de/foerderung/programme/einzelfoerderung/sachbeihilfe/formulare_merkblaetter/index.jsp)!
+Furthermore, please be aware that since May 2020 the proposal is split into a more research focused part (sections 1-4, max. 17 pages) and all the supplementary information (starting section 5, max. 8 pages). Please also always check if there are any changes to the [DFG template](https://www.dfg.de/foerderung/programme/einzelfoerderung/sachbeihilfe/formulare_merkblaetter/index.jsp)!
 
 
