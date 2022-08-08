@@ -94,7 +94,9 @@ quality \dots} and \emph{Other publications, both peer-reviewed and non-peer-rev
 \printbibliography[category=reviewed, heading=none, env=bibliographyNUM, resetnumbers]
 
 \subsubsection{Other publications, both peer-reviewed and non-peer-reviewed}
-\printbibliography[category=nonreviewed, heading=none, env=bibliographyNUM]
+% Own literature can be designated with a prefix. If the function is not desired, delete the "labelprefix" and "resetnumbers = false".
+\newrefcontext[labelprefix=E]
+\printbibliography[category=nonreviewed, heading=none, env=bibliographyNUM, resetnumbers=false]
 
 \subsubsection{Patents}
 
@@ -189,6 +191,7 @@ accessible for future use.
 \label{sec:bib}
 %\AtNextBibliography{\small}
 \newrefcontext
+\newrefcontext[labelprefix=]
 \printbibliography[notcategory=reviewed, notcategory=nonreviewed, notcategory=patents_pending, notcategory=patents, heading=none, env=bibliographyNUM]	
 
 \clearpage
