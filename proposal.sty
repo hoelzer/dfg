@@ -87,13 +87,13 @@
 \DeclareOption{german}{
     \sisetup{locale=DE}
     \AtBeginDocument{\selectlanguage{ngerman}}
-    \renewcommand{\pagemark}{Seite \thepage~von \pageref{LastPage}}
+    \renewcommand{\pagemark}{Seite \thepage~von max. 17}
     \renewcommand{\total}{Summe}
 }
 \DeclareOption{english}{
     \sisetup{locale=US}
     \AtBeginDocument{\selectlanguage{english}}
-	\renewcommand{\pagemark}{page \thepage~of \pageref{LastPage}}
+    \renewcommand{\pagemark}{page \thepage~of max. 17}
     \renewcommand{\total}{Total}
 }
 \ExecuteOptions{german}
