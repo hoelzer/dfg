@@ -91,11 +91,11 @@ quality \dots} and \emph{Other publications, both peer-reviewed and non-peer-rev
 
 %a maximum of ten publications
 \subsubsection{Articles published by outlets with scientific quality assurance, book publications, and works accepted for publication but not yet published}
+% Own literature can be designated with a prefix. If the function is not desired, delete the "labelprefix" and "resetnumbers = false".
+\newrefcontext[labelprefix=O]
 \printbibliography[category=reviewed, heading=none, env=bibliographyNUM, resetnumbers]
 
 \subsubsection{Other publications, both peer-reviewed and non-peer-reviewed}
-% Own literature can be designated with a prefix. If the function is not desired, delete the "labelprefix" and "resetnumbers = false".
-\newrefcontext[labelprefix=E]
 \printbibliography[category=nonreviewed, heading=none, env=bibliographyNUM, resetnumbers=false]
 
 \subsubsection{Patents}
