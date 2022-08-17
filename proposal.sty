@@ -9,7 +9,8 @@
 \usepackage[exponent-product = \cdot]{siunitx}
 \usepackage{rotating}
 \usepackage{helvet}
-\usepackage{lastpage}
+\usepackage[pagecontinue=false]{pageslts}
+\pagenumbering{arabic}
 \usepackage{scrlayer-scrpage}
 \usepackage{eurosym}
 \usepackage{fp}
@@ -83,17 +84,20 @@
 \hyphenpenalty 3000
 \doublehyphendemerits 50000000
 
+
 \newcommand{\total}{}
+
+\newcommand{\pagenumtype}{arabic}
 \DeclareOption{german}{
     \sisetup{locale=DE}
     \AtBeginDocument{\selectlanguage{ngerman}}
-    \renewcommand{\pagemark}{Seite \thepage~von \pageref{LastPage}}
+    \renewcommand{\pagemark}{Seite \thepage~von \lastpageref{pagesLTS.\pagenumtype}}
     \renewcommand{\total}{Summe}
 }
 \DeclareOption{english}{
     \sisetup{locale=US}
     \AtBeginDocument{\selectlanguage{english}}
-	\renewcommand{\pagemark}{page \thepage~of \pageref{LastPage}}
+	\renewcommand{\pagemark}{page \thepage~of \lastpageref{pagesLTS.\pagenumtype}}
     \renewcommand{\total}{Total}
 }
 \ExecuteOptions{german}
@@ -101,6 +105,13 @@
 \ohead*{\pagemark}
 \cfoot*{}
 \chead{}
+
+\newcommand{\backmatter}{
+    \clearpage
+    \pagenumbering{Roman}
+    \renewcommand{\pagenumtype}{Roman}
+}
+
 
 \KOMAoptions{paper=a4}
 \KOMAoption{fontsize}{11pt}
