@@ -94,13 +94,15 @@ quality \dots} and \emph{Other publications, both peer-reviewed and non-peer-rev
   bereits zur Veröffentlichung angenommene, aber noch nicht
   veröffentlichte Arbeiten}
 
-% Own literature can be designated with a prefix. If the function is not desired, delete the "labelprefix" and "resetnumbers = false".
+% Own literature can be designated with a prefix, default 'E' for "Eigene". 
+% If the function is not desired, delete the "labelprefix" commands directly below this comment 
+% AND in the section: "Literaturverzeichnis zum Stand der Forschung, zu den Zielen und dem Arbeitsprogramm"
+% Then, all your references should be numbered consecutively.
 \newrefcontext[labelprefix=E]
-\printbibliography[category=reviewed, heading=none, resetnumbers=false]
+\printbibliography[category=reviewed, heading=none, env=bibliographyNUM, resetnumbers]
 
-\subsubsection{Andere Veröffentlichungen mit und ohne
-  wissenschaftliche Qualitätssicherung}
-\printbibliography[category=nonreviewed, heading=none]
+\subsubsection{Andere Veröffentlichungen mit und ohne wissenschaftliche Qualitätssicherung}
+\printbibliography[category=nonreviewed, heading=none, env=bibliographyNUM, resetnumbers=false]
 
 \subsubsection{Patente}
 
@@ -197,7 +199,7 @@ accessible for future use.
 \label{sec:bib}
 %\AtNextBibliography{\small}
 \newrefcontext[labelprefix= ]
-\printbibliography[notcategory=reviewed, notcategory=nonreviewed, notcategory=patents_pending, notcategory=patents, heading=none]
+\printbibliography[notcategory=reviewed, notcategory=nonreviewed, notcategory=patents_pending, notcategory=patents, heading=none, env=bibliographyNUM]
 
 \backmatter
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

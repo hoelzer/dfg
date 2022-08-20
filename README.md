@@ -8,15 +8,19 @@ A LaTeX template for a basic DFG (Deutsche Forschungsgemeinschaft, German Resear
 
 This template is based on the template of the [Measurement Engineering Group](https://github.com/emtpb/proposal_dfg) and based on the RTF [DFG form 53_01_en 11/20](http://www.dfg.de/formulare/53_01_elan/53_01_en_elan.rtf), __last accessed in February 2021__.
 
-Thanks to [@nneuss](https://github.com/nneuss) a German version is also available. Please use `dfg-german.tex` instead of `dfg.tex` for the German version. The german version is based on [DFG form 53.01 elan 03/22](https://www.dfg.de/formulare/53_01_elan/53_01_de_elan.rtf, __last accessed in June 2022__.
+Thanks [@nneuss](https://github.com/nneuss) a German version is also available. Please use `dfg-german.tex` instead of `dfg.tex` for the German version. The german version is based on [DFG form 53.01 elan 03/22](https://www.dfg.de/formulare/53_01_elan/53_01_de_elan.rtf, __last accessed in June 2022__.
 
-Thanks to [@dl1chb](https://github.com/dl1chb) for better ToDo handling via the [todonotes package](https://www.ctan.org/pkg/todonotes) and updates of the template.
+Thanks [@dl1chb](https://github.com/dl1chb) for better ToDo handling via the [todonotes package](https://www.ctan.org/pkg/todonotes) and updates of the template.
 
-Thanks to [@mank4](https://github.com/mank4) for the implementation of a gantt chart and better handling of subsections for work packages.
+Thanks [@mank4](https://github.com/mank4) for the implementation of a gantt chart and better handling of subsections for work packages.
 
-Thanks to [@klb2](https://github.com/klb2/dfg-proposal-template) for the implementation of consecutive section numbers for 1.2.1 and 1.2.2.
+Thanks [@klb2](https://github.com/klb2/dfg-proposal-template) for the implementation of consecutive section numbers for 1.2.1 and 1.2.2.
 
-_Please let me know if I accidentally forgot a contribution!_
+Thanks [@gituser789](https://github.com/gituser789) for the implementation of an own literature feature with separate numbering. 
+
+Thanks [@kss-lea][https://github.com/kss-lea] for adding separate numbering formats for the first and second (supplement) part. 
+
+_Please let me know if I accidentally forgot a contribution! Thanks all contributors!_
 
 ## Compilation
 
@@ -87,7 +91,7 @@ that can be later used in the sections:
 \printbibliography[category=reviewed, heading=none]
 ```
 
-Recently, the DFG changed their template to have references in the sections 1.2.1 and 1.2.2 sorted consecutively. For other references in the bibliography, it seems that one can arrange them alphabetically. This was solved by [@klb2](https://github.com/klb2/dfg-proposal-template) and changes were also included in this repo (thx!). The current default is numeric labels while first the references in sections 1.2.1 and 1.2.2 are numbered followed by all other references in the order how they appear in the text. Changes can be done via the `proposal.sty` file.
+Recently, the DFG changed their template to have references in the sections 1.2.1 and 1.2.2 sorted consecutively. For other references in the bibliography, it seems that one can arrange them alphabetically. This was solved by [@klb2](https://github.com/klb2/dfg-proposal-template) and changes were also included in this repo (thx!). The current default is numeric labels while first the references in sections 1.2.1 and 1.2.2 are numbered followed by all other references in the order how they appear in the text. Changes can be done via the `proposal.sty` file. [@gituser789](https://github.com/gituser789) also implemented a feature to number own referneces and all other references independently. This is activated by default and will add an 'O' or 'E' prefix to own ("eigene") literature in the english or german template, respectively. The user can change the prefix in the tex template. If you want to deactivate this feature, go to the tex template and comment/remove __both__ `\newrefcontext[labelprefix=]` commands. 
 
 ### Bib Style
 
