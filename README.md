@@ -18,7 +18,7 @@ Thanks [@klb2](https://github.com/klb2/dfg-proposal-template) for the implementa
 
 Thanks [@gituser789](https://github.com/gituser789) for the implementation of an own literature feature with separate numbering. 
 
-Thanks [@kss-lea][https://github.com/kss-lea] for adding separate numbering formats for the first and second (supplement) part. 
+Thanks [@kss-lea](https://github.com/kss-lea) for adding separate numbering formats for the first and second (supplement) part. 
 
 _Please let me know if I accidentally forgot a contribution! Thanks all contributors!_
 
@@ -91,7 +91,7 @@ that can be later used in the sections:
 \printbibliography[category=reviewed, heading=none]
 ```
 
-Recently, the DFG changed their template to have references in the sections 1.2.1 and 1.2.2 sorted consecutively. For other references in the bibliography, it seems that one can arrange them alphabetically. This was solved by [@klb2](https://github.com/klb2/dfg-proposal-template) and changes were also included in this repo (thx!). The current default is numeric labels while first the references in sections 1.2.1 and 1.2.2 are numbered followed by all other references in the order how they appear in the text. Changes can be done via the `proposal.sty` file. [@gituser789](https://github.com/gituser789) also implemented a feature to number own referneces and all other references independently. This is activated by default and will add an 'O' or 'E' prefix to own ("eigene") literature in the english or german template, respectively. The user can change the prefix in the tex template. If you want to deactivate this feature, go to the tex template and comment/remove __both__ `\newrefcontext[labelprefix=]` commands. 
+Recently, the DFG changed their template to have references in the sections 1.2.1 and 1.2.2 sorted consecutively. For other references in the bibliography, it seems that one can arrange them alphabetically. This was solved by [@klb2](https://github.com/klb2/dfg-proposal-template) and changes were also included in this repo (thx!). The current default is numeric labels while first the references in sections 1.2.1 and 1.2.2 are numbered followed by all other references in the order how they appear in the text. Changes can be done via the `proposal.sty` file. [@gituser789](https://github.com/gituser789) also implemented a feature to number own references and all other references independently. This is activated by default and will add an 'O' or 'E' prefix to own ("eigene") literature in the english or german template, respectively. The user can change the prefix in the tex template. If you want to deactivate this feature, go to the tex template and comment/remove __both__ `\newrefcontext[labelprefix=]` commands. 
 
 ### Bib Style
 
