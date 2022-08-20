@@ -93,7 +93,10 @@ quality \dots} and \emph{Other publications, both peer-reviewed and non-peer-rev
   wissenschaftlicher Qualitätssicherung, Buchveröffentlichungen sowie
   bereits zur Veröffentlichung angenommene, aber noch nicht
   veröffentlichte Arbeiten}
-\printbibliography[category=reviewed, heading=none]
+
+% Own literature can be designated with a prefix. If the function is not desired, delete the "labelprefix" and "resetnumbers = false".
+\newrefcontext[labelprefix=E]
+\printbibliography[category=reviewed, heading=none, resetnumbers=false]
 
 \subsubsection{Andere Veröffentlichungen mit und ohne
   wissenschaftliche Qualitätssicherung}
@@ -193,6 +196,7 @@ accessible for future use.
 \section{Literaturverzeichnis zum Stand der Forschung, zu den Zielen und dem Arbeitsprogramm}
 \label{sec:bib}
 %\AtNextBibliography{\small}
+\newrefcontext[labelprefix= ]
 \printbibliography[notcategory=reviewed, notcategory=nonreviewed, notcategory=patents_pending, notcategory=patents, heading=none]
 
 \backmatter
