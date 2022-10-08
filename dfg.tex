@@ -5,8 +5,6 @@
 %Author: Martin Hoelzer, hoelzer.martin@gmail.com
 %
 
-
-
 \usepackage[utf8]{inputenc}
 \usepackage[english]{proposal}
 
@@ -14,7 +12,7 @@
 \setboolean{finalcompile}{false}
 
 % show DFG template version the current LaTeX template is based on in the header. Will be deactivated when 'finalcompile' is set 'true'
-\ifthenelse{\boolean{finalcompile}}{\ihead*{DFG 53.01 - 03/22}}{}
+\ifthenelse{\boolean{finalcompile}}{}{\ihead*{DFG 53.01 - 03/22}}
 
 % all config is done in Header.tex
 \input{Header.tex}
