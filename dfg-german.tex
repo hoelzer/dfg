@@ -1,6 +1,6 @@
 \documentclass{scrartcl}
 
-%This template is based on the DFG rtf form 53_01_de_elan.rtf (see Readme on GitHub for last accessed date)
+%This template is based on the DFG rtf form (see Readme on GitHub for last accessed date, and version in the header of the compiled PDF)
 %
 %Author: Martin Hoelzer, hoelzer.martin@gmail.com
 %
@@ -12,7 +12,7 @@
 \setboolean{finalcompile}{false}
 
 % show DFG template version the current LaTeX template is based on in the header. Will be deactivated when 'finalcompile' is set 'true'
-\ifthenelse{\boolean{finalcompile}}{}{\ihead*{DFG 53.01 - 03/22}}
+\ifthenelse{\boolean{finalcompile}}{}{\ihead*{DFG 54.01 - 09/22}}
 
 % all config is done in Header.tex
 \input{Header.tex}
@@ -25,14 +25,15 @@
 \newcommand{\applicants}{Dr.\ Martin H\"olzer, Robert Koch Institute, Berlin}
 \newcommand{\project}{Project title}
 
-% declare bibliography categroies
+% declare bibliography categories
 
-\addtocategory{reviewed}{Hoelzer:16} 
-\nocite{}
-\addtocategory{nonreviewed}{Desiro:18} 
-\addtocategory{patents_pending}{} 
-\addtocategory{patents}{} 
-% 
+% likely deprecated and these categories are not needed anymore
+%\addtocategory{reviewed}{Hoelzer:16} 
+%\nocite{}
+%\addtocategory{nonreviewed}{Desiro:18} 
+%\addtocategory{patents_pending}{} 
+%\addtocategory{patents}{} 
+ 
 \begin{document}
 \pagestyle{empty}
 \setcounter{page}{0}
@@ -56,7 +57,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%  PROJECT DESCRIPTION - PROJECT PROPOSALS  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Sections 1-4 must not exceed 17 pages in total.
+%% Sections 1-3 must not exceed 17 pages in total.
+\todo{Kapitel 1--3, insgesamt maximal 17 Seiten}
 {\raggedright{} \normalsize \bfseries 
 	Beschreibung des Vorhabens - Projektanträge \par
 	\applicants{[Name, Vorname, Ort aller Antragstellenden]} \par
@@ -75,46 +77,43 @@
 % For renewal proposals, please report on your previous work. This report
 % should also be understandable without referring to additional literature.
 
-This is a dummy citation~\cite{Hoelzer:17}. Yeah. And another
-one~\cite{Gerst:18}. Wuhuh. These citations~\cite{Hoelzer:16, Desiro:18} will
-not be shown in the "\ref{sec:bib}~Bibliography" section, because they are
-already listed as \verb=\addtocategory{reviewed}{Hoelzer:16}= and
-\verb=\addtocategory{nonreviewed}{Desiro:18}= in the praeambl and therefore
-shown in subsubsections \emph{Articles published by outlets with scientific
-quality \dots} and \emph{Other publications, both peer-reviewed and non-peer-reviewed}. 
+This is a dummy citation~\cite{Hoelzer:17}. Yeah. And another one~\cite{Gerst:18}. Wuhuh. In an older version of the template, these citations~\cite{Hoelzer:16, Desiro:18} were not shown in the ``\ref{sec:bib}~Bibliography'' section, because they are already listed as \verb=\addtocategory{reviewed}{Hoelzer:16}= and\verb=\addtocategory{nonreviewed}{Desiro:18}= in the praeambl and therefore shown in subsubsections \emph{Articles published by outlets with scientific quality \dots} and \emph{Other publications, both peer-reviewed and non-peer-reviewed}. However, these subsubsections are deprecated since v54.01 of the DFG template! And therefore, all the four citations above will simply show up in ``\ref{sec:bib}~Project- and subject-related list of publications'' now.
 
 \lipsum[1]
 
-
-\subsection{Projektbezogenes Publikationsverzeichnis Ihrer Arbeiten}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DEPRECATED since v54 (https://www.dfg.de/download/pdf/foerderung/programme/sachbeihilfe/info_vordrucksaenderungen.pdf)
+% This became now part of the publication list in section 3, see below
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Projektbezogenes Publikationsverzeichnis Ihrer Arbeiten}
 %Please include a list of own publications that are related to the proposed project. 
 %Sections 1.2.1 and 1.2.2 together must not exceed 10 publications; please number them consecutively.
 
 %a maximum of ten publications
-\subsubsection{Veröffentlichte Arbeiten aus Publikationsorganen mit
-  wissenschaftlicher Qualitätssicherung, Buchveröffentlichungen sowie
-  bereits zur Veröffentlichung angenommene, aber noch nicht
-  veröffentlichte Arbeiten}
+%\subsubsection{Veröffentlichte Arbeiten aus Publikationsorganen mit
+%  wissenschaftlicher Qualitätssicherung, Buchveröffentlichungen sowie
+%  bereits zur Veröffentlichung angenommene, aber noch nicht
+%  veröffentlichte Arbeiten}
 
 % Own literature can be designated with a prefix, default 'E' for "Eigene". 
 % If the function is not desired, delete the "labelprefix" commands directly below this comment 
 % AND in the section: "Literaturverzeichnis zum Stand der Forschung, zu den Zielen und dem Arbeitsprogramm"
 % Then, all your references should be numbered consecutively.
-\newrefcontext[labelprefix=E]
-\printbibliography[category=reviewed, heading=none, env=bibliographyNUM, resetnumbers]
+%\newrefcontext[labelprefix=E]
+%\printbibliography[category=reviewed, heading=none, env=bibliographyNUM, resetnumbers]
 
-\subsubsection{Andere Veröffentlichungen mit und ohne wissenschaftliche Qualitätssicherung}
-\printbibliography[category=nonreviewed, heading=none, env=bibliographyNUM, resetnumbers=false]
+%\subsubsection{Andere Veröffentlichungen mit und ohne wissenschaftliche Qualitätssicherung}
+%\printbibliography[category=nonreviewed, heading=none, env=bibliographyNUM, resetnumbers=false]
 
-\subsubsection{Patente}
+%\subsubsection{Patente}
 
-\subsubsubsection{Angemeldet}
-\printbibliography[category=patents_pending, heading=none]
-None.
+%\subsubsubsection{Angemeldet}
+%\printbibliography[category=patents_pending, heading=none]
+%None.
 
-\subsubsubsection{Erteilt}
-\printbibliography[category=patents, heading=none]
-None.
+%\subsubsubsection{Erteilt}
+%\printbibliography[category=patents, heading=none]
+%None.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%  OBJECTIVES AND WP %%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -131,7 +130,7 @@ None.
 
 \paragraph{\textnormal{Goal one is ...}}
 
-\subsection{Arbeitsprogramm inkl. vorgesehener Untersuchungsmethoden}
+\subsection{Arbeitsprogramm inkl.\ vorgesehener Untersuchungsmethoden}
 %For each applicant
 \todo[inline]{ca.\ 6-8 pages; ca. 4-8 WPs}
 
@@ -197,18 +196,22 @@ accessible for future use.
 \subsection{Relevanz von Geschlecht und/oder Vielfältigkeit}
 \todo[inline]{Text}
 
-\section{Literaturverzeichnis zum Stand der Forschung, zu den Zielen und dem Arbeitsprogramm}
+% eigene und fremde zitierte Arbeiten aus Kap.1 und 2; sofern vorhanden möglichst mit Angabe DOI/URL; 
+% von den zitierten eigenen Arbeiten können max. 10 hervorgehoben werden; Schrift mind. Arial 9 pt
+\section{Projekt- und themenbezogenes Literaturverzeichnis}
 \label{sec:bib}
+\todo{Works cited from sections 1 and 2, both by the applicant(s) and by third parties. Please include DOI/URL if available. A maximum of ten of your own works cited may be highlighted; font at least Arial 9 pt.}
 %\AtNextBibliography{\small}
 \newrefcontext[labelprefix= ]
 \printbibliography[notcategory=reviewed, notcategory=nonreviewed, notcategory=patents_pending, notcategory=patents, heading=none, env=bibliographyNUM]
 
+
 \backmatter
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%  SUPPLEMENT  (new since 04/2020) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  SUPPLEMENT  (new since 04/2022) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Begleitinformationen zum Forschungskontext}
-% Section 5 et seq. must not exceed 10 pages.
+% Kapitel 4ff., insgesamt maximal 8 Seiten
 
 \subsection{Angaben zu ethischen und/oder rechtlichen Aspekten des Vorhabens}
 

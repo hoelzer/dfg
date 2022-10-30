@@ -1,6 +1,6 @@
 \documentclass{scrartcl}
 
-%This template is based on the DFG rtf form 53_01_en (see Readme on GitHub for last accessed date)
+%This template is based on the DFG rtf form (see Readme on GitHub for last accessed date, and version in the header of the compiled PDF)
 %
 %Author: Martin Hoelzer, hoelzer.martin@gmail.com
 %
@@ -12,26 +12,27 @@
 \setboolean{finalcompile}{false}
 
 % show DFG template version the current LaTeX template is based on in the header. Will be deactivated when 'finalcompile' is set 'true'
-\ifthenelse{\boolean{finalcompile}}{}{\ihead*{DFG 53.01 - 03/22}}
+\ifthenelse{\boolean{finalcompile}}{}{\ihead*{DFG 54.01 - 09/22}}
 
 % all config is done in Header.tex
 \input{Header.tex}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%  TITELSEITE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  TITLE PAGE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\applicants}{Dr.\ Martin H\"olzer, Robert Koch Institute, Berlin}
 \newcommand{\project}{Project title}
 
-% declare bibliography categroies
+% declare bibliography categories
 
-\addtocategory{reviewed}{Hoelzer:16} 
-\nocite{}
-\addtocategory{nonreviewed}{Desiro:18} 
-\addtocategory{patents_pending}{} 
-\addtocategory{patents}{} 
+% likely deprecated and these categories are not needed anymore
+%\addtocategory{reviewed}{Hoelzer:16} 
+%\nocite{}
+%\addtocategory{nonreviewed}{Desiro:18} 
+%\addtocategory{patents_pending}{} 
+%\addtocategory{patents}{} 
 
 \begin{document}
 \pagestyle{empty}
@@ -56,7 +57,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%  PROJECT DESCRIPTION - PROJECT PROPOSALS  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Sections 1-4 must not exceed 17 pages in total.
+%% Sections 1-3 must not exceed 17 pages in total.
+\todo{Sections 1--3 must not exceed 17 pages in total.}
 {\raggedright{} \normalsize \bfseries 
 	Project Description -- Project Proposals \par
 	\applicants{} \par
@@ -75,43 +77,40 @@
 % For renewal proposals, please report on your previous work. This report
 % should also be understandable without referring to additional literature.
 
-This is a dummy citation~\cite{Hoelzer:17}. Yeah. And another
-one~\cite{Gerst:18}. Wuhuh. These citations~\cite{Hoelzer:16, Desiro:18} will
-not be shown in the "\ref{sec:bib}~Bibliography" section, because they are
-already listed as \verb=\addtocategory{reviewed}{Hoelzer:16}= and
-\verb=\addtocategory{nonreviewed}{Desiro:18}= in the praeambl and therefore
-shown in subsubsections \emph{Articles published by outlets with scientific
-quality \dots} and \emph{Other publications, both peer-reviewed and non-peer-reviewed}. 
+This is a dummy citation~\cite{Hoelzer:17}. Yeah. And another one~\cite{Gerst:18}. Wuhuh. In an older version of the template, these citations~\cite{Hoelzer:16, Desiro:18} were not shown in the "\ref{sec:bib}~Bibliography" section, because they are already listed as \verb=\addtocategory{reviewed}{Hoelzer:16}= and\verb=\addtocategory{nonreviewed}{Desiro:18}= in the praeambl and therefore shown in subsubsections \emph{Articles published by outlets with scientific quality \dots} and \emph{Other publications, both peer-reviewed and non-peer-reviewed}. However, these subsubsections are deprecated since v54.01 of the DFG template! And therefore, all the four citations above will simply show up in "\ref{sec:bib}~Project- and subject-related list of publications" now.
 
 \lipsum[1]
 
-
-\subsection{Project-related publications}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DEPRECATED since v54 (https://www.dfg.de/download/pdf/foerderung/programme/sachbeihilfe/info_vordrucksaenderungen.pdf)
+% This became now part of the publication list in section 3, see below
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Project-related publications}
 %Please include a list of own publications that are related to the proposed project. 
 %Sections 1.2.1 and 1.2.2 together must not exceed 10 publications; please number them consecutively.
 
 %a maximum of ten publications
-\subsubsection{Articles published by outlets with scientific quality assurance, book publications, and works accepted for publication but not yet published}
+%\subsubsection{Articles published by outlets with scientific quality assurance, book publications, and works accepted for publication but not yet published}
 
 % Own literature can be designated with a prefix, default 'O' for "Own". 
 % If the function is not desired, delete the "labelprefix" commands directly below this comment 
 % AND in the section: "Bibliography concerning the state of the art, the research objectives, and the work programme"
 % Then, all your references should be numbered consecutively.
-\newrefcontext[labelprefix=O]
-\printbibliography[category=reviewed, heading=none, env=bibliographyNUM, resetnumbers]
+%\newrefcontext[labelprefix=O]
+%\printbibliography[category=reviewed, heading=none, env=bibliographyNUM, resetnumbers]
 
-\subsubsection{Other publications, both peer-reviewed and non-peer-reviewed}
-\printbibliography[category=nonreviewed, heading=none, env=bibliographyNUM, resetnumbers=false]
+%\subsubsection{Other publications, both peer-reviewed and non-peer-reviewed}
+%\printbibliography[category=nonreviewed, heading=none, env=bibliographyNUM, resetnumbers=false]
 
-\subsubsection{Patents}
+%\subsubsection{Patents}
 
-\subsubsubsection{Pending}
-\printbibliography[category=patents_pending, heading=none]
-None.
+%\subsubsubsection{Pending}
+%\printbibliography[category=patents_pending, heading=none]
+%None.
 
-\subsubsubsection{Issued}
-\printbibliography[category=patents, heading=none]
-None.
+%\subsubsubsection{Issued}
+%\printbibliography[category=patents, heading=none]
+%None.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%  OBJECTIVES AND WP %%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -191,26 +190,28 @@ accessible for future use.
 \subsection{Relevance of sex, gender and/or diversity}
 \todo[inline]{Text}
 
-
-\section{Bibliography concerning the state of the art, the research objectives, and the work programme}
+% Works cited from sections 1 and 2, both by the applicant(s) and by third parties. Please include DOI/URL if available. 
+% A maximum of ten of your own works cited may be highlighted; font at least Arial 9 pt.
+\section{Project- and subject-related list of publications}
 \label{sec:bib}
+\todo{Works cited from sections 1 and 2, both by the applicant(s) and by third parties. Please include DOI/URL if available. A maximum of ten of your own works cited may be highlighted; font at least Arial 9 pt.}
 %\AtNextBibliography{\small}
 \newrefcontext[labelprefix=]
 \printbibliography[notcategory=reviewed, notcategory=nonreviewed, notcategory=patents_pending, notcategory=patents, heading=none, env=bibliographyNUM]	
 
 \backmatter
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%  SUPPLEMENT  (new since 04/2020) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  SUPPLEMENT  (new since 04/2022) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Supplementary information on the research context}
-% Section 5 et seq. must not exceed 8 pages.
+% Section 4 et seq. must not exceed 8 pages.
 
 \subsection{Ethical and/or legal aspects of the project}
 
 \subsubsection{General ethical aspects}
 \todo[inline]{Text}
 
-\subsubsection{Descriptions of proposed investigations involving experiments on humans or human materials}
+\subsubsection{Descriptions of proposed investigations on humans, human materials or identifiable data}
 \todo[inline]{Text}
 
 \subsubsection{Descriptions of proposed investigations involving experiments on animals}
