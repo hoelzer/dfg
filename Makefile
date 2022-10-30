@@ -1,7 +1,7 @@
-filename=dfg-german
+filename=dfg
 
-all: dfg-german.pdf clean
-dfg-german.pdf:
+all: dfg.pdf clean
+dfg.pdf:
 	pdflatex ${filename}.tex
 	biber ${filename}
 	pdflatex ${filename}.tex
@@ -15,4 +15,4 @@ clean:
 	-rm ${filename}.bcf
 	-rm ${filename}.run.xml
 
-.PHONY: dfg-german.pdf
+.PHONY: dfg.pdf
