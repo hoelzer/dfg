@@ -5,6 +5,9 @@ A LaTeX template for a basic DFG (Deutsche Forschungsgemeinschaft, German Resear
 ## Acknowledgements
 
 This template is based on the template of the [Measurement Engineering Group](https://github.com/emtpb/proposal_dfg) and mimicks the RTF template and PDF guidelines provided by [DFG with a focus on a "Sachbeihilfe" grant](https://www.dfg.de/foerderung/programme/einzelfoerderung/sachbeihilfe/formulare_merkblaetter/index.jsp). 
+
+Thanks [@FPK](https://github.com/FPK) for suggesting and adding the [cleveref package](https://www.namsu.de/Extra/pakete/Cleveref.html). Check the [manual](https://www.namsu.de/Extra/pakete/Cleveref.html) and use `\cref{}` instead of the default `\ref` for referencing your figures, tables, etc. General changes regarding lables can be done in the `Header.tex`
+
 Thanks [@nneuss](https://github.com/nneuss) a German version is also available. Please use `dfg-german.tex` instead of `dfg.tex` for the German version.
 
 Thanks [@dl1chb](https://github.com/dl1chb) for better ToDo handling via the [todonotes package](https://www.ctan.org/pkg/todonotes) and updates of the template.
@@ -73,10 +76,9 @@ ToDos are activated by default using the `todonotes` package. You can see it wor
 
 In addition you will see some labels at the margins. These are caused by another plugin which will just print the name of the label stated in `\label{}`. This can help by referencing sections and stuff.
 
-
 ## Customization
 
-Most of customization (citation style, etc.) can be done by changes in the `proposal.sty`.
+Most of customization (citation style, etc.) can be done by changes in the `proposal.sty`. To change the default labels for referencing figures and tables (e.g. "Abbildung" for a figure in the german layout), look in the `Header.tex` file. Since v3.0.0 of the template the [cleveref](https://www.namsu.de/Extra/pakete/Cleveref.html) package is used replacing the standard `\ref` with the `\cref` command.
 
 ## Bibliography 
 
