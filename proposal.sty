@@ -71,6 +71,19 @@
 {\endlist}
 {\item}
 
+% necessary changes to make the selected references bold 
+\AtEveryBibitem{%
+  \ifcategory{important}%
+    {\hypersetup{urlcolor=impentry}\bfseries\color{impentry}}%
+    {}%
+  }
+\AtEveryCitekey{%
+  \ifcategory{important}%
+    {\hypersetup{citecolor=impentry}\bfseries\color{impentry}}%
+    {}%
+  }
+
+
 %% von Hurenkindern und Schusterjungen
 \clubpenalty = 10000
 \widowpenalty = 10000 \displaywidowpenalty = 10000
