@@ -52,4 +52,17 @@
 \DeclareBibliographyCategory{patents}
 %
 
+% necessary changes to make the selected references bold
+% references that need to be bold, their corresponding citation keys should be added to \addtocategory{important}{%...}
+\DeclareBibliographyCategory{important}
+\colorlet{impentry}{black}% let 'impentry' = Maroon
+\AtEveryBibitem{%
+  \ifcategory{important}%
+    {\bfseries\color{impentry}}%
+    {}%
+  }
+\addtocategory{important}{%
+Hoelzer:17,Smith2023b,Smith2023c,Smith2023d,MIller1900, % don't miss the comma after the last entry
+}
+
 \input{highlight_box.tex}
