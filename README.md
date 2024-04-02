@@ -89,6 +89,7 @@ To add references to different parts of the proposal, you can define categories:
 ```latex
 \DeclareBibliographyCategory{reviewed}
 \addtocategory{reviewed}{Hoelzer:16}
+```
 
 that can be later used in the sections:
 
