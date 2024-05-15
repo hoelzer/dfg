@@ -20,6 +20,10 @@ Thanks [@gituser789](https://github.com/gituser789) for the implementation of an
 
 Thanks [@kss-lea](https://github.com/kss-lea) for adding separate numbering formats for the first and second (supplement) part. 
 
+Thanks [@klb2](https://github.com/klb2), [@FPK](https://github.com/FPK), and [@wallscheid](https://github.com/wallscheid) for updates to the new `DFG-form 53.01 - 03/24` version.
+
+Thanks [@nise](https://github.com/nise) and [@ThiloKr](https://github.com/ThiloKr) for the [suggested changes to make author publications bold](https://github.com/hoelzer/dfg/issues/47) and [@shervinsafavi](https://github.com/shervinsafavi) for the PR implementing them.
+
 _Please let me know if I accidentally forgot a contribution! Thanks all contributors!_
 
 ## Compilation
@@ -31,13 +35,14 @@ pdflatex
 pdflatex
 ```
 or
-```
+
+```bash
 make
 ```
 
 You can also change the filename of the `${NAME}.tex` file and then run `make filename=${NAME}` (thx [@dl1chb](https://github.com/dl1chb)). For example, to compile the German version: 
 
-```
+```bash
 make filename=dfg-german
 ```
 
@@ -113,6 +118,18 @@ To change the style of your bibliography you have to change the following code s
     sorting=none, % remove this to have things sorted, e.g. use style=alphabetic
     ]{biblatex}
 ```
+
+### Highlight author's publications
+
+It is recommended to higlight author publications. This can be done using **bold** font. Go to the `Header.tex` file and add the bib keys of the publications you want to highlight to this code section:
+
+```tex
+\addtocategory{important}{%
+Hoelzer:16,Hoelzer:17,Smith2023b,Smith2023c,Smith2023d,MIller1900, % don't miss the comma after the last entry
+}
+```
+
+The listed publications will be written in bold in the reference list. The citations in the text will be also bold. Change the behavior in the `proposal.sty` file if necessary.
 
 ## Sum up costs
 
