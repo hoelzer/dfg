@@ -84,6 +84,14 @@
     {}%
   }
 
+% To also colorize the labels in the bibliography:
+  \AtBeginBibliography{%
+  \DeclareFieldFormat{labelnumberwidth}{%
+  \ifcategory{important}%
+    {\color{impentry}\mkbibbrackets{#1}}%
+    {\mkbibbrackets{#1}}%
+  }}
+
 
 %% von Hurenkindern und Schusterjungen
 \clubpenalty = 10000
