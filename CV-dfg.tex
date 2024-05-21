@@ -1,0 +1,143 @@
+\documentclass{scrartcl}
+
+%This CV template is based on the DFG-form 53.200 – 03/23
+%
+%Author: Oliver Wallscheid, oliver.wallscheid@uni-siegen.de
+%
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{proposal}
+
+% final version -- deactivate all todo notes and showlabels
+\setboolean{finalcompile}{false}
+
+% show DFG template version the current LaTeX template is based on in the header. Will be deactivated when 'finalcompile' is set 'true'
+\ihead*{DFG-form 53.200 - 03/23}
+
+% all config is done in Header.tex
+\input{Header.tex}
+
+\tikzset{notestyleraw/.append style={align= justify}} % justify inline todo notes
+\renewcommand{\baselinestretch}{1.2}  % line spacing 1.2 (according to DFG template requirement)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  CV DFG Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\section*{Curriculum Vitae}
+\todo[inline]{%
+    Your academic curriculum vitae serves to present your personal profile. It helps DFG's reviewers and committees in conducting their review and evaluation of your academic achievements and qualifications. The DFG Head Office refers to the curriculum vitae to check you are eligible to apply as well as to see whether there may be any conflicts of interests on the part of reviewers and committee members. All the following details are required unless anything is stated specifically to the contrary. \\
+
+    In terms of providing concrete evidence of proposal-specific or topic-specific qualifications, please refer to the section on own preliminary work in the proposal document. \\
+
+    The CV must not exceed four pages. Please make sure to retain the template formatting. In particular, the font should not be smaller than Arial 11 point, with line spacing no less than 1.2. A photograph must not be attached to the curriculum vitae. Please name the document \textit{CV\textunderscore PubList\textunderscore\textless person's last name\textgreater}. \\
+
+    Additional information is available under \url{www.dfg.de/faq_cv.}
+}
+
+\subsection*{Personal Data}
+\todo{in table form only}
+    
+\begin{longtable}{|p{0.3\textwidth-2\tabcolsep}|p{0.7\textwidth-2\tabcolsep}|}
+    \hline
+    Title & \\
+    \hline
+    First name &  \\
+    \hline
+    Name &  \\
+    \hline
+    Current position & \ifthenelse{\boolean{finalcompile}}{}{\textcolor{darkgray}{If applicable, specify the end of the contract term.}} \\
+    \hline
+    Current institution(s)/site(s), country & \\
+    \hline
+    Identifiers/ORCID & \ifthenelse{\boolean{finalcompile}}{}{\textcolor{darkgray}{ORCID-ID: Applicants who have an ORCID ID are asked to provide it. Applicants who do not have an ORCID ID are invited but not obliged to create one.}} \\
+    \hline
+\end{longtable}
+
+\subsection*{Qualifications and Career}
+\todo{mixture of table/free text}
+\todo[inline]{%
+    Please list the stages of your (academic) career including qualification stages. Please indicate position, institution and duration in each case. If you wish, you can also describe the academic content of each activity.\\
+
+    If you are currently pursuing a doctorate, please indicate the status of your doctoral studies.
+}
+
+
+\begin{longtable}{|p{0.35\textwidth-2\tabcolsep}|p{0.65\textwidth-2\tabcolsep}|}
+    \hline
+    \textbf{Stages} & \textbf{Periods and Details}\\
+    \hline
+    School, country & \ifthenelse{\boolean{finalcompile}}{}{\textcolor{darkgray}{If you spent some or all of your school years abroad, please provide detailed information on times and locations.}}  \\
+    \hline
+    Degree programme & \ifthenelse{\boolean{finalcompile}}{}{\textcolor{darkgray}{Subject, period, place, country}} \\
+    \hline
+    Doctorate  & \ifthenelse{\boolean{finalcompile}}{}{\textcolor{darkgray}{Date, supervisors/mentors, subject (subject is optional), institution(s), country}}  \\
+    \hline
+    Stages of academic/professional career & \ifthenelse{\boolean{finalcompile}}{}{\textcolor{darkgray}{Activities relevant to the proposal should be listed chronologically (the most recent at the beginning), indicating period, stage/position and institution, e.g. research stays, post-doctoral lecturing qualification (topic/subject, supervisor), activities at universities/non-university institutions, clinical activities/activities in patient care, experience and qualifications in conducting clinical trials (qualification as an investigator or trial team member as well as regulatory and methodological expertise), activities in industrial research, activities in other sectors, start-ups, voluntary activities, etc.}}\\
+    \hline
+\end{longtable}
+
+\subsection*{Supplementary Career Information}
+\todo{optional; free text}
+\todo[inline]{%
+    You may voluntarily enter supplementary information relating to your career or special personal circumstances if you feel that this information may be relevant to the appropriate review and evaluation of your academic achievements. Examples of special personal circumstances or delays that can be recognised include periods of absence due to childcare responsibilities, maternity leave, parenting or child-rearing periods, chronic/long-term illness, a disability or particular family obligations such as caring for relatives as well as pandemic-related downtimes. Time delays in an academic career may also be indicated, e.g. for persons who are the first in their families to pursue an academic career (first-generation academics), for various compulsory and voluntary services, language acquisition, migration or integration phases, displacement or asylum procedures. Please do not mention any information about third parties, or as little as possible.\\
+
+    This allows such things as biographical peculiarities or unavoidable delays (of at least 2-3 months per year) in your academic career to be appropriately taken into account in your favour as part of the review and comparative assessment.\\
+
+    If you wish to provide relevant, confidential information on your personal situation (e.g. illness, disability or other hardship) in the context of your proposal, but do not wish this information to be passed on to reviewers or committee members, please only use the separate \href{http://www.dfg.de/formulare/73_01/73_01_en.pdfURL}{DFG form 73.01} (Part A). Please note that in this case, the information will not be taken into account in the review or comparative assessment, or only to a limited extent. In such cases, feel free to contact the DFG Head Office in advance (\url{chancengleichheit@dfg.de}). For further information, see \url{www.dfg.de/faq_cv}.
+}
+
+\subsection*{Activities in the Research System}
+\todo{optional; free text}
+\todo[inline]{%
+    Here you can provide information on other activities you have pursued within the research system. This includes committee involvement, activities in the field of academic self-governance, organisation of academic events, activities in teaching and mentoring.
+}
+
+\subsection*{Supervision of Researchers in Early Career Phases}
+\todo{optional; free text}
+
+\section*{Scientific Results}
+\todo{Part A required, Part B optional; free text}
+\todo[inline]{%
+    Please indicate here your most important published scientific results (see also \textit{Guidelines for Preparing Publication Lists}, DFG form 1.91). If available, please also provide persistent identifiers (e.g. DOI/Digital Object Identifier), preferably by stating the number, otherwise by naming the URL. Open access publications should be designated accordingly.\\
+
+    Details of quantitative metrics such as impact factors and h-indices are not required and are not considered as part of the review.
+    Please also explain -- where possible -- how you were involved in the published findings and/or explain why you have listed the publication or the academic contribution here.
+}
+
+\subsection*{Category A}
+\todo{required, free text}
+\todo[inline]{%
+    In this category please enter articles in peer-reviewed journals, peer-reviewed contributions to conferences or anthology volumes, and book publications (see also DFG form 1.91). A maximum of ten items may be listed.
+}
+
+\subsection*{Category B}
+\todo{optional, free text}
+\todo[inline]{%
+    Here you can cite any other form of published research results. This might include articles on preprint servers and non-peer-reviewed contributions to conferences or anthology volumes, data sets, protocols of clinical trials, software packages, patents applied for and granted, blog contributions, infrastructures or transfer. You may also indicate other forms of academic output here, such as contributions to the (technical) infrastructure of an academic community (including in an international context) and contributions to science communication. This second category is also restricted to a maximum of ten items.
+}
+
+\subsection*{Academic Distinctions}
+\todo{optional, free text}
+\todo[inline]{%
+Here you can enter details of any distinctions or awards you have won. This also includes invitations or appointments to prominent bodies or academies.
+}
+
+\section*{Other Information}
+\todo{optional, free text}
+\todo[inline]{%
+Here you can refer to further points that characterise you as an academic or mention other aspects such as dual-career issues (potentially requiring a particular choice of location, for example) which you feel are relevant to the review or evaluation of the proposal.
+}
+
+\section*{Data protection and consent to the processing of optional data}
+If you provide voluntary information (marked as optional) in this CV, your consent is required. Please confirm your consent by checking the box below. 
+
+$[\hspace{0.5cm}]$ \textbf{I expressly consent to the processing of the voluntary (optional) information, including  ``special categories of personal data''\footnote{Special categories of personal data are those ``revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and (...) genetic data, biometric data for the purpose of uniquely identifying a natural person, data concerning health or data concerning a natural person's sex life or sexual orientation'' (Article 9(1) GDPR).}  in connection with the DFG's review and decision-making process regarding my proposal.} This also includes forwarding my data to the external reviewers, committee members and, where applicable, foreign partner organisations who are involved in the decision-making process. To the extent that these recipients are located in a third country (outside the European Economic Area), I additionally consent to them being granted access to my data for the above-mentioned purposes, even though a level of data protection comparable to EU law may not be guaranteed. For this reason, compliance with the data protection principles of EU law is not guaranteed in such cases. In this respect, there may be a violation of my fundamental rights and freedoms and resulting damages. This may make it more difficult for me to assert my rights under the General Data Protection Regulation (e.g. information, rectification, erasure, compensation) and, if necessary, to enforce these rights with the help of authorities or in court.
+
+I may revoke my consent in whole or in part at any time -- with effect for the future, freely and without giving reasons -- vis-à-vis the DFG (\url{postmaster@dfg.de}). The lawfulness of the processing carried out up to that point remains unaffected. Insofar as I transmit ``special categories of personal data'' relating to third parties, I confirm that the necessary legitimation under data protection law exists (e.g. based on consent).
+
+I have taken note of the DFG's Data Protection Notice relating to research funding, which I can access at \url{www.dfg.de/privacy_policy} and I will forward it to such persons whose data the DFG processes as a result of being mentioned in this CV.
+\end{document}
