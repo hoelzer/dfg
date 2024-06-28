@@ -24,6 +24,8 @@ Thanks [@klb2](https://github.com/klb2), [@FPK](https://github.com/FPK), and [@w
 
 Thanks [@nise](https://github.com/nise) and [@ThiloKr](https://github.com/ThiloKr) for the [suggested changes to make author publications bold](https://github.com/hoelzer/dfg/issues/47) and [@shervinsafavi](https://github.com/shervinsafavi) for the PR implementing them.
 
+Thanks [@wallscheid](https://github.com/wallscheid) for adding an english CV [according to 53.200 – 03/23 DFG form](https://www.dfg.de/de/formulare-53-200-elan-246806). Please note that this CV needs to be additionally compiled via `pdflatex` if you want to use it.
+
 _Please let me know if I accidentally forgot a contribution! Thanks all contributors!_
 
 ## Compilation
@@ -45,6 +47,8 @@ You can also change the filename of the `${NAME}.tex` file and then run `make fi
 ```bash
 make filename=dfg-german
 ```
+
+**Please note** that this will only compile the main grant document. If you want to also use the DFG CV document, you need to additionally compile the corresponding tex file, e.g. via `pdflatex CV-dfg.tex`.
 
 ### Biber
 If you do not have ``biber`` installed try to install it from the package sources of your system. There is also a ``conda`` install that you can try:
