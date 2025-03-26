@@ -6,7 +6,7 @@ A LaTeX template for a basic DFG (Deutsche Forschungsgemeinschaft, German Resear
 
 This template is based on the template of the [Measurement Engineering Group](https://github.com/emtpb/proposal_dfg) and mimicks the RTF template and PDF guidelines provided by [DFG with a focus on a "Sachbeihilfe" grant](https://www.dfg.de/foerderung/programme/einzelfoerderung/sachbeihilfe/formulare_merkblaetter/index.jsp). 
 
-Thanks [@FPK](https://github.com/FPK) for suggesting and adding the [cleveref package](https://www.namsu.de/Extra/pakete/Cleveref.html). Check the [manual](https://www.namsu.de/Extra/pakete/Cleveref.html) and use `\cref{}` instead of the default `\ref` for referencing your figures, tables, etc. General changes regarding lables can be done in the `Header.tex`
+Thanks [@FPK](https://github.com/FPK) for suggesting and adding the [cleveref package](https://www.namsu.de/Extra/pakete/Cleveref.html). Check the [manual](https://www.namsu.de/Extra/pakete/Cleveref.html) and use `\cref{}` instead of the default `\ref` for referencing your figures, tables, etc. General changes regarding lables can be done in the `Header.tex`. Also thanks for further customization fixes (typos, german translation, nicer font for numbers). 
 
 Thanks [@nneuss](https://github.com/nneuss) a German version is also available. Please use `dfg-german.tex` instead of `dfg.tex` for the German version.
 
