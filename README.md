@@ -28,6 +28,12 @@ Thanks [@wallscheid](https://github.com/wallscheid) for adding an english CV [ac
 
 _Please let me know if I accidentally forgot a contribution! Thanks all contributors!_
 
+## Successful applications with the template
+
+If you use this template and receive confirmation, please let me know so that I can mention your successful application here!
+
+* Prof. Dr. Maximilian E. Schüle ([@MaxEmanuel](https://github.com/MaxEmanuel)), "Functions Become Data: Higher-Order Lambda Functions for Database Systems" (2025)
+
 ## Compilation
 
 ```bash
@@ -154,10 +160,12 @@ You will find a `gantt/gantt.tex` file that can be modified directly to include 
 
 ## Disclaimer
 
-I used this template for an actual proposal submission in 2019 to the DFG that was accepted and send out for review (unfortunately, not accepted in the end). 
+This LaTeX template is an unofficial offer provided for convenience when preparing grant proposals for the Deutsche Forschungsgemeinschaft (DFG). It is based on the structure and formatting of the original Microsoft Word template made available by the DFG but is not affiliated with, endorsed by, or officially supported by the DFG.
 
-If you use this template and receive a confirmation, please let me know and I will be happy to reference your successful application here! :)
+Users are responsible for ensuring their submission complies with the most recent DFG guidelines. Please refer to the DFG's official website and documentation for authoritative and up-to-date information.
 
-Furthermore, please be aware that since May 2020 the proposal is split into a more research focused part (sections 1-3, max. 17 pages) and all the supplementary information (starting section 4, max. 8 pages). Please also always check if there are any changes to the [DFG template](https://www.dfg.de/foerderung/programme/einzelfoerderung/sachbeihilfe/formulare_merkblaetter/index.jsp)!
+Use at your own discretion.
+
+Furthermore, be aware that since May 2020 the proposal is split into a more research focused part (sections 1-3, max. 17 pages) and all the supplementary information (starting section 4, max. 8 pages). Please also always check if there are any changes to the [DFG template](https://www.dfg.de/foerderung/programme/einzelfoerderung/sachbeihilfe/formulare_merkblaetter/index.jsp)!
 
 
