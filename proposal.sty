@@ -1,6 +1,6 @@
 \ProvidesPackage{proposal}[2018/02/27]
 
-\usepackage[usenames,dvipsnames,svgnames]{xcolor}
+\usepackage[dvipsnames,svgnames]{xcolor}
 \usepackage[ngerman, english]{babel}
 \usepackage{amsmath}
 %\usepackage[hidelinks]{hyperref}
@@ -29,7 +29,7 @@
 
 \usepackage[backend = biber,
     style = numeric, %alphabetic, numeric
-    firstinits = true,
+    giveninits = true,
     natbib = true,
 	url=false,
 	doi=true,
@@ -152,7 +152,7 @@
 \setcounter{secnumdepth}{5}
 
 % Ensure that if round-precision is specified, the give number of decimals is printed (necessary for prices in Euro)
-\sisetup{round-integer-to-decimal} 
+% Removed deprecated round-integer-to-decimal option 
 
 % Place this environment in funds section to automatically add up costs using the macro 'position'.
 \newenvironment{funds}[1][]
