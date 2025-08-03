@@ -250,3 +250,5 @@ TSWLatexianTemp*
 
 # generated if using elsarticle.cls
 *.spl
+cv.pdf
+.gitignore
