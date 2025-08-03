@@ -1,4 +1,4 @@
-\documentclass{scrartcl}
+\documentclass[final]{scrartcl}
 
 %This template is based on the DFG rtf form (see Readme on GitHub for last accessed date, and version in the header of the compiled PDF)
 %
@@ -76,7 +76,7 @@
 % For renewal proposals, please report on your previous work. This report
 % should also be understandable without referring to additional literature.
 
-This is a dummy citation~\cite{Hoelzer:17}. Yeah. And another one~\cite{Gerst:18}. Wuhuh. In an older version of the template, these citations~\cite{Hoelzer:16, Desiro:18} were not shown in the "\ref{sec:bib}~Bibliography" section, because they are already listed as \verb=\addtocategory{reviewed}{Hoelzer:16}= and\verb=\addtocategory{nonreviewed}{Desiro:18}= in the preamble and therefore shown in subsubsections \emph{Articles published by outlets with scientific quality \dots} and \emph{Other publications, both peer-reviewed and non-peer-reviewed}. However, these subsubsections are deprecated since v53.01 of the DFG template! And therefore, all the four citations above will simply show up in "\ref{sec:bib}~Project- and subject-related list of publications" now.
+% This is a dummy citation~\cite{Hoelzer:17}. Yeah. And another one~\cite{Gerst:18}. Wuhuh. In an older version of the template, these citations~\cite{Hoelzer:16, Desiro:18} were not shown in the "\ref{sec:bib}~Bibliography" section, because they are already listed as \verb=\addtocategory{reviewed}{Hoelzer:16}= and\verb=\addtocategory{nonreviewed}{Desiro:18}= in the preamble and therefore shown in subsubsections \emph{Articles published by outlets with scientific quality \dots} and \emph{Other publications, both peer-reviewed and non-peer-reviewed}. However, these subsubsections are deprecated since v53.01 of the DFG template! And therefore, all the four citations above will simply show up in "\ref{sec:bib}~Project- and subject-related list of publications" now.
 
 \lipsum[1]
 
@@ -148,13 +148,9 @@ afterskip=2.5ex plus 0.2ex minus 0.2ex]{subparagraph}
 \paragraph{First work package.}
 \label{wp:1}
 
-\input{wp/wp1.tex}
-
 \hrulefill
 \paragraph{Second work package.}
 \label{wp:2}
-
-\input{wp/wp2.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%  END OF WORK PACKAGES  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -189,8 +185,7 @@ accessible for future use.
 \label{sec:bib}
 \todo[inline]{Works cited from sections 1 and 2, both by the applicant(s) and by third parties. Please include DOI/URL if available. A maximum of ten of your own works cited may be highlighted; font at least Arial 9 pt.}
 %\AtNextBibliography{\small}
-\newrefcontext[labelprefix=]
-\printbibliography[notcategory=reviewed, notcategory=nonreviewed, notcategory=patents_pending, notcategory=patents, heading=none, env=bibliographyNUM]	
+% \printbibliography	
 
 \backmatter
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -370,23 +365,5 @@ Our laboratory is well equipped; all necessary instruments are available.
 
 \subsection{Module Standard Allowance for Gender Equality Measures}
 \todo[inline]{Please detail what measures are planned to promote diversity and equal opportunities.  If you are submitting your proposal for an individual research grant within a network, note that this standard allowance may only be applied for within the coordination project. The coordination project must combine all such requests in its calculation.}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% SIGNATURE - OPTIONAL BC NOT IN THE ORIGINAL DFG TEMPLATE
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section{Signature}
-
-%\includegraphics[width=0.18\textwidth]{/signatures/signature.pdf}\\
-%Dr.\ Martin H\"olzer
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% LoA - OPTIONAL BC NOT IN THE ORIGINAL DFG TEMPLATE
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section{List of attachments}
-%\begin{itemize}
-%  \item Curriculum Vit\ae, Dr.\ Martin H\"olzer
-%\end{itemize}
-
-
 
 \end{document}

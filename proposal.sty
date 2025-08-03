@@ -8,7 +8,8 @@
 % use DFG margins according to https://github.com/hoelzer/dfg/issues/56
 \usepackage[headheight = 1cm, tmargin = 2.5cm, lmargin = 2.5cm, rmargin = 2cm, bmargin = 1.5cm]{geometry}
 \usepackage[exponent-product = \cdot]{siunitx}
-\usepackage{pageslts}
+\usepackage{siunitx}
+\sisetup{detect-all=true}
 \usepackage{helvet}
 \usepackage{scrlayer-scrpage}
 \usepackage{eurosym}
@@ -25,86 +26,26 @@
 \captionsetup{format=plain}
 \usepackage[noabbrev]{cleveref}
 
-\usepackage[backend = biber,
-  style = numeric, %alphabetic, numeric
-  giveninits = true,
-  natbib = true,
-  url=false,
-  doi=true,
-  eprint=true,
-  isbn=false,
-  defernumbers=true,
-  labelnumber,
-  hyperref = true,
-  maxbibnames = 10,
-  sorting=none,%remove this to have things sorted, e.g. use style=alphabetic
-]{biblatex}
-\renewcommand*{\labelalphaothers}{}
+\usepackage[numbered]{bookmark}
+\usepackage[font=small,labelfont={bf,it},textfont=it]{caption}
+\captionsetup{format=plain}
 
-% bibliography (from dfgproposal.cls from https://github.com/klb2/dfg-proposal-template)
-\DeclareFieldFormat{labelnumberwidth}{\mkbibbrackets{#1}}
-\renewbibmacro*{cite}{%
-  \printtext[bibhyperref]{%
-    \printfield{labelprefix}%
-    \ifcategory{reviewed}
-    {\printfield{labelnumber}}
-    {%
-      \ifcategory{nonreviewed}
-      {\printfield{labelnumber}}
-      {%
-        \printfield{labelnumber}%
-        \printfield{extraalpha}}}}}
-% Here I changed the labelalpha to labelnumber which is generally preferrable I think... who wants this ugly abbreviations of author names and year of publication
-%\printfield{labelalpha}%
-%\printfield{extraalpha}}}}}
-
-\defbibenvironment{bibliographyNUM}
-{\list
-  {\printtext[labelnumberwidth]{%
-      \printfield{labelprefix}%
-      \printfield{labelnumber}}}
-  {\setlength{\labelwidth}{\labelnumberwidth}%
-    \setlength{\leftmargin}{\labelwidth}%
-    \setlength{\labelsep}{\biblabelsep}%
-    \addtolength{\leftmargin}{\labelsep}%
-    \setlength{\itemsep}{\bibitemsep}%
-    \setlength{\parsep}{\bibparsep}}%
-  \renewcommand*{\makelabel}[1]{\hss##1}}
-{\endlist}
-{\item}
-
-% necessary changes to make the selected references bold 
-\AtEveryBibitem{%
-  \ifcategory{important}%
-  {\hypersetup{urlcolor=impentry}\bfseries\color{impentry}}%
-  {}%
-}
-\AtEveryCitekey{%
-  \ifcategory{important}%
-  {\hypersetup{citecolor=impentry}\bfseries\color{impentry}}%
-  {}%
-}
-
-% To also colorize the labels in the bibliography:
-\AtBeginBibliography{%
-  \DeclareFieldFormat{labelnumberwidth}{%
-    \ifcategory{important}%
-    {\bfseries\color{impentry}\mkbibbrackets{#1}}%
-    {\mkbibbrackets{#1}}%
-  }}
+\usepackage[backend = biber]{biblatex}
 
 
 %% von Hurenkindern und Schusterjungen
 \clubpenalty = 10000
-\widowpenalty = 10000 \displaywidowpenalty = 10000
+\widowpenalty = 10000
+\displaywidowpenalty = 10000
 
 %% weniger underful hboxes
 \tolerance=3000
 \emergencystretch=15pt
 \hbadness=2000 %% too many underfull hbox warnings
 
-%% keine zwei Trennstriche in untereinanderliegenden Zeilen
 \hyphenpenalty 3000
+% Set doublehyphendemerits to a typical value to avoid excessive penalty; increase if needed for layout
+\doublehyphendemerits 10000
 \doublehyphendemerits 50000000
 
 
@@ -114,13 +55,13 @@
 \DeclareOption{german}{
   \sisetup{locale=DE}
   \AtBeginDocument{\selectlanguage{ngerman}}
-  \renewcommand{\pagemark}{Seite \thepage~von \lastpageref{pagesLTS.\pagenumtype}}
+  % \renewcommand{\pagemark}{Seite \thepage~von \lastpageref{pagesLTS.\pagenumtype}}
   \renewcommand{\total}{Summe}
 }
 \DeclareOption{english}{
   \sisetup{locale=US}
   \AtBeginDocument{\selectlanguage{english}}
-  \renewcommand{\pagemark}{page \thepage~of \lastpageref{pagesLTS.\pagenumtype}}
+  % \renewcommand{\pagemark}{page \thepage~of \lastpageref{pagesLTS.\pagenumtype}}
   \renewcommand{\total}{Total}
 }
 \ExecuteOptions{german}
@@ -167,3 +108,7 @@
 % todonotes and a switch for final
 \usepackage{ifthen}
 \newboolean{finalcompile}
+
+% Fix font warnings for verbatim braces
+\DeclareTextSymbolDefault{\textbraceleft}{T1}
+\DeclareTextSymbolDefault{\textbraceright}{T1}
