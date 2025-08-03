@@ -3,10 +3,8 @@
 \usepackage[dvipsnames,svgnames]{xcolor}
 \usepackage[ngerman, english]{babel}
 \usepackage{amsmath}
-%\usepackage[hidelinks]{hyperref}
 \usepackage{microtype}
 \usepackage{csquotes}
-%\usepackage[headheight = 28pt, tmargin = 70pt, lmargin = 55pt, rmargin = 55pt, bmargin = 70pt]{geometry}
 % use DFG margins according to https://github.com/hoelzer/dfg/issues/56
 \usepackage[headheight = 1cm, tmargin = 2.5cm, lmargin = 2.5cm, rmargin = 2cm, bmargin = 1.5cm]{geometry}
 \usepackage[exponent-product = \cdot]{siunitx}
@@ -20,7 +18,7 @@
 \usepackage{verbatim}
 \usepackage{longtable}
 \usepackage{tikz}
-\usepackage{hyperref}
+\usepackage[pdftex, colorlinks=true, linkcolor=MidnightBlue, citecolor=MidnightBlue, urlcolor=MidnightBlue, pdfauthor={Dr.\ Martin Hoelzer}, pdfpagelayout=SinglePage, bookmarks, bookmarksopen]{hyperref}
 \usepackage{graphicx}
 \usepackage[numbered]{bookmark}
 \usepackage[font=small,labelfont={bf,it},textfont=it]{caption}
@@ -28,69 +26,69 @@
 \usepackage[noabbrev]{cleveref}
 
 \usepackage[backend = biber,
-    style = numeric, %alphabetic, numeric
-    giveninits = true,
-    natbib = true,
-	url=false,
-	doi=true,
-	eprint=true,
-	isbn=false,
-	defernumbers=true,
-	labelnumber,
-    hyperref = true,
-    maxbibnames = 10,
-    sorting=none,%remove this to have things sorted, e.g. use style=alphabetic
-    ]{biblatex}
+  style = numeric, %alphabetic, numeric
+  giveninits = true,
+  natbib = true,
+  url=false,
+  doi=true,
+  eprint=true,
+  isbn=false,
+  defernumbers=true,
+  labelnumber,
+  hyperref = true,
+  maxbibnames = 10,
+  sorting=none,%remove this to have things sorted, e.g. use style=alphabetic
+]{biblatex}
 \renewcommand*{\labelalphaothers}{}
 
 % bibliography (from dfgproposal.cls from https://github.com/klb2/dfg-proposal-template)
 \DeclareFieldFormat{labelnumberwidth}{\mkbibbrackets{#1}}
 \renewbibmacro*{cite}{%
-	\printtext[bibhyperref]{%
-		\printfield{labelprefix}%
-		\ifcategory{reviewed}
-		{\printfield{labelnumber}}
-		{%
-		 \ifcategory{nonreviewed}
-		 {\printfield{labelnumber}}
-		 {%
-            \printfield{labelnumber}%
-            \printfield{extraalpha}}}}}
-            % Here I changed the labelalpha to labelnumber which is generally preferrable I think... who wants this ugly abbreviations of author names and year of publication
-            %\printfield{labelalpha}%
-			%\printfield{extraalpha}}}}}
+  \printtext[bibhyperref]{%
+    \printfield{labelprefix}%
+    \ifcategory{reviewed}
+    {\printfield{labelnumber}}
+    {%
+      \ifcategory{nonreviewed}
+      {\printfield{labelnumber}}
+      {%
+        \printfield{labelnumber}%
+        \printfield{extraalpha}}}}}
+% Here I changed the labelalpha to labelnumber which is generally preferrable I think... who wants this ugly abbreviations of author names and year of publication
+%\printfield{labelalpha}%
+%\printfield{extraalpha}}}}}
 
 \defbibenvironment{bibliographyNUM}
 {\list
-	{\printtext[labelnumberwidth]{%
-			\printfield{labelprefix}%
-			\printfield{labelnumber}}}
-	{\setlength{\labelwidth}{\labelnumberwidth}%
-		\setlength{\leftmargin}{\labelwidth}%
-		\setlength{\labelsep}{\biblabelsep}%
-		\addtolength{\leftmargin}{\labelsep}%
-		\setlength{\itemsep}{\bibitemsep}%
-		\setlength{\parsep}{\bibparsep}}%
-	\renewcommand*{\makelabel}[1]{\hss##1}}
+  {\printtext[labelnumberwidth]{%
+      \printfield{labelprefix}%
+      \printfield{labelnumber}}}
+  {\setlength{\labelwidth}{\labelnumberwidth}%
+    \setlength{\leftmargin}{\labelwidth}%
+    \setlength{\labelsep}{\biblabelsep}%
+    \addtolength{\leftmargin}{\labelsep}%
+    \setlength{\itemsep}{\bibitemsep}%
+    \setlength{\parsep}{\bibparsep}}%
+  \renewcommand*{\makelabel}[1]{\hss##1}}
 {\endlist}
 {\item}
 
 % necessary changes to make the selected references bold 
 \AtEveryBibitem{%
   \ifcategory{important}%
-    {\hypersetup{urlcolor=impentry}\bfseries\color{impentry}}%
-    {}%
-  }
+  {\hypersetup{urlcolor=impentry}\bfseries\color{impentry}}%
+  {}%
+}
 \AtEveryCitekey{%
   \ifcategory{important}%
-    {\hypersetup{citecolor=impentry}\bfseries\color{impentry}}%
-    {}%
-  }
+  {\hypersetup{citecolor=impentry}\bfseries\color{impentry}}%
+  {}%
+}
 
 % To also colorize the labels in the bibliography:
-  \AtBeginBibliography{%
+\AtBeginBibliography{%
   \DeclareFieldFormat{labelnumberwidth}{%
-  \ifcategory{important}%
+    \ifcategory{important}%
     {\bfseries\color{impentry}\mkbibbrackets{#1}}%
     {\mkbibbrackets{#1}}%
   }}
@@ -114,16 +112,16 @@
 
 \newcommand{\pagenumtype}{arabic}
 \DeclareOption{german}{
-    \sisetup{locale=DE}
-    \AtBeginDocument{\selectlanguage{ngerman}}
-    \renewcommand{\pagemark}{Seite \thepage~von \lastpageref{pagesLTS.\pagenumtype}}
-    \renewcommand{\total}{Summe}
+  \sisetup{locale=DE}
+  \AtBeginDocument{\selectlanguage{ngerman}}
+  \renewcommand{\pagemark}{Seite \thepage~von \lastpageref{pagesLTS.\pagenumtype}}
+  \renewcommand{\total}{Summe}
 }
 \DeclareOption{english}{
-    \sisetup{locale=US}
-    \AtBeginDocument{\selectlanguage{english}}
-	\renewcommand{\pagemark}{page \thepage~of \lastpageref{pagesLTS.\pagenumtype}}
-    \renewcommand{\total}{Total}
+  \sisetup{locale=US}
+  \AtBeginDocument{\selectlanguage{english}}
+  \renewcommand{\pagemark}{page \thepage~of \lastpageref{pagesLTS.\pagenumtype}}
+  \renewcommand{\total}{Total}
 }
 \ExecuteOptions{german}
 \ProcessOptions\relax
@@ -132,9 +130,9 @@
 \chead{}
 
 \newcommand{\backmatter}{
-    \clearpage
-    \pagenumbering{Roman}
-    \renewcommand{\pagenumtype}{Roman}
+  \clearpage
+  \pagenumbering{Roman}
+  \renewcommand{\pagenumtype}{Roman}
 }
 
 
@@ -156,11 +154,11 @@
 
 % Place this environment in funds section to automatically add up costs using the macro 'position'.
 \newenvironment{funds}[1][]
-    % Define variable funds for calculation. Store argument (description of total) in new command.
-    {\def\funds{0.00} \newcommand{\totaldescr}{#1}}
-    % Print total of environment with provided description. 
-    {\rule{\textwidth}{0.5pt} \par \total~\totaldescr \hfill \num[round-mode = places, round-precision = 2]{\funds}\,\euro}
-    
+% Define variable funds for calculation. Store argument (description of total) in new command.
+{\def\funds{0.00} \newcommand{\totaldescr}{#1}}
+% Print total of environment with provided description. 
+{\rule{\textwidth}{0.5pt} \par \total~\totaldescr \hfill \num[round-mode = places, round-precision = 2]{\funds}\,\euro}
+
 % To be used inside a funds environment. Place text and add given price to totals.
 \newcommand{\position}[2]{\par #1 \hfill \num[round-mode = places, round-precision = 2]{#2}\,\euro \FPeval{\funds}{\funds + #2}}
 % Same as above but with multiples of a position.

@@ -11,9 +11,6 @@
 *.cb
 *.cb2
 .*.lb
-dfg.pdf
-dfg-german.pdf
-CV-dfg.pdf
 
 ## Intermediate documents:
 *.dvi
@@ -71,10 +68,6 @@ acs-*.bib
 
 # emacs files
 *.rel
-
-# output file should be ignored
-dfg.pdf
-dfg-german.pdf
 
 # endnotes
 *.ent
@@ -251,4 +244,4 @@ TSWLatexianTemp*
 # generated if using elsarticle.cls
 *.spl
 cv.pdf
-.gitignore
+proposal.pdf

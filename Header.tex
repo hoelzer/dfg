@@ -2,26 +2,9 @@
 % Header.tex - Central Configuration
 % ===============================
 
-% ----------- Draft/Final Mode -----------
-\ifthenelse{\boolean{finalcompile}}{
-    % Final mode: disable todos and showlabels
-    \usepackage[disable]{todonotes}
-    \usepackage[final]{showlabels}
-}{
-    % Draft mode: enable todos and showlabels, widen margins for notes
-    \usepackage{todonotes}
-    %\setlength{\marginparwidth}{2cm}
-    \paperwidth=\dimexpr \paperwidth + 6cm\relax
-    \oddsidemargin=\dimexpr\oddsidemargin + 3cm\relax
-    \evensidemargin=\dimexpr\evensidemargin + 3cm\relax
-    \marginparwidth=\dimexpr \marginparwidth + 3cm\relax
-    \usepackage{showlabels}
-}
-
 % ----------- Core Packages -----------
-%\usepackage{lipsum}
-%\usepackage[pdftex, colorlinks=true, linkcolor=MidnightBlue, citecolor=MidnightBlue, urlcolor=MidnightBlue, pdfauthor={Dr.\ Martin Hoelzer}, pdfpagelayout=SinglePage, bookmarks, bookmarksopen]{hyperref}
-%\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage{todonotes}
 
 % ----------- Font and Caption Settings -----------
 % Fix font warnings for verbatim braces
@@ -64,4 +47,4 @@ Hoelzer:16,Hoelzer:17,Smith2023b,Smith2023c,Smith2023d,MIller1900, % don't miss 
 }
 
 % ----------- Custom Highlight Box -----------
-\input{highlight_box.tex}
+% \input{highlight_box.tex}
