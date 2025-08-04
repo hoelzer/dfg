@@ -1,0 +1,2 @@
+{"rule":"TO_DO_HYPHEN","sentence":"^\\Qtodo[TODO] DFG-form 53.01 - 03/24\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Qtodo[TODO] DFG-form 53.01 - 03/24\\E$"}

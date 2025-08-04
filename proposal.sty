@@ -147,13 +147,24 @@
 }
 
 % --- Document Structure ---
+\newcommand{\mainmatter}{%
+  \cleardoublepage
+  \pagestyle{plain}
+}
 % Switch to Roman page numbering for appendices
 \newcommand{\backmatter}{%
   \clearpage
   \pagenumbering{Roman}
   \renewcommand{\pagenumtype}{Roman}%
 }
-
+\newcommand{\makeprojecttitle}{%
+  {\raggedright{} \normalsize \bfseries
+      Project Description -- Project Proposals\todof{Sections 1--3 must not exceed 17 pages in total.} \par
+      \applicants{} \par
+      \project{} \par
+      \rule{\textwidth}{0.5pt} \par
+    }
+}
 % Add support for subsubsubsections (paragraph level with heading)
 \newcommand{\subsubsubsection}[1]{\paragraph{#1} \mbox{} \par}
 \setcounter{secnumdepth}{5}
