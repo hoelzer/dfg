@@ -1,0 +1,198 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% commenting.sty (https://github.com/dschaehi/commenting.sty)
+%
+% A LaTeX package for collaborative academic writing with sophisticated comment
+% management and tracking features. This package facilitates:
+%
+% Features:
+%   * Color-coded inline comments with author attribution
+%   * Distinct footnote-style annotations
+%   * Tracked text additions with author identification
+%   * Author-specific colored environments
+%   * Smart draft/final mode switching
+%   * Colorblind-safe predefined colors (cbBlue, cbOrange, cbTeal, cbRed, cbPurple, cbGreen, cbYellow, cbPink, cbBrown, cbGray)
+%
+% Basic Usage:
+%   \usepackage[draft|final]{commenting}
+%   \registerauthor{<author>}[<displayname>][<color>]
+%
+% Registration Options:
+%   \registerauthor{alice}                      % Use first author name and cbRed
+%   \registerauthor{alice}[Alice]               % Custom display name, cbRed color
+%   \registerauthor{alice}[Alice][cbBlue]       % Custom display name and color
+%
+% Available Commands:
+%   \<author>{text}           - Add tracked text changes
+%   \<author>i{text}          - Add an inline comment
+%   \<author>f{text}          - Add a footnote comment
+%   \begin{<author>env}       - Create a colored environment
+%   \end{<author>env}
+%
+% Example:
+%   \registerauthor{alice}[Alice][cbBlue]    % Using colorblind-safe blue
+%   \registerauthor{bob}[Bob][cbOrange]    % Using colorblind-safe orange
+%
+%   \alicei{Suggest rephrasing this section}
+%   \bobf{Citation needed here}
+%   This is \alice{important} text.
+%   \begin{bobenv}
+%     This entire paragraph needs review.
+%   \end{bobenv}
+%
+% Predefined Colors:
+%   cbBlue   - Strong blue    (RGB: 51,114,189)
+%   cbOrange - Vivid orange   (RGB: 255,127,42)
+%   cbTeal   - Bright teal    (RGB: 64,204,204)
+%   cbRed    - Clear red      (RGB: 217,37,37)
+%   cbPurple - Muted purple   (RGB: 148,103,189)
+%   cbGreen  - Bright green   (RGB: 0,158,115)
+%   cbYellow - Vivid yellow   (RGB: 240,228,66)
+%   cbPink   - Soft pink      (RGB: 204,121,167)
+%   cbBrown  - Warm brown     (RGB: 146,73,0)
+%   cbGray   - Neutral gray   (RGB: 128,128,128)
+%
+% Options:
+%   draft  - Show all comments and markup (default when document class uses draft)
+%   final  - Hide all comments and markup
+%
+% Author: Jae Hee Lee
+% Website: jaeheelee.de
+% Version: 2025/01/21 v2.0
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{commenting}[2025/01/21 v2.0 by Jae Hee Lee (http://jaeheelee.de)]
+
+% Package options and draft mode handling
+\RequirePackage{ifthen}
+\newboolean{isDraft}
+
+% First set default based on document class
+\@ifclasswith{article}{draft}{\setboolean{isDraft}{true}}{\setboolean{isDraft}{false}}
+
+% Then let package options override
+\DeclareOption{draft}{\setboolean{isDraft}{true}}
+\DeclareOption{final}{\setboolean{isDraft}{false}}
+\ProcessOptions\relax
+
+
+% Required packages
+\RequirePackage[T1]{fontenc}          % For proper font encoding
+\RequirePackage[ruled,perpage]{manyfoot} % For multiple footnote styles
+\RequirePackage{xcolor}               % For colored text
+\RequirePackage{hyperref}             % For hyperlinks
+\AtEndPreamble{\hypersetup{draft=false}} % Disable hyperref draft mode
+
+% Required packages for optional arguments and hooks
+\RequirePackage{xparse}
+\RequirePackage{etoolbox}
+\RequirePackage{graphicx}
+\ifthenelse{\boolean{isDraft}}{\setkeys{Gin}{draft=false}}
+
+% Extract first author from \author command
+\newcommand{\getfirstauthor}{%
+    \ifcsname @author\endcsname
+        \expandafter\getfirstauthorhelper\expandafter{\@author}%
+    \else
+        % Empty if \author is undefined
+        {}%
+    \fi
+}
+\newcommand{\getfirstauthorhelper}[1]{%
+    \expandafter\getfirstword#1 \@nil
+}
+\def\getfirstword#1 #2\@nil{#1}
+
+% Colorblind-safe color palette
+% These colors are chosen for maximum distinguishability for all types of color vision
+% Source: Based on ColorBrewer and research on colorblind-safe palettes
+\definecolor{cbBlue}{RGB}{51,114,189}       % Strong blue
+\definecolor{cbOrange}{RGB}{255,127,42}     % Vivid orange
+\definecolor{cbTeal}{RGB}{64,204,204}       % Bright teal
+\definecolor{cbRed}{RGB}{217,37,37}         % Clear red
+\definecolor{cbPurple}{RGB}{148,103,189}    % Muted purple
+\definecolor{cbGreen}{RGB}{0,158,115}       % Bright green
+\definecolor{cbYellow}{RGB}{240,228,66}     % Vivid yellow
+\definecolor{cbPink}{RGB}{204,121,167}      % Soft pink
+\definecolor{cbBrown}{RGB}{146,73,0}        % Warm brown
+\definecolor{cbGray}{RGB}{128,128,128}      % Neutral gray
+
+% Define signature command for author identification
+\newcommand{\signature}[1]{\textsuperscript{\textsf{#1}}}
+
+% Setup custom footnote style with alphabetic symbols in red
+\DeclareNewFootnote{A}[fnsymbol]
+\renewcommand{\thefootnoteA}{\textcolor{red}{\alph{footnoteA}}}
+
+% Fix hyperref compatibility with manyfoot
+\@ifpackageloaded{hyperref}{%
+    \renewcommand{\footnoteA}[1]{%
+        \stepcounter{footnoteA}%
+        \protected@xdef\@thefnmark{\thefootnoteA}%
+        \hyper@makecurrent{footnoteA}%
+        \@footnotemark%
+        \@footnotetext{#1}%
+    }%
+}{}
+
+% Command for footnote-style comments
+% Args: #1=author identifier, #2=color, #3=comment text
+\newcommand{\footnotecomment}[3]{%
+    \ifthenelse{\boolean{isDraft}}%
+    {\protect{\color{#2}\footnoteA{\color{#2}\guillemotright#3\guillemotleft\signature{#1}}}}%
+    {}%
+}
+
+% Command for inline comments
+% Args: #1=author identifier, #2=color, #3=comment text
+\newcommand{\inlinecomment}[3]{%
+    \ifthenelse{\boolean{isDraft}}%
+    {{\noindent\small\leavevmode\color{#2}\guillemotright#3\guillemotleft\signature{#1}}}%
+    {\unskip}%
+}
+
+% Command for added text with author attribution
+% Args: #1=author identifier, #2=color, #3=added text
+\newcommand{\added}[3]{{%
+            \ifthenelse{\boolean{isDraft}}
+            {\leavevmode\color{#2}#3\signature{#1}}
+            {#3}}%
+}
+
+% Environment for colored text blocks with margin notes
+% Args: #1=color, #2=author identifier
+\newenvironment{colored}[2]
+{\ifhmode\par\fi\ifthenelse{\boolean{isDraft}}{\color{#1}\marginpar{\vspace*{\baselineskip}\signature{#2}}}{}}
+{\ifthenelse{\boolean{isDraft}}{}{}}
+
+% Register a new author with associated commands
+% Args:
+% #1 (mandatory) = command identifier (e.g., alice for \alice commands)
+% [#2] (optional) = display name (defaults to first word in \author or empty)
+% [#3] (optional) = color name (defaults to cbRed)
+\NewDocumentCommand{\registerauthor}{m o o}{%
+    % Create author-specific variables to avoid overwrites
+    % Get author name - use optional arg if provided, else first author, else empty
+    \IfNoValueTF{#2}
+    {\expandafter\def\csname displayname@#1\endcsname{\getfirstauthor}}
+    {\expandafter\def\csname displayname@#1\endcsname{#2}}%
+
+    % Get color - use optional arg if provided, else cbRed
+    \IfNoValueTF{#3}
+    {\expandafter\def\csname authorcolor@#1\endcsname{cbRed}}
+    {\expandafter\def\csname authorcolor@#1\endcsname{#3}}%
+
+    % Define color using author-specific color name
+    \expandafter\definecolor{color#1}{named}{\csname authorcolor@#1\endcsname}%
+
+    % Define commands using command identifier and author-specific display name
+    \expandafter\newcommand\csname #1i\endcsname[1]{%
+        \inlinecomment{\csname displayname@#1\endcsname}{color#1}{##1}}%
+    \expandafter\newcommand\csname #1f\endcsname[1]{%
+        \footnotecomment{\csname displayname@#1\endcsname}{color#1}{##1}}%
+    \expandafter\newcommand\csname #1\endcsname[1]{%
+        \added{\csname displayname@#1\endcsname}{color#1}{##1}}%
+    \expandafter\newenvironment{#1env}{%
+        \begin{colored}{color#1}{\csname displayname@#1\endcsname}}%
+            {\end{colored}}%
+}

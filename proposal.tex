@@ -1,33 +1,18 @@
-\documentclass[final]{scrartcl}
+\documentclass{scrartcl}
 
-%This template is based on the DFG rtf form (see Readme on GitHub for last accessed date, and version in the header of the compiled PDF)
-%
-%Author: Martin Hoelzer, hoelzer.martin@gmail.com
-%
 
-\usepackage[utf8]{inputenc}
-\usepackage[english]{proposal}
-\input{header.tex}
-
-% language dependent
-% change labels, e.g.:
+\usepackage{proposal}
+% \usepackage[obeyFinal]{todonotes}
+\usepackage{comment}
 \crefname{figure}{Figure}{Figures}
-
+\usepackage[draft]{commenting}
+\registerauthor{todo}[TODO]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%  TITLE PAGE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\ihead*{DFG-form 53.01 - 03/24}
 \newcommand{\applicants}{Dr.\ Martin H\"olzer, Robert Koch Institute, Berlin [First name  last name, city of all applicants]}
 \newcommand{\project}{[Project title]}
-
-% declare bibliography categories
-
-% likely deprecated and these categories are not needed anymore
-%\addtocategory{reviewed}{Hoelzer:16} 
-%\nocite{}
-%\addtocategory{nonreviewed}{Desiro:18} 
-%\addtocategory{patents_pending}{} 
-%\addtocategory{patents}{} 
 
 \begin{document}
 \pagestyle{empty}
@@ -57,8 +42,8 @@
 %%%%  PROJECT DESCRIPTION - PROJECT PROPOSALS  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Sections 1-3 must not exceed 17 pages in total.
-\todo{Sections 1--3 must not exceed 17 pages in total.}
-{\raggedright{} \normalsize \bfseries 
+\todof{Sections 1--3 must not exceed 17 pages in total.}
+{\raggedright{} \normalsize \bfseries
 	Project Description -- Project Proposals \par
 	\applicants{} \par
 	\project{} \par
@@ -73,43 +58,7 @@
 \label{sec:work-report}
 
 \subsection*{State of the art and preliminary work}
-% For renewal proposals, please report on your previous work. This report
-% should also be understandable without referring to additional literature.
 
-% This is a dummy citation~\cite{Hoelzer:17}. Yeah. And another one~\cite{Gerst:18}. Wuhuh. In an older version of the template, these citations~\cite{Hoelzer:16, Desiro:18} were not shown in the "\ref{sec:bib}~Bibliography" section, because they are already listed as \verb=\addtocategory{reviewed}{Hoelzer:16}= and\verb=\addtocategory{nonreviewed}{Desiro:18}= in the preamble and therefore shown in subsubsections \emph{Articles published by outlets with scientific quality \dots} and \emph{Other publications, both peer-reviewed and non-peer-reviewed}. However, these subsubsections are deprecated since v53.01 of the DFG template! And therefore, all the four citations above will simply show up in "\ref{sec:bib}~Project- and subject-related list of publications" now.
-
-\lipsum[1]
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% DEPRECATED since v54 (https://www.dfg.de/download/pdf/foerderung/programme/sachbeihilfe/info_vordrucksaenderungen.pdf)
-% This became now part of the publication list in section 3, see below
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsection{Project-related publications}
-%Please include a list of own publications that are related to the proposed project. 
-%Sections 1.2.1 and 1.2.2 together must not exceed 10 publications; please number them consecutively.
-
-%a maximum of ten publications
-%\subsubsection{Articles published by outlets with scientific quality assurance, book publications, and works accepted for publication but not yet published}
-
-% Own literature can be designated with a prefix, default 'O' for "Own". 
-% If the function is not desired, delete the "labelprefix" commands directly below this comment 
-% AND in the section: "Bibliography concerning the state of the art, the research objectives, and the work programme"
-% Then, all your references should be numbered consecutively.
-%\newrefcontext[labelprefix=O]
-%\printbibliography[category=reviewed, heading=none, env=bibliographyNUM, resetnumbers]
-
-%\subsubsection{Other publications, both peer-reviewed and non-peer-reviewed}
-%\printbibliography[category=nonreviewed, heading=none, env=bibliographyNUM, resetnumbers=false]
-
-%\subsubsection{Patents}
-
-%\subsubsubsection{Pending}
-%\printbibliography[category=patents_pending, heading=none]
-%None.
-
-%\subsubsubsection{Issued}
-%\printbibliography[category=patents, heading=none]
-%None.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%  OBJECTIVES AND WP %%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -117,37 +66,23 @@
 \section{Objectives and work program}
 
 \subsection{Anticipated total duration of the project}
-Financial support is requested for \todo[inline]{three years.}
-
+Financial support is requested for \todoi{three years.}
 \subsection{Objectives}
-\let\oldpara=\theparagraph
-\addtocounter{secnumdepth}{1}
-\renewcommand{\theparagraph}{Goal \arabic{paragraph}}
-
-\paragraph{\textnormal{Goal one is ...}}
+\goalstyle
+\paragraph{Goal one is ...}
 
 \subsection{Work program including proposed research methods}
 %For each applicant
-\todo[inline]{ca.\ 6-8 pages; ca. 4-8 WPs}
+\todoi{ca.\ 6-8 pages; ca. 4-8 WPs}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %%%%% BEGIN OF WORK PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-%\titlespacing*{\paragraph}{0pt}{-0.2\baselineskip}{0.2\baselineskip}
-\addtocounter{secnumdepth}{1}
-%\newcommand\WP{WP\arabic{paragraph}}
-\renewcommand{\theparagraph}{WP\arabic{paragraph}}
-\RedeclareSectionCommand[beforeskip=-2.5ex plus-1ex minus -.2ex,%
-afterskip=2.5ex plus 0.2ex minus 0.2ex]{paragraph}
-%numbered sub-workpackages are supported - just use \subparagraph{}
-\RedeclareSectionCommand[indent=0pt, beforeskip=-3.5ex plus-1ex minus -.2ex,%
-afterskip=2.5ex plus 0.2ex minus 0.2ex]{subparagraph}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\workpackagestyle
 \hrulefill
 \paragraph{First work package.}
 \label{wp:1}
-
+\subparagraph{Test}
 \hrulefill
 \paragraph{Second work package.}
 \label{wp:2}
@@ -161,7 +96,7 @@ afterskip=2.5ex plus 0.2ex minus 0.2ex]{subparagraph}
 %%%%  TIMELINE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% This is not directly part of the DFG TRF template, but always helpful in my eyes
-\let\theparagraph=\oldpara
+\standardstyle
 \paragraph*{Time considerations}
 
 \subsection{Handling of research data}
@@ -173,20 +108,21 @@ sequencing data) will be deposited in publicly available repositories
 allow complete reproducibility of all analyses, the source code and executed
 comands will be also made publicly available
 (\href{https://github.com/}{GitHub}).  Thus, all relevant data will become
-accessible for future use. 
-\todo[inline]{FAIR principals}
+accessible for future use.
+\todoi{FAIR principals}
 
 \subsection{Relevance of sex, gender and/or diversity}
-\todo[inline]{Text}
+\todoi{Text}
 
 % Works cited from sections 1 and 2, both by the applicant(s) and by third parties. Please include DOI/URL if available. 
 % A maximum of ten of your own works cited may be highlighted; font at least Arial 9 pt.
 \section{Project- and subject-related list of publications}
 \label{sec:bib}
-\todo[inline]{Works cited from sections 1 and 2, both by the applicant(s) and by third parties. Please include DOI/URL if available. A maximum of ten of your own works cited may be highlighted; font at least Arial 9 pt.}
+\todoi{Works cited from sections 1 and 2, both by the applicant(s) and by third parties. Please include DOI/URL if available. A maximum of ten of your own works cited may be highlighted; font at least Arial 9 pt.}
 %\AtNextBibliography{\small}
 % \printbibliography	
 
+\begin{comment}
 \backmatter
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%  SUPPLEMENT  (new since 04/2022) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -197,27 +133,27 @@ accessible for future use.
 \subsection{Ethical and/or legal aspects of the project}
 
 \subsubsection{General ethical aspects}
-\todo[inline]{Text}
+\todoi{Text}
 
 \subsubsection{Descriptions of proposed investigations involving humans, human materials or identifiable data}
-\todo[inline]{Text}
+\todoi{Text}
 
 \subsubsection{Descriptions of proposed investigations involving experiments on animals}
-\todo[inline]{Text}
+\todoi{Text}
 
 \subsubsection{Descriptions of projects involving genetic resources (or associated traditional knowledge) from a foreign country}
-\todo[inline]{Text}
+\todoi{Text}
 
 \subsubsection{Explanations regarding any possible safety-related aspects}
 
 \subsubsubsection{\enquote{Dual Use Research of Concern}; foreign trade law}
-\todo[inline]{Text}
+\todoi{Text}
 
 \subsubsubsection{Risks in international cooperation}
-\todo[inline]{Text}
+\todoi{Text}
 
 \subsubsection{Considerations on aspects of ecological sustainability in the planning and implementation of the project}
-\todo[inline]{Text}
+\todoi{Text}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%  PEOPLE/COLLAB/FUNDING  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -225,11 +161,11 @@ accessible for future use.
 \subsection{Employment status information}
 %for each applicant, state the last name, first name, and employment status
 %(including duration of contract and funding body, if on a fixed-term contract)
-H\"olzer, Martin -- postdoctoral researcher, \todo[inline]{additional information}
+H\"olzer, Martin -- postdoctoral researcher, \todoi{additional information}
 
 \subsection{First-time proposal data}
 %only if applicable: Last name, first name of first-time applicant
-\todo[inline]{H\"olzer, Martin.}
+\todoi{H\"olzer, Martin.}
 
 \subsection{Composition of the project group}
 %List only those individuals who will work on the project but will not be paid
@@ -239,20 +175,20 @@ The following individuals will work on the project but will not be paid out of
 the project funds:
 
 \begin{itemize}
-\item Dude1
-\item Dude2
+	\item Dude1
+	\item Dude2
 \end{itemize}
 
 \subsection{Researchers in Germany with whom you have agreed to cooperate on this project}
-\todo[inline]{Text}
+\todoi{Text}
 
 \subsection{Researchers abroad with whom you have agreed to cooperate on this project}
-\todo[inline]{Text}
+\todoi{Text}
 
 \subsection{Researchers with whom you have collaborated scientifically within the past three years}
 % This information will help avoid potential conflicts of interest.
 \begin{itemize}
-  \item Prof.\ Dr.\ Dr.\ Foo Bar
+	\item Prof.\ Dr.\ Dr.\ Foo Bar
 \end{itemize}
 
 \subsection{Project-relevant cooperation with commercial enterprises}
@@ -265,19 +201,19 @@ None.
 
 \subsection{Scientific equipment}
 %List larger instruments that will be available to you for the project. These may include large computer facilities if computing capacity will be needed.
-\todo[inline]{Text}
+\todoi{Text}
 As something can be seen in \cref{fig:some_nice_graph}.
 
 \begin{figure}
-\centering
-\missingfigure{schematics of a souvereign-class warp-reactor}
-\caption{warp reactor}
-\label{fig:some_nice_graph}
+	\centering
+	\missingfigure{schematics of a souvereign-class warp-reactor}
+	\caption{warp reactor}
+	\label{fig:some_nice_graph}
 \end{figure}
 
 \subsection{Other submissions}
 %List any funding proposals for this project and/or major instrumentation previously submitted to a third party.
-\todo[inline]{Text}
+\todoi{Text}
 
 \subsection{Other information}
 %Please use this section for any additional information you feel is relevant which has not been provided elsewhere.
@@ -293,10 +229,10 @@ In submitting a proposal to the DFG, I agree to adhere to the DFG's rules of goo
 
 \subsubsection{Funding for Staff}
 \begin{funds}[funding for staff]
-The following staff positions are requested for \todo[inline]{xx} years each:
+	The following staff positions are requested for \todoi{xx} years each:
 
-\positionmul{Research associate, TV-L 13, 36 months}{5375}{36}
-\positionmul{Hiwi, TV-L 13, 12 months}{450}{12}
+	\positionmul{Research associate, TV-L 13, 36 months}{5375}{36}
+	\positionmul{Hiwi, TV-L 13, 12 months}{450}{12}
 
 \end{funds}
 
@@ -304,28 +240,28 @@ The following staff positions are requested for \todo[inline]{xx} years each:
 \subsubsection{Direct Project Costs}
 \begin{funds}[direct project costs]
 
-\subsubsubsection{Equipment up to 10\,000\,\euro, Software and Consumables}
+	\subsubsubsection{Equipment up to 10\,000\,\euro, Software and Consumables}
 
-\position{Next-Generation Sequencing, Illumina HiSeq\,2500}{3000}
+	\position{Next-Generation Sequencing, Illumina HiSeq\,2500}{3000}
 
-\subsubsubsection{Travel Expenses}
-We apply for a total of 10\,000\,\euro\ for travel expenses.
-\position{Travel}{10000}
+	\subsubsubsection{Travel Expenses}
+	We apply for a total of 10\,000\,\euro\ for travel expenses.
+	\position{Travel}{10000}
 
-\subsubsubsection{Visiting Researchers \textnormal{(excluding Mercator Fellows)}}
-None.
+	\subsubsubsection{Visiting Researchers \textnormal{(excluding Mercator Fellows)}}
+	None.
 
-\subsubsubsection{Expenses for Laboratory Animals}
-None.
+	\subsubsubsection{Expenses for Laboratory Animals}
+	None.
 
-\subsubsubsection{Other Costs}
-None.
+	\subsubsubsection{Other Costs}
+	None.
 
-\subsubsubsection{Project-related publication expenses}
-We apply for a total of 1500\euro\ for publication expenses (750\,\euro\ per
-year). Furthermore, we will submit articles to open access preprint repositories
-such as \href{https://www.biorxiv.org/}{\textit{bioRxiv}}.
-\position{Publication costs}{1500}
+	\subsubsubsection{Project-related publication expenses}
+	We apply for a total of 1500\euro\ for publication expenses (750\,\euro\ per
+	year). Furthermore, we will submit articles to open access preprint repositories
+	such as \href{https://www.biorxiv.org/}{\textit{bioRxiv}}.
+	\position{Publication costs}{1500}
 
 \end{funds}
 
@@ -343,27 +279,27 @@ Our laboratory is well equipped; all necessary instruments are available.
 %% otherwise, just delete/comment
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\vspace*{2cm}\todo[inline]{The following are additional/other modules one might want to apply for. Otherwise, just delete/comment}
+\vspace*{2cm}\todoi{The following are additional/other modules one might want to apply for. Otherwise, just delete/comment}
 
 \subsection{Module Temporary Position for Principal Investigator}
-\todo[inline]{Text}
+\todoi{Text}
 
 \subsection{Module Replacement Funding}
-\todo[inline]{Text}
+\todoi{Text}
 
 \subsection{Module Temporary Clinician Substitute}
-\todo[inline]{Text}
+\todoi{Text}
 
 \subsection{Module Mercator Fellows}
-\todo[inline]{Text}
+\todoi{Text}
 
 \subsection{Module Workshop Funding}
-\todo[inline]{Text}
+\todoi{Text}
 
 \subsection{Module Public Relations}
-\todo[inline]{Text}
+\todoi{Text}
 
 \subsection{Module Standard Allowance for Gender Equality Measures}
-\todo[inline]{Please detail what measures are planned to promote diversity and equal opportunities.  If you are submitting your proposal for an individual research grant within a network, note that this standard allowance may only be applied for within the coordination project. The coordination project must combine all such requests in its calculation.}
-
+\todoi{Please detail what measures are planned to promote diversity and equal opportunities.  If you are submitting your proposal for an individual research grant within a network, note that this standard allowance may only be applied for within the coordination project. The coordination project must combine all such requests in its calculation.}
+\end{comment}
 \end{document}

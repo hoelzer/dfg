@@ -87,7 +87,7 @@ The template implements some stuff that is not required by the original DFG temp
 ## ToDo-Notes, reference labels and draft mode
 By default, ToDos and labels are activated (see below) which is considered the _draft_ mode of the template. To turn both of them off (e.g. for the final version) just change `\setboolean{finalcompile}{false}` in dfg.tex to `\setboolean{finalcompile}{true}`.
 
-ToDos are activated by default using the `todonotes` package. You can see it working by looking at the `\todo[inline]{foo}` statements in the text. It is self-explaining.
+ToDos are activated by default using the `todonotes` package. You can see it working by looking at the `\todoi{foo}` statements in the text. It is self-explaining.
 
 In addition you will see some labels at the margins. These are caused by another plugin which will just print the name of the label stated in `\label{}`. This can help by referencing sections and stuff.
 

@@ -1,114 +1,188 @@
-\ProvidesPackage{proposal}[2018/02/27]
+\ProvidesPackage{proposal}[2025/08/03 v3.1.0 DFG Proposal Template]
 
-\usepackage[dvipsnames,svgnames]{xcolor}
-\usepackage[ngerman, english]{babel}
-\usepackage{amsmath}
-\usepackage{microtype}
-\usepackage{csquotes}
-% use DFG margins according to https://github.com/hoelzer/dfg/issues/56
-\usepackage[headheight = 1cm, tmargin = 2.5cm, lmargin = 2.5cm, rmargin = 2cm, bmargin = 1.5cm]{geometry}
-\usepackage[exponent-product = \cdot]{siunitx}
-\usepackage{siunitx}
-\sisetup{detect-all=true}
-\usepackage{helvet}
-\usepackage{scrlayer-scrpage}
-\usepackage{eurosym}
-\usepackage{fp}
-\pagenumbering{arabic}
-\usepackage{xspace}
-\usepackage{verbatim}
-\usepackage{longtable}
-\usepackage{tikz}
-\usepackage[pdftex, colorlinks=true, linkcolor=MidnightBlue, citecolor=MidnightBlue, urlcolor=MidnightBlue, pdfauthor={Dr.\ Martin Hoelzer}, pdfpagelayout=SinglePage, bookmarks, bookmarksopen]{hyperref}
-\usepackage{graphicx}
-\usepackage[numbered]{bookmark}
-\usepackage[font=small,labelfont={bf,it},textfont=it]{caption}
-\captionsetup{format=plain}
-\usepackage[noabbrev]{cleveref}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DFG Proposal Style Package
+% This package provides formatting and functionality for DFG grant proposals.
+% Based on the official DFG guidelines for "Sachbeihilfe" grants.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage[numbered]{bookmark}
-\usepackage[font=small,labelfont={bf,it},textfont=it]{caption}
-\captionsetup{format=plain}
+%==============================================================================
+% BASIC CONFIGURATION
+%==============================================================================
 
-\usepackage[backend = biber]{biblatex}
+% --- Encoding and Language ---
+\usepackage[utf8]{inputenc}                % Use UTF-8 encoding
+\usepackage[ngerman,english]{babel}        % German and English language support
 
+% --- Fonts and Typography ---
+\usepackage{helvet}                        % Use Helvetica font
+\renewcommand{\familydefault}{\sfdefault}  % Set sans-serif as default
+\usepackage[final]{microtype}              % Improved typography
 
-%% von Hurenkindern und Schusterjungen
-\clubpenalty = 10000
-\widowpenalty = 10000
-\displaywidowpenalty = 10000
+%==============================================================================
+% SCIENTIFIC CONTENT SUPPORT
+%==============================================================================
 
-%% weniger underful hboxes
+% --- Math and Units ---
+\usepackage{amsmath}                       % Enhanced math support
+\usepackage[exponent-product=\cdot]{siunitx} % SI units with proper formatting
+\sisetup{detect-all=true,locale=US}        % SIunitx configuration
+% --- Figures and Graphics ---
+\usepackage[dvipsnames,svgnames]{xcolor}   % Extended color support
+\usepackage{graphicx}                      % Graphics inclusion
+\graphicspath{{figures/}}                  % Default path for figures
+\usepackage{tikz}                          % TikZ for vector graphics
+
+% --- Tables and Captions ---
+\usepackage{longtable}                     % Tables across multiple pages
+\usepackage[font=small,
+  labelfont={bf,it},
+  textfont=it]{caption}          % Caption formatting
+\captionsetup{format=plain}                % Simple caption style
+
+%==============================================================================
+% PAGE LAYOUT AND STRUCTURE
+%==============================================================================
+
+% --- Page Layout ---
+% Following DFG margin requirements: https://github.com/hoelzer/dfg/issues/56
+\usepackage[headheight=1cm,
+  tmargin=2.5cm,
+  lmargin=2.5cm,
+  rmargin=2cm,
+  bmargin=1.5cm]{geometry}       % Page geometry settings
+
+% --- Document Structure ---
+\usepackage{scrlayer-scrpage}              % KOMA-Script page style
+\KOMAoptions{paper=a4}                     % A4 paper size
+\KOMAoption{fontsize}{11pt}                % 11pt base font size
+\usepackage[pagecontinue=false]{pageslts}
+
+% --- Headings and Sections ---
+\pagestyle{scrheadings}
+\setkomafont{section}{\normalsize}         % Section font size
+\setkomafont{subsection}{\normalsize}      % Subsection font size
+\renewcommand{\headfont}{\sffamily\footnotesize} % Header font
+\setlength{\parskip}{0.5em}                % Paragraph spacing
+\setlength{\parindent}{0em}                % No paragraph indentation
+\ohead*{\pagemark}                         % Page number in outer header
+\cfoot*{}                                  % No footer
+\chead{}                                   % No center header
+\renewcommand{\pagemark}{page \thepage~of \lastpageref{pagesLTS.\pagenumtype}}
+%==============================================================================
+% REFERENCES AND HYPERLINKS
+%==============================================================================
+
+% --- Bibliography ---
+\usepackage[backend=biber]{biblatex}       % Bibliography management
+\addbibresource{literature.bib}            % Default bibliography file
+\AtBeginBibliography{\small}               % Smaller font for bibliography
+
+% --- Hyperlinks and PDF Properties ---
+\usepackage[pdftex,
+  colorlinks=true,
+  linkcolor=MidnightBlue,
+  citecolor=MidnightBlue,
+  urlcolor=MidnightBlue,
+  pdfauthor={},                  % Set author in main document
+  pdfpagelayout=SinglePage,
+  bookmarks,
+  bookmarksopen]{hyperref}       % PDF hyperlinks and metadata
+
+\usepackage[numbered]{bookmark}            % Numbered PDF bookmarks
+\usepackage[noabbrev]{cleveref}            % Intelligent cross-referencing
+
+%==============================================================================
+% ADDITIONAL FUNCTIONALITY
+%==============================================================================
+
+% --- Utilities ---
+\usepackage{silence}                       % Suppress specific package info messages
+\WarningsOff[pageslts]                     % Mute pageslts informational messages
+\usepackage{csquotes}                      % Context-sensitive quotation marks
+\usepackage{eurosym}                       % Euro symbol
+\usepackage{fp}                            % Fixed-point arithmetic
+\usepackage{xspace}                        % Intelligent spacing
+\usepackage{verbatim}                      % Verbatim text
+\usepackage{ifthen}                        % Conditional processing
+
+% --- Page Numbering ---
+\pagenumbering{arabic}                     % Default to arabic numbers
+\newcommand{\pagenumtype}{arabic}          % Track page numbering type
+
+% --- Typography Improvements ---
+% Avoid widows and orphans
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+
+% Reduce underfull hbox warnings
 \tolerance=3000
 \emergencystretch=15pt
-\hbadness=2000 %% too many underfull hbox warnings
+\hbadness=2000
+\hyphenpenalty=3000
+\doublehyphendemerits=10000
 
-\hyphenpenalty 3000
-% Set doublehyphendemerits to a typical value to avoid excessive penalty; increase if needed for layout
-\doublehyphendemerits 10000
-\doublehyphendemerits 50000000
+%==============================================================================
+% CUSTOM COMMANDS AND ENVIRONMENTS
+%==============================================================================
 
+% --- Funds Calculation ---
+% Environment for calculating and displaying funding totals
+\newcommand{\total}{Total}
+\newenvironment{funds}[1][]
+{\def\funds{0.00} \newcommand{\totaldescr}{#1}}
+{\rule{\textwidth}{0.5pt} \par \total~\totaldescr \hfill \num[round-mode=places,round-precision=2]{\funds}\,\euro}
 
-\newcommand{\total}{}
-
-\newcommand{\pagenumtype}{arabic}
-\DeclareOption{german}{
-  \sisetup{locale=DE}
-  \AtBeginDocument{\selectlanguage{ngerman}}
-  % \renewcommand{\pagemark}{Seite \thepage~von \lastpageref{pagesLTS.\pagenumtype}}
-  \renewcommand{\total}{Summe}
+% Add a single funding position
+\newcommand{\position}[2]{%
+  \par #1 \hfill \num[round-mode=places,round-precision=2]{#2}\,\euro
+  \FPeval{\funds}{\funds + #2}%
 }
-\DeclareOption{english}{
-  \sisetup{locale=US}
-  \AtBeginDocument{\selectlanguage{english}}
-  % \renewcommand{\pagemark}{page \thepage~of \lastpageref{pagesLTS.\pagenumtype}}
-  \renewcommand{\total}{Total}
-}
-\ExecuteOptions{german}
-\ProcessOptions\relax
-\ohead*{\pagemark}
-\cfoot*{}
-\chead{}
 
-\newcommand{\backmatter}{
+% Add a multiplied funding position (e.g., 3 × 1000€)
+\newcommand{\positionmul}[3]{%
+  \par #1 \hfill \num{#3} $\times$ \num[round-mode=places,round-precision=2]{#2}\,\euro
+  \FPeval{\funds}{\funds + #3*#2}%
+}
+
+% --- Document Structure ---
+% Switch to Roman page numbering for appendices
+\newcommand{\backmatter}{%
   \clearpage
   \pagenumbering{Roman}
-  \renewcommand{\pagenumtype}{Roman}
+  \renewcommand{\pagenumtype}{Roman}%
 }
 
-
-\KOMAoptions{paper=a4}
-\KOMAoption{fontsize}{11pt}
-\pagestyle{scrheadings}
-\setkomafont{section}{\normalsize}
-\setkomafont{subsection}{\normalsize}
-\renewcommand{\familydefault}{\sfdefault}
-\renewcommand{\headfont}{\sffamily\footnotesize}
-\setlength{\parskip}{0.5em}
-\setlength{\parindent}{0em}
-
+% Add support for subsubsubsections (paragraph level with heading)
 \newcommand{\subsubsubsection}[1]{\paragraph{#1} \mbox{} \par}
 \setcounter{secnumdepth}{5}
 
-% Ensure that if round-precision is specified, the give number of decimals is printed (necessary for prices in Euro)
-% Removed deprecated round-integer-to-decimal option 
+% --- Custom Paragraph Styles ---
+\newcommand{\goalstyle}{%
+  \addtocounter{secnumdepth}{1}%
+  \RedeclareSectionCommand[
+    beforeskip=-2.5ex plus-1ex minus -.2ex,
+    afterskip=2.5ex plus 0.2ex minus 0.2ex]{paragraph}%
+  \renewcommand{\theparagraph}{Goal \arabic{paragraph}}%
+}
 
-% Place this environment in funds section to automatically add up costs using the macro 'position'.
-\newenvironment{funds}[1][]
-% Define variable funds for calculation. Store argument (description of total) in new command.
-{\def\funds{0.00} \newcommand{\totaldescr}{#1}}
-% Print total of environment with provided description. 
-{\rule{\textwidth}{0.5pt} \par \total~\totaldescr \hfill \num[round-mode = places, round-precision = 2]{\funds}\,\euro}
+\newcommand{\workpackagestyle}{%
+  \addtocounter{secnumdepth}{1}%
+  \RedeclareSectionCommand[
+    beforeskip=-2.5ex plus-1ex minus -.2ex,
+    afterskip=2.5ex plus 0.2ex minus 0.2ex]{paragraph}%
+  \RedeclareSectionCommand[
+    indent=0pt, beforeskip=-3.5ex plus-1ex minus -.2ex,
+    afterskip=2.5ex plus 0.2ex minus 0.2ex]{subparagraph}
+  \renewcommand{\theparagraph}{WP\arabic{paragraph}}%
+}
 
-% To be used inside a funds environment. Place text and add given price to totals.
-\newcommand{\position}[2]{\par #1 \hfill \num[round-mode = places, round-precision = 2]{#2}\,\euro \FPeval{\funds}{\funds + #2}}
-% Same as above but with multiples of a position.
-\newcommand{\positionmul}[3]{\par #1 \hfill \num{#3} $\times$ \num[round-mode = places, round-precision = 2]{#2}\,\euro \FPeval{\funds}{\funds + #3*#2}}
-
-% todonotes and a switch for final
-\usepackage{ifthen}
-\newboolean{finalcompile}
-
-% Fix font warnings for verbatim braces
-\DeclareTextSymbolDefault{\textbraceleft}{T1}
-\DeclareTextSymbolDefault{\textbraceright}{T1}
+\newcommand{\standardstyle}{%
+  \addtocounter{secnumdepth}{-1}%
+  \RedeclareSectionCommand[
+    beforeskip=3.25ex plus 1ex minus .2ex,
+    afterskip=1.5ex plus .2ex]{paragraph}%
+  \renewcommand{\theparagraph}{\thesection.\thesubsection.\thesubsubsection.\arabic{paragraph}}%
+}
+% ...existing code...
