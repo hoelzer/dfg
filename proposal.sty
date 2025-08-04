@@ -156,6 +156,9 @@
   \clearpage
   \pagenumbering{Roman}
   \renewcommand{\pagenumtype}{Roman}%
+  % Only include section, subsection, and paragraph for numbering
+  \renewcommand{\theparagraph}{\thesubsubsection.\arabic{paragraph}}%
+  \setcounter{secnumdepth}{5}
 }
 \newcommand{\makeprojecttitle}{%
   {\raggedright{} \normalsize \bfseries
@@ -167,11 +170,10 @@
 }
 % Add support for subsubsubsections (paragraph level with heading)
 \newcommand{\subsubsubsection}[1]{\paragraph{#1} \mbox{} \par}
-\setcounter{secnumdepth}{5}
 
 % --- Custom Paragraph Styles ---
 \newcommand{\workpackagestyle}{%
-  \addtocounter{secnumdepth}{1}%
+  \setcounter{secnumdepth}{5}
   \RedeclareSectionCommand[
     beforeskip=-2.5ex plus-1ex minus -.2ex,
     afterskip=2.5ex plus 0.2ex minus 0.2ex]{paragraph}%
@@ -182,10 +184,9 @@
 }
 
 \newcommand{\standardstyle}{%
-  \addtocounter{secnumdepth}{-1}%
+  \setcounter{secnumdepth}{4}
   \RedeclareSectionCommand[
     beforeskip=3.25ex plus 1ex minus .2ex,
     afterskip=1.5ex plus .2ex]{paragraph}%
   \renewcommand{\theparagraph}{\thesection.\thesubsection.\thesubsubsection.\arabic{paragraph}}%
 }
-% ...existing code...
