@@ -170,14 +170,6 @@
 \setcounter{secnumdepth}{5}
 
 % --- Custom Paragraph Styles ---
-\newcommand{\goalstyle}{%
-  \addtocounter{secnumdepth}{1}%
-  \RedeclareSectionCommand[
-    beforeskip=-2.5ex plus-1ex minus -.2ex,
-    afterskip=2.5ex plus 0.2ex minus 0.2ex]{paragraph}%
-  \renewcommand{\theparagraph}{Goal \arabic{paragraph}}%
-}
-
 \newcommand{\workpackagestyle}{%
   \addtocounter{secnumdepth}{1}%
   \RedeclareSectionCommand[
