@@ -245,3 +245,5 @@ TSWLatexianTemp*
 *.spl
 cv.pdf
 proposal.pdf
+.vscode/ltex.dictionary.en-US.txt
+.vscode/ltex.disabledRules.en-US.txt

@@ -56,6 +56,10 @@
 \usepackage{scrlayer-scrpage}              % KOMA-Script page style
 \KOMAoptions{paper=a4}                     % A4 paper size
 \KOMAoption{fontsize}{11pt}                % 11pt base font size
+
+% Suppress informational package notes from 'pageslts'
+\let\OldPackageNoteNoLine\PackageNoteNoLine
+\renewcommand{\PackageNoteNoLine}[2]{}
 \usepackage[pagecontinue=false]{pageslts}
 
 % --- Headings and Sections ---
@@ -162,7 +166,7 @@
 }
 \newcommand{\makeprojecttitle}{%
   {\raggedright{} \normalsize \bfseries
-      Project Description -- Project Proposals\todof{Sections 1--3 must not exceed 17 pages in total.} \par
+      Project Description -- Project Proposals \par
       \applicants{} \par
       \project{} \par
       \rule{\textwidth}{0.5pt} \par
