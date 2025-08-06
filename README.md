@@ -33,6 +33,7 @@ _Please let me know if I accidentally forgot a contribution! Thanks all contribu
 If you use this template and receive confirmation, please let me know so that I can mention your successful application here!
 
 * Prof. Dr. Maximilian E. Schüle ([@MaxEmanuel](https://github.com/MaxEmanuel)), "Functions Become Data: Higher-Order Lambda Functions for Database Systems" (2025)
+* Prof. Dr. Maximilian E. Schüle ([@MaxEmanuel](https://github.com/MaxEmanuel)), "Buffers with Benefits: Elastic Memory Hierarchies for Memory-Intensive Applications" (2025)
 
 ## Compilation
 
