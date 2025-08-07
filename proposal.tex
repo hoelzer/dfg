@@ -1,6 +1,6 @@
 \documentclass{scrartcl}
 \usepackage{proposal}
-
+\addbibresource{literature.bib}
 \newcommand{\applicants}{[First name  last name, city of all applicants]}
 \newcommand{\project}{[Project title]}
 
@@ -46,11 +46,20 @@ Financial support is requested for three years.
 % Works cited from sections 1 and 2, both by the applicant(s) and by third
 % parties. Please include DOI/URL if available. A maximum of ten of your own
 % works cited may be highlighted; font at least Arial 9 pt.
-\section{Project- and subject-related list of publications}
+\paragraph*{Project-Specific Publications by the Applicants}
 \label{sec:bib}
+\nocite{Desiro:18}
 
-%\AtNextBibliography{\small}
-% \printbibliography
+% Note that own references need to have the keyword \texttt{DFG}.
+\newrefcontext{dfg} %
+\printbibliography[keyword={DFG},heading=none,resetnumbers=true]
+\nocite{Hoelzer:16}
+
+\paragraph*{References}
+\label{sec:references}
+% other pubs
+\newrefcontext{} %
+\printbibliography[notkeyword={DFG},heading=none,resetnumbers=true]
 
 \backmatter
 \section{Supplementary information on the research context}
@@ -132,7 +141,6 @@ In submitting a proposal to the DFG, I agree to adhere to the DFG's rules of goo
 	\positionmul{Research associate, TV-L 13, 36 months}{5375}{36}
 \end{funds}
 
-
 \subsubsection{Direct Project Costs}
 \begin{funds}[direct project costs]
 
@@ -189,5 +197,4 @@ In submitting a proposal to the DFG, I agree to adhere to the DFG's rules of goo
 
 \subsection{Module Standard Allowance for Gender Equality Measures}
 % Please detail what measures are planned to promote diversity and equal opportunities.  If you are submitting your proposal for an individual research grant within a network, note that this standard allowance may only be applied for within the coordination project. The coordination project must combine all such requests in its calculation.
-
 \end{document}

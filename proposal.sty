@@ -1,13 +1,23 @@
 \ProvidesPackage{proposal}[2025/08/03 v3.1.0 DFG Proposal Template]
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% DFG Proposal Style Package
+%==============================================================================
+% DFG PROPOSAL STYLE PACKAGE
+%==============================================================================
 % This package provides formatting and functionality for DFG grant proposals.
 % Based on the official DFG guidelines for "Sachbeihilfe" grants.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% CONTENTS:
+% 1. Basic Configuration (encoding, language, fonts)
+% 2. Page Layout and Structure
+% 3. Scientific Content Support (math, figures, tables)
+% 4. Bibliography and Citation Setup
+% 5. Hyperlinks and PDF Properties
+% 6. Additional Functionality
+% 7. Custom Commands and Environments
+%==============================================================================
 
 %==============================================================================
-% BASIC CONFIGURATION
+% 1. BASIC CONFIGURATION
 %==============================================================================
 
 % --- Encoding and Language ---
@@ -20,28 +30,7 @@
 \usepackage[final]{microtype}              % Improved typography
 
 %==============================================================================
-% SCIENTIFIC CONTENT SUPPORT
-%==============================================================================
-
-% --- Math and Units ---
-\usepackage{amsmath}                       % Enhanced math support
-\usepackage[exponent-product=\cdot]{siunitx} % SI units with proper formatting
-\sisetup{detect-all=true,locale=US}        % SIunitx configuration
-% --- Figures and Graphics ---
-\usepackage[dvipsnames,svgnames]{xcolor}   % Extended color support
-\usepackage{graphicx}                      % Graphics inclusion
-\graphicspath{{figures/}}                  % Default path for figures
-\usepackage{tikz}                          % TikZ for vector graphics
-
-% --- Tables and Captions ---
-\usepackage{longtable}                     % Tables across multiple pages
-\usepackage[font=small,
-  labelfont={bf,it},
-  textfont=it]{caption}          % Caption formatting
-\captionsetup{format=plain}                % Simple caption style
-
-%==============================================================================
-% PAGE LAYOUT AND STRUCTURE
+% 2. PAGE LAYOUT AND STRUCTURE
 %==============================================================================
 
 % --- Page Layout ---
@@ -60,7 +49,7 @@
 % Suppress informational package notes from 'pageslts'
 \let\OldPackageNoteNoLine\PackageNoteNoLine
 \renewcommand{\PackageNoteNoLine}[2]{}
-\usepackage[pagecontinue=false]{pageslts}
+\usepackage[pagecontinue=false]{pageslts}  % Page numbering utilities
 
 % --- Headings and Sections ---
 \pagestyle{scrheadings}
@@ -73,41 +62,6 @@
 \cfoot*{}                                  % No footer
 \chead{}                                   % No center header
 \renewcommand{\pagemark}{page \thepage~of \lastpageref{pagesLTS.\pagenumtype}}
-%==============================================================================
-% REFERENCES AND HYPERLINKS
-%==============================================================================
-
-% --- Bibliography ---
-\usepackage[backend=biber]{biblatex}       % Bibliography management
-\AtBeginBibliography{\small}               % Smaller font for bibliography
-
-% --- Hyperlinks and PDF Properties ---
-\usepackage[pdftex,
-  colorlinks=true,
-  linkcolor=MidnightBlue,
-  citecolor=MidnightBlue,
-  urlcolor=MidnightBlue,
-  pdfauthor={},                  % Set author in main document
-  pdfpagelayout=SinglePage,
-  bookmarks,
-  bookmarksopen]{hyperref}       % PDF hyperlinks and metadata
-
-\usepackage[numbered]{bookmark}            % Numbered PDF bookmarks
-\usepackage[noabbrev]{cleveref}            % Intelligent cross-referencing
-
-%==============================================================================
-% ADDITIONAL FUNCTIONALITY
-%==============================================================================
-
-% --- Utilities ---
-\usepackage{silence}                       % Suppress specific package info messages
-\WarningsOff[pageslts]                     % Mute pageslts informational messages
-\usepackage{csquotes}                      % Context-sensitive quotation marks
-\usepackage{eurosym}                       % Euro symbol
-\usepackage{fp}                            % Fixed-point arithmetic
-\usepackage{xspace}                        % Intelligent spacing
-\usepackage{verbatim}                      % Verbatim text
-\usepackage{ifthen}                        % Conditional processing
 
 % --- Page Numbering ---
 \pagenumbering{arabic}                     % Default to arabic numbers
@@ -127,7 +81,158 @@
 \doublehyphendemerits=10000
 
 %==============================================================================
-% CUSTOM COMMANDS AND ENVIRONMENTS
+% 3. SCIENTIFIC CONTENT SUPPORT
+%==============================================================================
+
+% --- Math and Units ---
+\usepackage{amsmath}                       % Enhanced math support
+\usepackage[exponent-product=\cdot]{siunitx} % SI units with proper formatting
+\sisetup{detect-all=true,locale=US}        % SIunitx configuration
+
+% --- Figures and Graphics ---
+\usepackage[dvipsnames,svgnames]{xcolor}   % Extended color support
+\usepackage{graphicx}                      % Graphics inclusion
+\graphicspath{{figures/}}                  % Default path for figures
+\usepackage{tikz}                          % TikZ for vector graphics
+
+% --- Tables and Captions ---
+\usepackage{longtable}                     % Tables across multiple pages
+\usepackage[font=small,
+  labelfont={bf,it},
+  textfont=it]{caption}          % Caption formatting
+\captionsetup{format=plain}                % Simple caption style
+
+%==============================================================================
+% 4. BIBLIOGRAPHY AND CITATION SETUP
+%==============================================================================
+
+% --- Bibliography Options ---
+\newif\ifproposal@fullbib
+\proposal@fullbibfalse
+\DeclareOption{fullbib}{\proposal@fullbibtrue}
+\ProcessOptions\relax
+
+% --- Bibliography Basic Configuration ---
+\usepackage[backend=biber,
+  style=numeric,                 % Use numeric citation style
+  giveninits=true,
+  natbib=true,
+  url=false,
+  doi=true,
+  eprint=true,
+  isbn=false,
+  defernumbers=true,             % Required for proper reference sorting
+  labelnumber,
+  hyperref=true,
+  maxbibnames=10,
+  sorting=none]{biblatex}        % Remove sorting=none for alphabetic order
+\renewcommand*{\labelalphaothers}{}
+
+% --- Bibliography Format Customization ---
+% Format for bibliography number labels (from dfgproposal.cls)
+\DeclareFieldFormat{labelnumberwidth}{\mkbibbrackets{#1}}
+
+% Use smaller font for bibliography
+\AtBeginBibliography{\small}
+
+% Define reference context for DFG-specific sections
+\DeclareRefcontext{dfg}{labelprefix=A}
+
+% --- DOI/URL/ISBN handling macro ---
+% Creates hyperlinks from bibliographic information when available
+\newbibmacro{string+doiurlisbn}[1]{%
+  \iffieldundef{doi}{%
+    \iffieldundef{url}{%
+      \iffieldundef{isbn}{%
+        \iffieldundef{issn}{%
+          #1% No linking information available
+        }{%
+          \href{http://books.google.com/books?vid=ISSN\thefield{issn}}{#1}%
+        }%
+      }{%
+        \href{http://books.google.com/books?vid=ISBN\thefield{isbn}}{#1}%
+      }%
+    }{%
+      \href{\thefield{url}}{#1}%
+    }%
+  }{%
+    \href{http://dx.doi.org/\thefield{doi}}{#1}%
+  }%
+}
+
+% --- Title format for different entry types ---
+% Apply appropriate formatting to titles and add hyperlinks
+\DeclareFieldFormat{title}{%
+  \usebibmacro{string+doiurlisbn}{\mkbibemph{#1}}}
+\DeclareFieldFormat
+[article,inbook,incollection,inproceedings,patent,thesis,unpublished]
+{title}{\usebibmacro{string+doiurlisbn}{\mkbibquote{#1\isdot}}}
+\DeclareFieldFormat
+[suppbook,suppcollection,suppperiodical]
+{title}{\usebibmacro{string+doiurlisbn}{#1}}
+
+% --- Bibliography entry simplification ---
+% Remove unnecessary fields from bibliography entries unless fullbib option is set
+\AtEveryBibitem{%
+  \ifproposal@fullbib\else
+    % Date fields
+    \clearfield{day}%
+    \clearfield{month}%
+    \clearfield{endday}%
+    \clearfield{endmonth}%
+    \clearfield{endyear}%
+    % Publication details
+    \clearfield{issue}%
+    \clearfield{number}%
+    \clearfield{volume}%
+    \clearfield{pubstate}%
+    \clearname{editor}%
+    \clearfield{eprintclass}%
+    \clearfield{eventtitle}%
+    \clearlist{location}%
+    \clearfield{series}%
+    % Special handling for specific entry types
+    \ifentrytype{inproceedings}{%
+      \clearlist{publisher}%
+      \clearfield{pages}%
+    }{}%
+    \ifentrytype{online}{\iffieldundef{eprint}{}{\clearfield{url}}}{}%
+  \fi
+}
+
+%==============================================================================
+% 5. HYPERLINKS AND PDF PROPERTIES
+%==============================================================================
+
+\usepackage[pdftex,
+  colorlinks=true,
+  linkcolor=MidnightBlue,
+  citecolor=MidnightBlue,
+  urlcolor=MidnightBlue,
+  pdfauthor={},                  % Set author in main document
+  pdfpagelayout=SinglePage,
+  bookmarks,
+  bookmarksopen]{hyperref}       % PDF hyperlinks and metadata
+
+\usepackage[numbered]{bookmark}            % Numbered PDF bookmarks
+\usepackage[noabbrev]{cleveref}            % Intelligent cross-referencing
+
+%==============================================================================
+% 6. ADDITIONAL FUNCTIONALITY
+%==============================================================================
+
+% --- Utilities ---
+\usepackage{silence}                       % Suppress specific package info messages
+\WarningsOff[pageslts]                     % Mute pageslts informational messages
+\usepackage{csquotes}                      % Context-sensitive quotation marks
+\usepackage{eurosym}                       % Euro symbol
+\usepackage{fp}                            % Fixed-point arithmetic
+\usepackage{xspace}                        % Intelligent spacing
+\usepackage{verbatim}                      % Verbatim text
+\usepackage{ifthen}                        % Conditional processing
+
+%==============================================================================
+% 7. CUSTOM COMMANDS AND ENVIRONMENTS
 %==============================================================================
 
 % --- Funds Calculation ---
@@ -154,6 +259,7 @@
   \cleardoublepage
   \pagestyle{plain}
 }
+
 % Switch to Roman page numbering for appendices
 \newcommand{\backmatter}{%
   \clearpage
@@ -163,18 +269,22 @@
   \renewcommand{\theparagraph}{\thesubsubsection.\arabic{paragraph}}%
   \setcounter{secnumdepth}{5}
 }
+
+% Create DFG-specific title for project proposals
 \newcommand{\makeprojecttitle}{%
   {\raggedright{} \normalsize \bfseries
       Project Description -- Project Proposals \par
       \applicants{} \par
       \project{} \par
       \rule{\textwidth}{0.5pt} \par
-  }
+    }
 }
+
 % Add support for subsubsubsections (paragraph level with heading)
 \newcommand{\subsubsubsection}[1]{\paragraph{#1} \mbox{} \par}
 
 % --- Custom Paragraph Styles ---
+% Work package style
 \newcommand{\workpackagestyle}{%
   \setcounter{secnumdepth}{5}
   \RedeclareSectionCommand[
@@ -184,6 +294,7 @@
 }
 \newcommand{\workpackage}[1]{\workpackagestyle\paragraph{#1}\standardstyle}
 
+% Task style
 \newcommand{\taskstyle}{%
   \setcounter{secnumdepth}{5}
   \RedeclareSectionCommand[
@@ -193,6 +304,7 @@
 }
 \newcommand{\task}[1]{\taskstyle\subparagraph{#1}\standardstyle}
 
+% Standard paragraph style
 \newcommand{\standardstyle}{%
   \setcounter{secnumdepth}{4}
   \RedeclareSectionCommand[
