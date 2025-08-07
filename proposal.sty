@@ -1,171 +1,314 @@
-\ProvidesPackage{proposal}[2018/02/27]
+\ProvidesPackage{proposal}[2025/08/03 v3.1.0 DFG Proposal Template]
 
-\usepackage[usenames,dvipsnames,svgnames]{xcolor}
-\usepackage[ngerman, english]{babel}
-\usepackage{amsmath}
-%\usepackage[hidelinks]{hyperref}
-\usepackage{microtype}
-\usepackage{csquotes}
-%\usepackage[headheight = 28pt, tmargin = 70pt, lmargin = 55pt, rmargin = 55pt, bmargin = 70pt]{geometry}
-% use DFG margins according to https://github.com/hoelzer/dfg/issues/56
-\usepackage[headheight = 1cm, tmargin = 2.5cm, lmargin = 2.5cm, rmargin = 2cm, bmargin = 1.5cm]{geometry}
-\usepackage[exponent-product = \cdot]{siunitx}
-\usepackage{rotating}
-\usepackage{helvet}
-\usepackage[pagecontinue=false]{pageslts}
-\pagenumbering{arabic}
-\usepackage{scrlayer-scrpage}
-\usepackage{eurosym}
-\usepackage{fp}
-\usepackage{pgfgantt}
-\usepackage{xspace}
-\usepackage{verbatim}
-\usepackage{longtable}
+%==============================================================================
+% DFG PROPOSAL STYLE PACKAGE
+%==============================================================================
+% This package provides formatting and functionality for DFG grant proposals.
+% Based on the official DFG guidelines for "Sachbeihilfe" grants.
+%
+% CONTENTS:
+% 1. Basic Configuration (encoding, language, fonts)
+% 2. Page Layout and Structure
+% 3. Scientific Content Support (math, figures, tables)
+% 4. Bibliography and Citation Setup
+% 5. Hyperlinks and PDF Properties
+% 6. Additional Functionality
+% 7. Custom Commands and Environments
+%==============================================================================
 
-\usepackage{tikz}
-\usepackage{pgfplots}
-\usepackage{standalone}
-\pgfplotsset{compat=newest}
+%==============================================================================
+% 1. BASIC CONFIGURATION
+%==============================================================================
 
-\usepackage[backend = biber,
-    style = numeric, %alphabetic, numeric
-    firstinits = true,
-    natbib = true,
-	url=false,
-	doi=true,
-	eprint=true,
-	isbn=false,
-	defernumbers=true,
-	labelnumber,
-    hyperref = true,
-    maxbibnames = 10,
-    sorting=none,%remove this to have things sorted, e.g. use style=alphabetic
-    ]{biblatex}
-\renewcommand*{\labelalphaothers}{}
+% --- Encoding and Language ---
+\usepackage[utf8]{inputenc}                % Use UTF-8 encoding
+\usepackage[ngerman,english]{babel}        % German and English language support
 
-% bibliography (from dfgproposal.cls from https://github.com/klb2/dfg-proposal-template)
-\DeclareFieldFormat{labelnumberwidth}{\mkbibbrackets{#1}}
-\renewbibmacro*{cite}{%
-	\printtext[bibhyperref]{%
-		\printfield{labelprefix}%
-		\ifcategory{reviewed}
-		{\printfield{labelnumber}}
-		{%
-		 \ifcategory{nonreviewed}
-		 {\printfield{labelnumber}}
-		 {%
-            \printfield{labelnumber}%
-            \printfield{extraalpha}}}}}
-            % Here I changed the labelalpha to labelnumber which is generally preferrable I think... who wants this ugly abbreviations of author names and year of publication
-            %\printfield{labelalpha}%
-			%\printfield{extraalpha}}}}}
+% --- Fonts and Typography ---
+\usepackage{helvet}                        % Use Helvetica font
+\renewcommand{\familydefault}{\sfdefault}  % Set sans-serif as default
+\usepackage[final]{microtype}              % Improved typography
 
-\defbibenvironment{bibliographyNUM}
-{\list
-	{\printtext[labelnumberwidth]{%
-			\printfield{labelprefix}%
-			\printfield{labelnumber}}}
-	{\setlength{\labelwidth}{\labelnumberwidth}%
-		\setlength{\leftmargin}{\labelwidth}%
-		\setlength{\labelsep}{\biblabelsep}%
-		\addtolength{\leftmargin}{\labelsep}%
-		\setlength{\itemsep}{\bibitemsep}%
-		\setlength{\parsep}{\bibparsep}}%
-	\renewcommand*{\makelabel}[1]{\hss##1}}
-{\endlist}
-{\item}
+%==============================================================================
+% 2. PAGE LAYOUT AND STRUCTURE
+%==============================================================================
 
-% necessary changes to make the selected references bold 
-\AtEveryBibitem{%
-  \ifcategory{important}%
-    {\hypersetup{urlcolor=impentry}\bfseries\color{impentry}}%
-    {}%
-  }
-\AtEveryCitekey{%
-  \ifcategory{important}%
-    {\hypersetup{citecolor=impentry}\bfseries\color{impentry}}%
-    {}%
-  }
+% --- Page Layout ---
+% Following DFG margin requirements: https://github.com/hoelzer/dfg/issues/56
+\usepackage[headheight=1cm,
+  tmargin=2.5cm,
+  lmargin=2.5cm,
+  rmargin=2cm,
+  bmargin=1.5cm]{geometry}       % Page geometry settings
 
-% To also colorize the labels in the bibliography:
-  \AtBeginBibliography{%
-  \DeclareFieldFormat{labelnumberwidth}{%
-  \ifcategory{important}%
-    {\bfseries\color{impentry}\mkbibbrackets{#1}}%
-    {\mkbibbrackets{#1}}%
-  }}
+% --- Document Structure ---
+\usepackage{scrlayer-scrpage}              % KOMA-Script page style
+\KOMAoptions{paper=a4}                     % A4 paper size
+\KOMAoption{fontsize}{11pt}                % 11pt base font size
 
+% Suppress informational package notes from 'pageslts'
+\let\OldPackageNoteNoLine\PackageNoteNoLine
+\renewcommand{\PackageNoteNoLine}[2]{}
+\usepackage[pagecontinue=false]{pageslts}  % Page numbering utilities
 
-%% von Hurenkindern und Schusterjungen
-\clubpenalty = 10000
-\widowpenalty = 10000 \displaywidowpenalty = 10000
+% --- Headings and Sections ---
+\pagestyle{scrheadings}
+\setkomafont{section}{\normalsize}         % Section font size
+\setkomafont{subsection}{\normalsize}      % Subsection font size
+\renewcommand{\headfont}{\sffamily\footnotesize} % Header font
+\setlength{\parskip}{0.5em}                % Paragraph spacing
+\setlength{\parindent}{0em}                % No paragraph indentation
+\ohead*{\pagemark}                         % Page number in outer header
+\cfoot*{}                                  % No footer
+\chead{}                                   % No center header
+\renewcommand{\pagemark}{page \thepage~of \lastpageref{pagesLTS.\pagenumtype}}
 
-%% weniger underful hboxes
+% --- Page Numbering ---
+\pagenumbering{arabic}                     % Default to arabic numbers
+\newcommand{\pagenumtype}{arabic}          % Track page numbering type
+
+% --- Typography Improvements ---
+% Avoid widows and orphans
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+
+% Reduce underfull hbox warnings
 \tolerance=3000
 \emergencystretch=15pt
-\hbadness=2000 %% too many underfull hbox warnings
+\hbadness=2000
+\hyphenpenalty=3000
+\doublehyphendemerits=10000
 
-%% keine zwei Trennstriche in untereinanderliegenden Zeilen
-\hyphenpenalty 3000
-\doublehyphendemerits 50000000
+%==============================================================================
+% 3. SCIENTIFIC CONTENT SUPPORT
+%==============================================================================
 
+% --- Math and Units ---
+\usepackage{amsmath}                       % Enhanced math support
+\usepackage[exponent-product=\cdot]{siunitx} % SI units with proper formatting
+\sisetup{detect-all=true,locale=US}        % SIunitx configuration
 
-\newcommand{\total}{}
+% --- Figures and Graphics ---
+\usepackage[dvipsnames,svgnames]{xcolor}   % Extended color support
+\usepackage{graphicx}                      % Graphics inclusion
+\graphicspath{{figures/}}                  % Default path for figures
+\usepackage{tikz}                          % TikZ for vector graphics
 
-\newcommand{\pagenumtype}{arabic}
-\DeclareOption{german}{
-    \sisetup{locale=DE}
-    \AtBeginDocument{\selectlanguage{ngerman}}
-    \renewcommand{\pagemark}{Seite \thepage~von \lastpageref{pagesLTS.\pagenumtype}}
-    \renewcommand{\total}{Summe}
-}
-\DeclareOption{english}{
-    \sisetup{locale=US}
-    \AtBeginDocument{\selectlanguage{english}}
-	\renewcommand{\pagemark}{page \thepage~of \lastpageref{pagesLTS.\pagenumtype}}
-    \renewcommand{\total}{Total}
-}
-\ExecuteOptions{german}
+% --- Tables and Captions ---
+\usepackage{longtable}                     % Tables across multiple pages
+\usepackage[font=small,
+  labelfont={bf,it},
+  textfont=it]{caption}          % Caption formatting
+\captionsetup{format=plain}                % Simple caption style
+
+%==============================================================================
+% 4. BIBLIOGRAPHY AND CITATION SETUP
+%==============================================================================
+
+% --- Bibliography Options ---
+\newif\ifproposal@fullbib
+\proposal@fullbibfalse
+\DeclareOption{fullbib}{\proposal@fullbibtrue}
 \ProcessOptions\relax
-\ohead*{\pagemark}
-\cfoot*{}
-\chead{}
 
-\newcommand{\backmatter}{
-    \clearpage
-    \pagenumbering{Roman}
-    \renewcommand{\pagenumtype}{Roman}
+% --- Bibliography Basic Configuration ---
+\usepackage[backend=biber,
+  style=numeric,                 % Use numeric citation style
+  giveninits=true,
+  natbib=true,
+  url=false,
+  doi=true,
+  eprint=true,
+  isbn=false,
+  defernumbers=true,             % Required for proper reference sorting
+  labelnumber,
+  hyperref=true,
+  maxbibnames=10,
+  sorting=none]{biblatex}        % Remove sorting=none for alphabetic order
+\renewcommand*{\labelalphaothers}{}
+
+% --- Bibliography Format Customization ---
+% Format for bibliography number labels (from dfgproposal.cls)
+\DeclareFieldFormat{labelnumberwidth}{\mkbibbrackets{#1}}
+
+% Use smaller font for bibliography
+\AtBeginBibliography{\small}
+
+% Define reference context for DFG-specific sections
+\DeclareRefcontext{dfg}{labelprefix=A}
+
+% --- DOI/URL/ISBN handling macro ---
+% Creates hyperlinks from bibliographic information when available
+\newbibmacro{string+doiurlisbn}[1]{%
+  \iffieldundef{doi}{%
+    \iffieldundef{url}{%
+      \iffieldundef{isbn}{%
+        \iffieldundef{issn}{%
+          #1% No linking information available
+        }{%
+          \href{http://books.google.com/books?vid=ISSN\thefield{issn}}{#1}%
+        }%
+      }{%
+        \href{http://books.google.com/books?vid=ISBN\thefield{isbn}}{#1}%
+      }%
+    }{%
+      \href{\thefield{url}}{#1}%
+    }%
+  }{%
+    \href{http://dx.doi.org/\thefield{doi}}{#1}%
+  }%
 }
 
+% --- Title format for different entry types ---
+% Apply appropriate formatting to titles and add hyperlinks
+\DeclareFieldFormat{title}{%
+  \usebibmacro{string+doiurlisbn}{\mkbibemph{#1}}}
+\DeclareFieldFormat
+[article,inbook,incollection,inproceedings,patent,thesis,unpublished]
+{title}{\usebibmacro{string+doiurlisbn}{\mkbibquote{#1\isdot}}}
+\DeclareFieldFormat
+[suppbook,suppcollection,suppperiodical]
+{title}{\usebibmacro{string+doiurlisbn}{#1}}
 
-\KOMAoptions{paper=a4}
-\KOMAoption{fontsize}{11pt}
-\pagestyle{scrheadings}
-\setkomafont{section}{\normalsize}
-\setkomafont{subsection}{\normalsize}
-\renewcommand{\familydefault}{\sfdefault}
-\renewcommand{\headfont}{\sffamily\footnotesize}
-\setlength{\parskip}{0.5em}
-\setlength{\parindent}{0em}
+% --- Bibliography entry simplification ---
+% Remove unnecessary fields from bibliography entries unless fullbib option is set
+\AtEveryBibitem{%
+  \ifproposal@fullbib\else
+    % Date fields
+    \clearfield{day}%
+    \clearfield{month}%
+    \clearfield{endday}%
+    \clearfield{endmonth}%
+    \clearfield{endyear}%
+    % Publication details
+    \clearfield{issue}%
+    \clearfield{number}%
+    \clearfield{volume}%
+    \clearfield{pubstate}%
+    \clearname{editor}%
+    \clearfield{eprintclass}%
+    \clearfield{eventtitle}%
+    \clearlist{location}%
+    \clearfield{series}%
+    % Special handling for specific entry types
+    \ifentrytype{inproceedings}{%
+      \clearlist{publisher}%
+      \clearfield{pages}%
+    }{}%
+    \ifentrytype{online}{\iffieldundef{eprint}{}{\clearfield{url}}}{}%
+  \fi
+}
 
-\newcommand{\subsubsubsection}[1]{\paragraph{#1} \mbox{} \par}
-\setcounter{secnumdepth}{5}
+%==============================================================================
+% 5. HYPERLINKS AND PDF PROPERTIES
+%==============================================================================
 
-% Ensure that if round-precision is specified, the give number of decimals is printed (necessary for prices in Euro)
-\sisetup{round-integer-to-decimal} 
+\usepackage[pdftex,
+  colorlinks=true,
+  linkcolor=MidnightBlue,
+  citecolor=MidnightBlue,
+  urlcolor=MidnightBlue,
+  pdfauthor={},                  % Set author in main document
+  pdfpagelayout=SinglePage,
+  bookmarks,
+  bookmarksopen]{hyperref}       % PDF hyperlinks and metadata
 
-% Place this environment in funds section to automatically add up costs using the macro 'position'.
+\usepackage[numbered]{bookmark}            % Numbered PDF bookmarks
+\usepackage[noabbrev]{cleveref}            % Intelligent cross-referencing
+
+%==============================================================================
+% 6. ADDITIONAL FUNCTIONALITY
+%==============================================================================
+
+% --- Utilities ---
+\usepackage{silence}                       % Suppress specific package info messages
+\WarningsOff[pageslts]                     % Mute pageslts informational messages
+\usepackage{csquotes}                      % Context-sensitive quotation marks
+\usepackage{eurosym}                       % Euro symbol
+\usepackage{fp}                            % Fixed-point arithmetic
+\usepackage{xspace}                        % Intelligent spacing
+\usepackage{verbatim}                      % Verbatim text
+\usepackage{ifthen}                        % Conditional processing
+
+%==============================================================================
+% 7. CUSTOM COMMANDS AND ENVIRONMENTS
+%==============================================================================
+
+% --- Funds Calculation ---
+% Environment for calculating and displaying funding totals
+\newcommand{\total}{Total}
 \newenvironment{funds}[1][]
-    % Define variable funds for calculation. Store argument (description of total) in new command.
-    {\def\funds{0.00} \newcommand{\totaldescr}{#1}}
-    % Print total of environment with provided description. 
-    {\rule{\textwidth}{0.5pt} \par \total~\totaldescr \hfill \num[round-mode = places, round-precision = 2]{\funds}\,\euro}
-    
-% To be used inside a funds environment. Place text and add given price to totals.
-\newcommand{\position}[2]{\par #1 \hfill \num[round-mode = places, round-precision = 2]{#2}\,\euro \FPeval{\funds}{\funds + #2}}
-% Same as above but with multiples of a position.
-\newcommand{\positionmul}[3]{\par #1 \hfill \num{#3} $\times$ \num[round-mode = places, round-precision = 2]{#2}\,\euro \FPeval{\funds}{\funds + #3*#2}}
+{\def\funds{0.00} \newcommand{\totaldescr}{#1}}
+{\rule{\textwidth}{0.5pt} \par \total~\totaldescr \hfill \num[round-mode=places,round-precision=2]{\funds}\,\euro}
 
-% todonotes and a switch for final
-\usepackage{ifthen}
-\newboolean{finalcompile}
+% Add a single funding position
+\newcommand{\position}[2]{%
+  \par #1 \hfill \num[round-mode=places,round-precision=2]{#2}\,\euro
+  \FPeval{\funds}{\funds + #2}%
+}
+
+% Add a multiplied funding position (e.g., 3 × 1000€)
+\newcommand{\positionmul}[3]{%
+  \par #1 \hfill \num{#3} $\times$ \num[round-mode=places,round-precision=2]{#2}\,\euro
+  \FPeval{\funds}{\funds + #3*#2}%
+}
+
+% --- Document Structure ---
+\newcommand{\mainmatter}{%
+  \cleardoublepage
+  \pagestyle{plain}
+}
+
+% Switch to Roman page numbering for appendices
+\newcommand{\backmatter}{%
+  \clearpage
+  \pagenumbering{Roman}
+  \renewcommand{\pagenumtype}{Roman}%
+  % Only include section, subsection, and paragraph for numbering
+  \renewcommand{\theparagraph}{\thesubsubsection.\arabic{paragraph}}%
+  \setcounter{secnumdepth}{5}
+}
+
+% Create DFG-specific title for project proposals
+\newcommand{\makeprojecttitle}{%
+  {\raggedright{} \normalsize \bfseries
+      Project Description -- Project Proposals \par
+      \applicants{} \par
+      \project{} \par
+      \rule{\textwidth}{0.5pt} \par
+    }
+}
+
+% Add support for subsubsubsections (paragraph level with heading)
+\newcommand{\subsubsubsection}[1]{\paragraph{#1} \mbox{} \par}
+
+% --- Custom Paragraph Styles ---
+% Work package style
+\newcommand{\workpackagestyle}{%
+  \setcounter{secnumdepth}{5}
+  \RedeclareSectionCommand[
+    beforeskip=-2.5ex plus-1ex minus -.2ex,
+    afterskip=2.5ex plus 0.2ex minus 0.2ex]{paragraph}%
+  \renewcommand{\theparagraph}{WP\arabic{paragraph}}%
+}
+\newcommand{\workpackage}[1]{\workpackagestyle\paragraph{#1}\standardstyle}
+
+% Task style
+\newcommand{\taskstyle}{%
+  \setcounter{secnumdepth}{5}
+  \RedeclareSectionCommand[
+    indent=0pt, beforeskip=-3.5ex plus-1ex minus -.2ex,
+    afterskip=2.5ex plus 0.2ex minus 0.2ex]{subparagraph}
+  \renewcommand{\theparagraph}{T\arabic{paragraph}}%
+}
+\newcommand{\task}[1]{\taskstyle\subparagraph{#1}\standardstyle}
+
+% Standard paragraph style
+\newcommand{\standardstyle}{%
+  \setcounter{secnumdepth}{4}
+  \RedeclareSectionCommand[
+    beforeskip=3.25ex plus 1ex minus .2ex,
+    afterskip=1.5ex plus .2ex]{paragraph}%
+  \renewcommand{\theparagraph}{\thesection.\thesubsection.\thesubsubsection.\arabic{paragraph}}%
+}
