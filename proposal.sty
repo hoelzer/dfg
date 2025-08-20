@@ -26,7 +26,7 @@
 
 % --- Fonts and Typography ---
 \usepackage{helvet}                        % Use Helvetica font
-\usepackage{inconsolata}                   % Use Inconsolata font \texttt{}
+\usepackage{inconsolata}                   % Use Inconsolata font for \texttt{}
 \renewcommand{\familydefault}{\sfdefault}  % Set sans-serif as default
 \usepackage[final]{microtype}              % Improved typography
 
@@ -114,19 +114,24 @@
 \ProcessOptions\relax
 
 % --- Bibliography Basic Configuration ---
-\usepackage[backend=biber,
-  style=numeric,                 % Use numeric citation style
-  giveninits=true,
-  natbib=true,
-  url=false,
-  doi=true,
-  eprint=true,
+\usepackage[
+  sorting=none,
+  sortcites=true,
+  defernumbers=true,
+  doi=false,
   isbn=false,
-  defernumbers=true,             % Required for proper reference sorting
-  labelnumber,
+  url=false,
+  citestyle=numeric-comp,
+  eprint=true,
+  backref=false, % include back references in bibliography
+  maxcitenames=2, % affects only the citations in the document body
+  maxbibnames=7, % affects only the bibliography, pass 99 to print all
+  uniquename=false, % don't add given names to \citeauthor
+  giveninits=true,   % (optional) use initials elsewhere instead of full given names    
   hyperref=true,
-  maxbibnames=10,
-  sorting=none]{biblatex}        % Remove sorting=none for alphabetic order
+  block=space,
+  backend=biber
+]{biblatex}
 \renewcommand*{\labelalphaothers}{}
 
 % --- Bibliography Format Customization ---
@@ -313,3 +318,12 @@
     afterskip=1.5ex plus .2ex]{paragraph}%
   \renewcommand{\theparagraph}{\thesection.\thesubsection.\thesubsubsection.\arabic{paragraph}}%
 }
+
+% Todo list
+\usepackage[inline]{enumitem}
+\usepackage{amssymb}
+\newlist{todolist}{itemize}{2}
+\setlist[todolist]{label=$\square$}
+\usepackage{pifont}
+\newcommand{\done}{\rlap{\raisebox{0.2ex}{\hspace{0.3ex}\scriptsize \ding{56}}}$\square$}
+
