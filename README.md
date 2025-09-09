@@ -26,6 +26,8 @@ Thanks [@nise](https://github.com/nise) and [@ThiloKr](https://github.com/ThiloK
 
 Thanks [@wallscheid](https://github.com/wallscheid) for adding an english CV [according to 53.200 – 03/23 DFG form](https://www.dfg.de/de/formulare-53-200-elan-246806). Please note that this CV needs to be additionally compiled via `pdflatex` if you want to use it.
 
+Thanks [@jkneifl](https://github.com/jkneifl) for the information about listing all authors in references and not using _et al._ and the corresponding PR. 
+
 _Please let me know if I accidentally forgot a contribution! Thanks all contributors!_
 
 ## Successful applications with the template
