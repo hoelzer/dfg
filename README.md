@@ -28,6 +28,8 @@ Thanks [@wallscheid](https://github.com/wallscheid) for adding an english CV [ac
 
 Thanks [@jkneifl](https://github.com/jkneifl) for the information about listing all authors in references and not using _et al._ and the corresponding PR. 
 
+Thanks [@claell](https://github.com/claell) for several issues that helped improving and updating the code. 
+
 _Please let me know if I accidentally forgot a contribution! Thanks all contributors!_
 
 ## Successful applications with the template
