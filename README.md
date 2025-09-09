@@ -28,6 +28,8 @@ Thanks [@wallscheid](https://github.com/wallscheid) for adding an english CV [ac
 
 Thanks [@jkneifl](https://github.com/jkneifl) for the information about listing all authors in references and not using _et al._ and the corresponding PR. 
 
+Thanks [@claell](https://github.com/claell) for several issues that helped improving and updating the code. 
+
 _Please let me know if I accidentally forgot a contribution! Thanks all contributors!_
 
 ## Successful applications with the template
@@ -100,29 +102,12 @@ Most of customization (citation style, etc.) can be done by changes in the `prop
 
 ## Bibliography 
 
-**deprecated since DFG template version 54.01 09/22. All literature is listed in Section 3 now.**
-
-To add references to different parts of the proposal, you can define categories:
-
-```latex
-\DeclareBibliographyCategory{reviewed}
-\addtocategory{reviewed}{Hoelzer:16}
-```
-
-that can be later used in the sections:
-
-```latex
-\printbibliography[category=reviewed, heading=none]
-```
-
-Recently, the DFG changed their template to have references in the sections 1.2.1 and 1.2.2 sorted consecutively. For other references in the bibliography, it seems that one can arrange them alphabetically. This was solved by [@klb2](https://github.com/klb2/dfg-proposal-template) and changes were also included in this repo (thx!). The current default is numeric labels while first the references in sections 1.2.1 and 1.2.2 are numbered followed by all other references in the order how they appear in the text. Changes can be done via the `proposal.sty` file. [@gituser789](https://github.com/gituser789) also implemented a feature to number own references and all other references independently. This is activated by default and will add an 'O' or 'E' prefix to own ("eigene") literature in the english or german template, respectively. The user can change the prefix in the tex template. If you want to deactivate this feature, go to the tex template and comment/remove __both__ `\newrefcontext[labelprefix=]` commands. 
-
 ### Bib Style
 
 To change the style of your bibliography you have to change the following code snippet in the ``proposal.sty`` file:
 
 ```latex
-\usepackage[backend = biber,
+\usepackage[backend=biber,
     style = numeric, %numeric, alphabetic
     firstinits = true,
     natbib = true,
@@ -134,15 +119,15 @@ To change the style of your bibliography you have to change the following code s
 
 ### Highlight author's publications
 
-It is recommended to higlight author publications. This can be done using **bold** font. Go to the `Header.tex` file and add the bib keys of the publications you want to highlight to this code section:
+It is recommended to higlight author publications. This can be done using **bold** font. Go to the `dfg.tex` (or `dfg-german.tex`) file and add the bib keys of the publications you want to highlight to this code section:
 
 ```tex
 \addtocategory{important}{%
-Hoelzer:16,Hoelzer:17,Smith2023b,Smith2023c,Smith2023d,MIller1900, % don't miss the comma after the last entry
+    fuchs2025varvamp,lamkiewicz2024ribap,galeone2025decoding,
 }
 ```
 
-The listed publications will be written in bold in the reference list. The citations in the text will be also bold. Change the behavior in the `proposal.sty` file if necessary.
+The listed publications will be written in bold in the reference list and text. Change the behavior in the `proposal.sty` file if necessary.
 
 ## Sum up costs
 

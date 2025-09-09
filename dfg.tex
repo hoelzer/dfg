@@ -12,7 +12,7 @@
 \setboolean{finalcompile}{false}
 
 % show DFG template version the current LaTeX template is based on in the header. Will be deactivated when 'finalcompile' is set 'true'
-\ifthenelse{\boolean{finalcompile}}{}{\ihead*{DFG-form 53.01 - 03/24}}
+\ifthenelse{\boolean{finalcompile}}{}{\ihead*{DFG-form 53.01 - 03/25}}
 
 % all config is done in Header.tex
 \input{Header.tex}
@@ -25,17 +25,13 @@
 %%%%  TITLE PAGE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\applicants}{Dr.\ Martin H\"olzer, Robert Koch Institute, Berlin [First name  last name, city of all applicants]}
+\newcommand{\applicants}{[First name  last name, city of all applicants]}
 \newcommand{\project}{[Project title]}
 
-% declare bibliography categories
-
-% likely deprecated and these categories are not needed anymore
-%\addtocategory{reviewed}{Hoelzer:16} 
-%\nocite{}
-%\addtocategory{nonreviewed}{Desiro:18} 
-%\addtocategory{patents_pending}{} 
-%\addtocategory{patents}{} 
+% add bib entries here that you want to highlight in the text and publication list (bold)
+\addtocategory{important}{%
+fuchs2025varvamp,lamkiewicz2024ribap,galeone2025decoding, % Why the trailing comma? See: https://github.com/hoelzer/dfg/issues/69. TLDR; It is not important, but might prevent missing the comma when adding more entries to that list. 
+}
 
 \begin{document}
 \pagestyle{empty}
@@ -84,40 +80,9 @@
 % For renewal proposals, please report on your previous work. This report
 % should also be understandable without referring to additional literature.
 
-This is a dummy citation~\cite{Hoelzer:17}. Yeah. And another one~\cite{Gerst:18}. Wuhuh. In an older version of the template, these citations~\cite{Hoelzer:16, Desiro:18} were not shown in the "\ref{sec:bib}~Bibliography" section, because they are already listed as \verb=\addtocategory{reviewed}{Hoelzer:16}= and\verb=\addtocategory{nonreviewed}{Desiro:18}= in the preamble and therefore shown in subsubsections \emph{Articles published by outlets with scientific quality \dots} and \emph{Other publications, both peer-reviewed and non-peer-reviewed}. However, these subsubsections are deprecated since v53.01 of the DFG template! And therefore, all the four citations above will simply show up in "\ref{sec:bib}~Project- and subject-related list of publications" now.
+This is a dummy citation~\cite{lamkiewicz2024ribap}. Yeah. And another one~\cite{assmann2025augmentation}. All citations~\cite{fuchs2025varvamp,galeone2025decoding,raharinirina2025sars} will simply show up in "\ref{sec:bib}~Project- and subject-related list of publications" and which one will be made bold can be changed via the \verb=\addtocategory{important}= command.
 
 \lipsum[1]
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% DEPRECATED since v54 (https://www.dfg.de/download/pdf/foerderung/programme/sachbeihilfe/info_vordrucksaenderungen.pdf)
-% This became now part of the publication list in section 3, see below
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsection{Project-related publications}
-%Please include a list of own publications that are related to the proposed project. 
-%Sections 1.2.1 and 1.2.2 together must not exceed 10 publications; please number them consecutively.
-
-%a maximum of ten publications
-%\subsubsection{Articles published by outlets with scientific quality assurance, book publications, and works accepted for publication but not yet published}
-
-% Own literature can be designated with a prefix, default 'O' for "Own". 
-% If the function is not desired, delete the "labelprefix" commands directly below this comment 
-% AND in the section: "Bibliography concerning the state of the art, the research objectives, and the work programme"
-% Then, all your references should be numbered consecutively.
-%\newrefcontext[labelprefix=O]
-%\printbibliography[category=reviewed, heading=none, env=bibliographyNUM, resetnumbers]
-
-%\subsubsection{Other publications, both peer-reviewed and non-peer-reviewed}
-%\printbibliography[category=nonreviewed, heading=none, env=bibliographyNUM, resetnumbers=false]
-
-%\subsubsection{Patents}
-
-%\subsubsubsection{Pending}
-%\printbibliography[category=patents_pending, heading=none]
-%None.
-
-%\subsubsubsection{Issued}
-%\printbibliography[category=patents, heading=none]
-%None.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%  OBJECTIVES AND WP %%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -136,7 +101,7 @@ Financial support is requested for \todo[inline]{three years.}
 
 \subsection{Work program including proposed research methods}
 %For each applicant
-\todo[inline]{ca.\ 6-8 pages; ca. 4-8 WPs}
+\todo{ca.\ 6-8 pages; ca. 4-8 WPs. For each applicant}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %%%%% BEGIN OF WORK PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -193,7 +158,7 @@ allow complete reproducibility of all analyses, the source code and executed
 comands will be also made publicly available
 (\href{https://github.com/}{GitHub}).  Thus, all relevant data will become
 accessible for future use. 
-\todo[inline]{FAIR principals}
+\todo[inline]{FAIR principles}
 
 \subsection{Relevance of sex, gender and/or diversity}
 \todo[inline]{Text}
@@ -202,9 +167,14 @@ accessible for future use.
 % A maximum of ten of your own works cited may be highlighted; font at least Arial 9 pt.
 \section{Project- and subject-related list of publications}
 \label{sec:bib}
-\todo[inline]{Works cited from sections 1 and 2, both by the applicant(s) and by third parties. Please include DOI/URL if available. A maximum of ten of your own works cited may be highlighted; font at least Arial 9 pt.}
+\todo{Works cited from sections 1 and 2, both by the applicant(s) and by third parties. Please include DOI/URL if available. A maximum of ten of your own works cited may be highlighted; font at least Arial 9 pt.}
 %\AtNextBibliography{\small}
-\newrefcontext[labelprefix=]
+% Own literature can be designated with a prefix, default 'E' for "Eigene". 
+% However, this is not necessary anymore since some DFG template change!
+% If the function is still desired, uncomment the "labelprefix" commands directly below this comment 
+% AND in the section: "Literaturverzeichnis zum Stand der Forschung, zu den Zielen und dem Arbeitsprogramm"
+% Then, all your references should be numbered consecutively.
+%\newrefcontext[labelprefix=E]
 \printbibliography[notcategory=reviewed, notcategory=nonreviewed, notcategory=patents_pending, notcategory=patents, heading=none, env=bibliographyNUM]	
 
 \backmatter
@@ -212,7 +182,7 @@ accessible for future use.
 %%%%  SUPPLEMENT  (new since 04/2022) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Supplementary information on the research context}
-% Section 4 et seq. must not exceed 8 pages.
+\todo{Section 4 et seq. must not exceed 8 pages.}
 
 \subsection{Ethical and/or legal aspects of the project}
 
@@ -243,20 +213,15 @@ accessible for future use.
 %%%%  PEOPLE/COLLAB/FUNDING  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Employment status information}
-%for each applicant, state the last name, first name, and employment status
-%(including duration of contract and funding body, if on a fixed-term contract)
-H\"olzer, Martin -- postdoctoral researcher, \todo[inline]{additional information}
+\todo{For each applicant, state the last name, first name, and employment status (including duration of contract and funding body, if on a fixed-term contract)}
 
 \subsection{First-time proposal data}
-%only if applicable: Last name, first name of first-time applicant
-\todo[inline]{H\"olzer, Martin.}
+\todo{Only if applicable: Last name, first name of first-time applicant}
 
 \subsection{Composition of the project group}
-%List only those individuals who will work on the project but will not be paid
-%out of the project funds. State each person's name, academic title, employment
-%status, and type of funding. 
-The following individuals will work on the project but will not be paid out of
-the project funds:
+\todo{List only those individuals who will work on the project but will not be paid out of the project funds. State each person's name, academic title, employment status, and type of funding. }
+
+The following individuals will work on the project but will not be paid out of the project funds:
 
 \begin{itemize}
 \item Dude1
@@ -307,7 +272,7 @@ In submitting a proposal to the DFG, I agree to adhere to the DFG's rules of goo
 %%%%  REQUESTED MODULES/FUNDS  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Requested modules/funds}
-% Explain each item for each applicant (stating last name, first name).
+\todo{Explain each item for each applicant (stating last name, first name).}
 
 \subsection{Basic Module}
 
@@ -363,7 +328,7 @@ Our laboratory is well equipped; all necessary instruments are available.
 %% otherwise, just delete/comment
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\vspace*{2cm}\todo[inline]{The following are additional/other modules one might want to apply for. Otherwise, just delete/comment}
+\vspace*{2cm}\todo{The following are additional/other modules one might want to apply for. Otherwise, just delete/comment}
 
 \subsection{Module Temporary Position for Principal Investigator}
 \todo[inline]{Text}
@@ -384,7 +349,8 @@ Our laboratory is well equipped; all necessary instruments are available.
 \todo[inline]{Text}
 
 \subsection{Module Standard Allowance for Gender Equality Measures}
-\todo[inline]{Please detail what measures are planned to promote diversity and equal opportunities.  If you are submitting your proposal for an individual research grant within a network, note that this standard allowance may only be applied for within the coordination project. The coordination project must combine all such requests in its calculation.}
+\todo{Please detail what measures are planned to promote diversity and equal opportunities. If you are submitting your project proposal within a network, note that this standard allowance may only be applied for within the coordination project. The coordination project must combine all such requests in its calculation.}
+\todo[inline]{Text}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% SIGNATURE - OPTIONAL BC NOT IN THE ORIGINAL DFG TEMPLATE

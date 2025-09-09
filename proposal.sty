@@ -1,46 +1,46 @@
 \ProvidesPackage{proposal}[2018/02/27]
 
-\usepackage[usenames,dvipsnames,svgnames]{xcolor}
-\usepackage[ngerman, english]{babel}
-\usepackage{amsmath}
-%\usepackage[hidelinks]{hyperref}
-\usepackage{microtype}
-\usepackage{csquotes}
-%\usepackage[headheight = 28pt, tmargin = 70pt, lmargin = 55pt, rmargin = 55pt, bmargin = 70pt]{geometry}
+\RequirePackage[dvipsnames,svgnames]{xcolor}
+\RequirePackage[ngerman, english]{babel}
+\RequirePackage{amsmath}
+%\RequirePackage[hidelinks]{hyperref}
+\RequirePackage{microtype}
+\RequirePackage[autostyle=true]{csquotes}
+%\RequirePackage[headheight = 28pt, tmargin = 70pt, lmargin = 55pt, rmargin = 55pt, bmargin = 70pt]{geometry}
 % use DFG margins according to https://github.com/hoelzer/dfg/issues/56
-\usepackage[headheight = 1cm, tmargin = 2.5cm, lmargin = 2.5cm, rmargin = 2cm, bmargin = 1.5cm]{geometry}
-\usepackage[exponent-product = \cdot]{siunitx}
-\usepackage{rotating}
-\usepackage{helvet}
-\usepackage[pagecontinue=false]{pageslts}
+\RequirePackage[headheight = 1cm, tmargin = 2.5cm, lmargin = 2.5cm, rmargin = 2cm, bmargin = 1.5cm]{geometry}
+\RequirePackage[exponent-product = \cdot]{siunitx}
+\RequirePackage{rotating}
+\RequirePackage{helvet}
+\RequirePackage[pagecontinue=false]{pageslts}
 \pagenumbering{arabic}
-\usepackage{scrlayer-scrpage}
-\usepackage{eurosym}
-\usepackage{fp}
-\usepackage{pgfgantt}
-\usepackage{xspace}
-\usepackage{verbatim}
-\usepackage{longtable}
+\RequirePackage{scrlayer-scrpage}
+\RequirePackage{eurosym}
+\RequirePackage{fp}
+\RequirePackage{pgfgantt}
+\RequirePackage{xspace}
+\RequirePackage{verbatim}
+\RequirePackage{longtable}
 
-\usepackage{tikz}
-\usepackage{pgfplots}
-\usepackage{standalone}
+\RequirePackage{tikz}
+\RequirePackage{pgfplots}
+\RequirePackage{standalone}
 \pgfplotsset{compat=newest}
 
-\usepackage[backend = biber,
-    style = numeric, %alphabetic, numeric
-    firstinits = true,
-    natbib = true,
+\RequirePackage[backend=biber,
+  style = numeric, %alphabetic, numeric
+  firstinits = true,
+  natbib = true,
 	url=false,
 	doi=true,
 	eprint=true,
 	isbn=false,
 	defernumbers=true,
 	labelnumber,
-    hyperref = true,
-    maxbibnames = 99,
-    sorting=none,%remove this to have things sorted, e.g. use style=alphabetic
-    ]{biblatex}
+  hyperref = true,
+  maxbibnames = 99,
+  sorting=none,%remove this to have things sorted, e.g. use style=alphabetic
+]{biblatex}
 \renewcommand*{\labelalphaothers}{}
 
 % bibliography (from dfgproposal.cls from https://github.com/klb2/dfg-proposal-template)
@@ -75,7 +75,18 @@
 {\endlist}
 {\item}
 
-% necessary changes to make the selected references bold 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Declare your Bibliography
+\DeclareBibliographyCategory{reviewed}
+\DeclareBibliographyCategory{nonreviewed}
+\DeclareBibliographyCategory{patents_pending}
+\DeclareBibliographyCategory{patents}
+
+% necessary changes to make the selected references bold
+% references that need to be bold, their corresponding citation keys should be added to \addtocategory{important}{%...} in the dfg.tex or dfg-german.tex
+\DeclareBibliographyCategory{important}
+
+\colorlet{impentry}{black}% let 'impentry' = Maroon
 \AtEveryBibitem{%
   \ifcategory{important}%
     {\hypersetup{urlcolor=impentry}\bfseries\color{impentry}}%
@@ -152,7 +163,8 @@
 \setcounter{secnumdepth}{5}
 
 % Ensure that if round-precision is specified, the give number of decimals is printed (necessary for prices in Euro)
-\sisetup{round-integer-to-decimal} 
+%\sisetup{round-integer-to-decimal} 
+% Removed deprecated round-integer-to-decimal option 
 
 % Place this environment in funds section to automatically add up costs using the macro 'position'.
 \newenvironment{funds}[1][]
@@ -167,5 +179,5 @@
 \newcommand{\positionmul}[3]{\par #1 \hfill \num{#3} $\times$ \num[round-mode = places, round-precision = 2]{#2}\,\euro \FPeval{\funds}{\funds + #3*#2}}
 
 % todonotes and a switch for final
-\usepackage{ifthen}
+\RequirePackage{ifthen}
 \newboolean{finalcompile}

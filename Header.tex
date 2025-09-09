@@ -1,14 +1,14 @@
 \ifthenelse{\boolean{finalcompile}}{
-\usepackage[disable]{todonotes}
-\usepackage[final]{showlabels}
+  \usepackage[disable]{todonotes}
+  \usepackage[final]{showlabels}
 }{
-\usepackage{todonotes}
-%\setlength{\marginparwidth}{2cm}
-\paperwidth=\dimexpr \paperwidth + 6cm\relax
-\oddsidemargin=\dimexpr\oddsidemargin + 3cm\relax
-\evensidemargin=\dimexpr\evensidemargin + 3cm\relax
-\marginparwidth=\dimexpr \marginparwidth + 3cm\relax
-\usepackage{showlabels}
+  \usepackage{todonotes}
+  %\setlength{\marginparwidth}{2cm}
+  \paperwidth=\dimexpr \paperwidth + 6cm\relax
+  \oddsidemargin=\dimexpr\oddsidemargin + 3cm\relax
+  \evensidemargin=\dimexpr\evensidemargin + 3cm\relax
+  \marginparwidth=\dimexpr \marginparwidth + 3cm\relax
+  \usepackage{showlabels}
 }
 
 \usepackage{lipsum}
@@ -22,6 +22,10 @@
 \usepackage{mathtools}
 \usepackage{relsize}
 
+% Fix font warnings for verbatim braces
+\DeclareTextSymbolDefault{\textbraceleft}{T1}
+\DeclareTextSymbolDefault{\textbraceright}{T1}
+
 \usepackage[numbered]{bookmark}
 
 %\usepackage{titlesec}
@@ -34,7 +38,7 @@
 % see also: https://www.namsu.de/Extra/pakete/Cleveref.html
 
 % make numbers look better in funding section
-\usepackage{siunitx}
+%siunitx package is loaded already in proposal.sty
 \sisetup{detect-all=true}
 
 \graphicspath{{figures/}}
@@ -45,26 +49,5 @@
 % command \todo now deprecated by using todonotes
 %\newcommand{\todo}[1]{\xspace{\textcolor{red}{\bfseries[TODO: #1]}}\xspace}
 \newcommand{\cp}[1]{\xspace{\textcolor{blue}{\bfseries[COPIED: #1]}}\xspace}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Declare your Bibliography
-\DeclareBibliographyCategory{reviewed}
-\DeclareBibliographyCategory{nonreviewed}
-\DeclareBibliographyCategory{patents_pending}
-\DeclareBibliographyCategory{patents}
-%
-
-% necessary changes to make the selected references bold
-% references that need to be bold, their corresponding citation keys should be added to \addtocategory{important}{%...}
-\DeclareBibliographyCategory{important}
-\colorlet{impentry}{black}% let 'impentry' = Maroon
-\AtEveryBibitem{%
-  \ifcategory{important}%
-    {\bfseries\color{impentry}}%
-    {}%
-  }
-\addtocategory{important}{%
-Hoelzer:16,Hoelzer:17,Smith2023b,Smith2023c,Smith2023d,MIller1900, % don't miss the comma after the last entry
-}
 
 \input{highlight_box.tex}
