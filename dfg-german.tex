@@ -28,8 +28,9 @@
 \newcommand{\applicants}{[Name, Vorname, Ort aller Antragstellenden]}
 \newcommand{\project}{[Titel des Projekts]}
 
+% add bib entries here that you want to highlight in the text and publication list (bold)
 \addtocategory{important}{%
-Hoelzer:16,Hoelzer:17,Smith2023b,Smith2023c,Smith2023d,MIller1900, % Why the trailing comma? See: https://github.com/hoelzer/dfg/issues/69. TLDR; It is not important, but might prevent missing the comma when adding more entries to that list. 
+fuchs2025varvamp,lamkiewicz2024ribap,galeone2025decoding, % Why the trailing comma? See: https://github.com/hoelzer/dfg/issues/69. TLDR; It is not important, but might prevent missing the comma when adding more entries to that list. 
 }
  
 \begin{document}
@@ -79,7 +80,7 @@ Hoelzer:16,Hoelzer:17,Smith2023b,Smith2023c,Smith2023d,MIller1900, % Why the tra
 % For renewal proposals, please report on your previous work. This report
 % should also be understandable without referring to additional literature.
 
-This is a dummy citation~\cite{Hoelzer:17}. Yeah. And another one~\cite{Gerst:18}. Wuhuh. In an older version of the template, these citations~\cite{Hoelzer:16, Desiro:18} were not shown in the ``\ref{sec:bib}~Bibliography'' section, because they are already listed as \verb=\addtocategory{reviewed}{Hoelzer:16}= and\verb=\addtocategory{nonreviewed}{Desiro:18}= in the preamble and therefore shown in subsubsections \emph{Articles published by outlets with scientific quality \dots} and \emph{Other publications, both peer-reviewed and non-peer-reviewed}. However, these subsubsections are deprecated since v53.01 of the DFG template! And therefore, all the four citations above will simply show up in ``\ref{sec:bib}~Project- and subject-related list of publications'' now.
+This is a dummy citation~\cite{lamkiewicz2024ribap}. Yeah. And another one~\cite{assmann2025augmentation}. All citations~\cite{fuchs2025varvamp,galeone2025decoding,raharinirina2025sars} will simply show up in "\ref{sec:bib}~Project- and subject-related list of publications" and which one will be made bold can be changed via the \verb=\addtocategory{important}= command.
 
 \lipsum[1]
 
@@ -100,7 +101,7 @@ This is a dummy citation~\cite{Hoelzer:17}. Yeah. And another one~\cite{Gerst:18
 
 \subsection{Arbeitsprogramm inkl.\ vorgesehener Untersuchungsmethoden}
 %For each applicant
-\todo[inline]{ca.\ 6-8 pages; ca.\ 4-8 WPs. Für jede*n Antragsteller*in}
+\todo{ca.\ 6-8 pages; ca.\ 4-8 WPs. Für jede*n Antragsteller*in}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %%%%% BEGIN OF WORK PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -166,7 +167,7 @@ accessible for future use.
 % von den zitierten eigenen Arbeiten können max. 10 hervorgehoben werden; Schrift mind. Arial 9 pt
 \section{Projekt- und themenbezogenes Literaturverzeichnis}
 \label{sec:bib}
-\todo[inline]{Eigene und fremde zitierte Arbeiten aus Kap.1 und 2; sofern vorhanden möglichst mit Angabe DOI/URL; von den zitierten eigenen Arbeiten können max. 10 hervorgehoben werden; Schrift mind. Arial 9 pt}
+\todo{Eigene und fremde zitierte Arbeiten aus Kap.1 und 2; sofern vorhanden möglichst mit Angabe DOI/URL; von den zitierten eigenen Arbeiten können max. 10 hervorgehoben werden; Schrift mind. Arial 9 pt}
 %\AtNextBibliography{\small}
 % Own literature can be designated with a prefix, default 'E' for "Eigene". 
 % However, this is not necessary anymore since some DFG template change!
@@ -182,7 +183,7 @@ accessible for future use.
 %%%%  SUPPLEMENT  (new since 04/2022) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Begleitinformationen zum Forschungskontext}
-\todo[inline]{Kapitel 4ff., insgesamt maximal 8 Seiten}
+\todo{Kapitel 4ff., insgesamt maximal 8 Seiten}
 
 \subsection{Angaben zu ethischen und/oder rechtlichen Aspekten des Vorhabens}
 
@@ -214,16 +215,15 @@ accessible for future use.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Angaben zur Dienststellung}
-\todo[inline]{Für jede*n Antragsteller*in, unter Angabe von Name, Vorname, Dienststellung (bei befristetem Arbeitsvertrag Angaben zur Laufzeit und ggf. zum Zuwendungsgeber)}
+\todo{Für jede*n Antragsteller*in, unter Angabe von Name, Vorname, Dienststellung (bei befristetem Arbeitsvertrag Angaben zur Laufzeit und ggf. zum Zuwendungsgeber)}
 
 \subsection{Angaben zur Erstantragstellung}
-\todo[inline]{Nur angeben, falls zutreffend: Name, Vorname des*der Erstantragsteller*in}
+\todo{Nur angeben, falls zutreffend: Name, Vorname des*der Erstantragsteller*in}
 
 \subsection{Zusammensetzung der Projektarbeitsgruppe}
-\todo[inline]{Angabe nur der Personen, die im Projekt mitarbeiten, aber nicht aus diesem finanziert werden sollen, mit Name, akademischem Grad, Dienststellung und Art der Finanzierung
-}
-The following individuals will work on the project but will not be paid out of
-the project funds:
+\todo{Angabe nur der Personen, die im Projekt mitarbeiten, aber nicht aus diesem finanziert werden sollen, mit Name, akademischem Grad, Dienststellung und Art der Finanzierung}
+
+The following individuals will work on the project but will not be paid out of the project funds:
 
 \begin{itemize}
 \item Dude1
@@ -276,7 +276,7 @@ In submitting a proposal to the DFG, I agree to adhere to the DFG's rules of goo
 %%%%  REQUESTED MODULES/FUNDS  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Beantragte Module/Mittel}
-% Explain each item for each applicant (stating last name, first name).
+\todo{Explain each item for each applicant (stating last name, first name).}
 
 \subsection{Basismodul}
 
@@ -332,7 +332,7 @@ Our laboratory is well equipped; all necessary instruments are available.
 %% otherwise, just delete/comment
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\vspace*{2cm}\todo[inline]{The following are additional/other modules one might want to apply for. Otherwise, just delete/comment}
+\vspace*{2cm}\todo{The following are additional/other modules one might want to apply for. Otherwise, just delete/comment}
 
 \subsection{Modul Eigene Stelle}
 \todo[inline]{Text}
@@ -353,7 +353,8 @@ Our laboratory is well equipped; all necessary instruments are available.
 \todo[inline]{Text}
 
 \subsection{Modul Pauschale für Chancengleichheitsmaßnahmen}
-\todo[inline]{Bitte erläutern Sie ausführlich die geplanten Maßnahmen zur Förderung der Vielfalt und Chancengleichheit. Sofern Sie Ihren Projektantrag innerhalb eines Verbundkontextes stellen, so kann diese Pauschale nur gebündelt im Koordinierungsprojekt beantragt werden.}
+\todo{Bitte erläutern Sie ausführlich die geplanten Maßnahmen zur Förderung der Vielfalt und Chancengleichheit. Sofern Sie Ihren Projektantrag innerhalb eines Verbundkontextes stellen, so kann diese Pauschale nur gebündelt im Koordinierungsprojekt beantragt werden.}
+\todo[inline]{Text}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% SIGNATURE - OPTIONAL BC NOT IN THE ORIGINAL DFG TEMPLATE
