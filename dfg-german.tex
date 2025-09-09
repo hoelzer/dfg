@@ -83,40 +83,6 @@ This is a dummy citation~\cite{Hoelzer:17}. Yeah. And another one~\cite{Gerst:18
 
 \lipsum[1]
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% DEPRECATED since v54 (https://www.dfg.de/download/pdf/foerderung/programme/sachbeihilfe/info_vordrucksaenderungen.pdf)
-% This became now part of the publication list in section 3, see below
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsection{Projektbezogenes Publikationsverzeichnis Ihrer Arbeiten}
-%Please include a list of own publications that are related to the proposed project. 
-%Sections 1.2.1 and 1.2.2 together must not exceed 10 publications; please number them consecutively.
-
-%a maximum of ten publications
-%\subsubsection{Veröffentlichte Arbeiten aus Publikationsorganen mit
-%  wissenschaftlicher Qualitätssicherung, Buchveröffentlichungen sowie
-%  bereits zur Veröffentlichung angenommene, aber noch nicht
-%  veröffentlichte Arbeiten}
-
-% Own literature can be designated with a prefix, default 'E' for "Eigene". 
-% If the function is not desired, delete the "labelprefix" commands directly below this comment 
-% AND in the section: "Literaturverzeichnis zum Stand der Forschung, zu den Zielen und dem Arbeitsprogramm"
-% Then, all your references should be numbered consecutively.
-%\newrefcontext[labelprefix=E]
-%\printbibliography[category=reviewed, heading=none, env=bibliographyNUM, resetnumbers]
-
-%\subsubsection{Andere Veröffentlichungen mit und ohne wissenschaftliche Qualitätssicherung}
-%\printbibliography[category=nonreviewed, heading=none, env=bibliographyNUM, resetnumbers=false]
-
-%\subsubsection{Patente}
-
-%\subsubsubsection{Angemeldet}
-%\printbibliography[category=patents_pending, heading=none]
-%None.
-
-%\subsubsubsection{Erteilt}
-%\printbibliography[category=patents, heading=none]
-%None.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%  OBJECTIVES AND WP %%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -196,13 +162,18 @@ accessible for future use.
 \subsection{Relevanz von Geschlecht und/oder Vielfältigkeit}
 \todo[inline]{Text}
 
-% eigene und fremde zitierte Arbeiten aus Kap.1 und 2; sofern vorhanden möglichst mit Angabe DOI/URL; 
+% Eigene und fremde zitierte Arbeiten aus Kap.1 und 2; sofern vorhanden möglichst mit Angabe DOI/URL; 
 % von den zitierten eigenen Arbeiten können max. 10 hervorgehoben werden; Schrift mind. Arial 9 pt
 \section{Projekt- und themenbezogenes Literaturverzeichnis}
 \label{sec:bib}
 \todo[inline]{Eigene und fremde zitierte Arbeiten aus Kap.1 und 2; sofern vorhanden möglichst mit Angabe DOI/URL; von den zitierten eigenen Arbeiten können max. 10 hervorgehoben werden; Schrift mind. Arial 9 pt}
 %\AtNextBibliography{\small}
-\newrefcontext[labelprefix= ]
+% Own literature can be designated with a prefix, default 'E' for "Eigene". 
+% However, this is not necessary anymore since some DFG template change!
+% If the function is still desired, uncomment the "labelprefix" commands directly below this comment 
+% AND in the section: "Literaturverzeichnis zum Stand der Forschung, zu den Zielen und dem Arbeitsprogramm"
+% Then, all your references should be numbered consecutively.
+%\newrefcontext[labelprefix=E]
 \printbibliography[notcategory=reviewed, notcategory=nonreviewed, notcategory=patents_pending, notcategory=patents, heading=none, env=bibliographyNUM]
 
 

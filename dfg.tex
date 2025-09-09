@@ -83,37 +83,6 @@ This is a dummy citation~\cite{Hoelzer:17}. Yeah. And another one~\cite{Gerst:18
 
 \lipsum[1]
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% DEPRECATED since v54 (https://www.dfg.de/download/pdf/foerderung/programme/sachbeihilfe/info_vordrucksaenderungen.pdf)
-% This became now part of the publication list in section 3, see below
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsection{Project-related publications}
-%Please include a list of own publications that are related to the proposed project. 
-%Sections 1.2.1 and 1.2.2 together must not exceed 10 publications; please number them consecutively.
-
-%a maximum of ten publications
-%\subsubsection{Articles published by outlets with scientific quality assurance, book publications, and works accepted for publication but not yet published}
-
-% Own literature can be designated with a prefix, default 'O' for "Own". 
-% If the function is not desired, delete the "labelprefix" commands directly below this comment 
-% AND in the section: "Bibliography concerning the state of the art, the research objectives, and the work programme"
-% Then, all your references should be numbered consecutively.
-%\newrefcontext[labelprefix=O]
-%\printbibliography[category=reviewed, heading=none, env=bibliographyNUM, resetnumbers]
-
-%\subsubsection{Other publications, both peer-reviewed and non-peer-reviewed}
-%\printbibliography[category=nonreviewed, heading=none, env=bibliographyNUM, resetnumbers=false]
-
-%\subsubsection{Patents}
-
-%\subsubsubsection{Pending}
-%\printbibliography[category=patents_pending, heading=none]
-%None.
-
-%\subsubsubsection{Issued}
-%\printbibliography[category=patents, heading=none]
-%None.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%  OBJECTIVES AND WP %%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -199,7 +168,12 @@ accessible for future use.
 \label{sec:bib}
 \todo[inline]{Works cited from sections 1 and 2, both by the applicant(s) and by third parties. Please include DOI/URL if available. A maximum of ten of your own works cited may be highlighted; font at least Arial 9 pt.}
 %\AtNextBibliography{\small}
-\newrefcontext[labelprefix=]
+% Own literature can be designated with a prefix, default 'E' for "Eigene". 
+% However, this is not necessary anymore since some DFG template change!
+% If the function is still desired, uncomment the "labelprefix" commands directly below this comment 
+% AND in the section: "Literaturverzeichnis zum Stand der Forschung, zu den Zielen und dem Arbeitsprogramm"
+% Then, all your references should be numbered consecutively.
+%\newrefcontext[labelprefix=E]
 \printbibliography[notcategory=reviewed, notcategory=nonreviewed, notcategory=patents_pending, notcategory=patents, heading=none, env=bibliographyNUM]	
 
 \backmatter
