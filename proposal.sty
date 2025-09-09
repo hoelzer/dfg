@@ -75,7 +75,18 @@
 {\endlist}
 {\item}
 
-% necessary changes to make the selected references bold 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Declare your Bibliography
+\DeclareBibliographyCategory{reviewed}
+\DeclareBibliographyCategory{nonreviewed}
+\DeclareBibliographyCategory{patents_pending}
+\DeclareBibliographyCategory{patents}
+
+% necessary changes to make the selected references bold
+% references that need to be bold, their corresponding citation keys should be added to \addtocategory{important}{%...} in the dfg.tex or dfg-german.tex
+\DeclareBibliographyCategory{important}
+
+\colorlet{impentry}{black}% let 'impentry' = Maroon
 \AtEveryBibitem{%
   \ifcategory{important}%
     {\hypersetup{urlcolor=impentry}\bfseries\color{impentry}}%

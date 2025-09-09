@@ -134,11 +134,11 @@ To change the style of your bibliography you have to change the following code s
 
 ### Highlight author's publications
 
-It is recommended to higlight author publications. This can be done using **bold** font. Go to the `Header.tex` file and add the bib keys of the publications you want to highlight to this code section:
+It is recommended to higlight author publications. This can be done using **bold** font. Go to the `dfg.tex` (or `dfg-german.tex`) file and add the bib keys of the publications you want to highlight to this code section:
 
 ```tex
 \addtocategory{important}{%
-Hoelzer:16,Hoelzer:17,Smith2023b,Smith2023c,Smith2023d,MIller1900, % don't miss the comma after the last entry
+Hoelzer:16,Hoelzer:17,Smith2023b,Smith2023c,Smith2023d,MIller1900, 
 }
 ```
 
