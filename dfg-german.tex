@@ -12,7 +12,7 @@
 \setboolean{finalcompile}{false}
 
 % show DFG template version the current LaTeX template is based on in the header. Will be deactivated when 'finalcompile' is set 'true'
-\ifthenelse{\boolean{finalcompile}}{}{\ihead*{DFG-Vordruck 53.01 - 03/24}}
+\ifthenelse{\boolean{finalcompile}}{}{\ihead*{DFG-Vordruck 53.01 - 03/25}}
 
 % all config is done in Header.tex
 \input{Header.tex}
@@ -25,7 +25,7 @@
 %%%%  TITELSEITE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\applicants}{Dr.\ Martin H\"olzer, Robert Koch Institute, Berlin [Name, Vorname, Ort aller Antragstellenden]}
+\newcommand{\applicants}{[Name, Vorname, Ort aller Antragstellenden]}
 \newcommand{\project}{[Titel des Projekts]}
 
 % declare bibliography categories
@@ -139,7 +139,7 @@ This is a dummy citation~\cite{Hoelzer:17}. Yeah. And another one~\cite{Gerst:18
 
 \subsection{Arbeitsprogramm inkl.\ vorgesehener Untersuchungsmethoden}
 %For each applicant
-\todo[inline]{ca.\ 6-8 pages; ca. 4-8 WPs}
+\todo[inline]{ca.\ 6-8 pages; ca.\ 4-8 WPs. Für jede*n Antragsteller*in}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %%%%% BEGIN OF WORK PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -154,8 +154,6 @@ afterskip=2.5ex plus 0.2ex minus 0.2ex]{paragraph}
 \RedeclareSectionCommand[indent=0pt, beforeskip=-3.5ex plus-1ex minus -.2ex,%
 afterskip=2.5ex plus 0.2ex minus 0.2ex]{subparagraph}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Für jede Antragstellerin und jeden Antragsteller
 
 \hrulefill
 \paragraph{Erstes Arbeitspaket.}
@@ -207,7 +205,7 @@ accessible for future use.
 % von den zitierten eigenen Arbeiten können max. 10 hervorgehoben werden; Schrift mind. Arial 9 pt
 \section{Projekt- und themenbezogenes Literaturverzeichnis}
 \label{sec:bib}
-\todo[inline]{Works cited from sections 1 and 2, both by the applicant(s) and by third parties. Please include DOI/URL if available. A maximum of ten of your own works cited may be highlighted; font at least Arial 9 pt.}
+\todo[inline]{Eigene und fremde zitierte Arbeiten aus Kap.1 und 2; sofern vorhanden möglichst mit Angabe DOI/URL; von den zitierten eigenen Arbeiten können max. 10 hervorgehoben werden; Schrift mind. Arial 9 pt}
 %\AtNextBibliography{\small}
 \newrefcontext[labelprefix= ]
 \printbibliography[notcategory=reviewed, notcategory=nonreviewed, notcategory=patents_pending, notcategory=patents, heading=none, env=bibliographyNUM]
@@ -218,7 +216,7 @@ accessible for future use.
 %%%%  SUPPLEMENT  (new since 04/2022) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Begleitinformationen zum Forschungskontext}
-% Kapitel 4ff., insgesamt maximal 8 Seiten
+\todo[inline]{Kapitel 4ff., insgesamt maximal 8 Seiten}
 
 \subsection{Angaben zu ethischen und/oder rechtlichen Aspekten des Vorhabens}
 
@@ -231,8 +229,7 @@ accessible for future use.
 \subsubsection{Erläuterungen zu den vorgesehenen Untersuchungen bei Versuchen an Tieren}
 \todo[inline]{Text}
 
-\subsubsection{Erläuterungen zu Forschungsvorhaben an genetischen Ressourcen (oder 
-darauf bezogenem traditionellem Wissen) aus dem Ausland}
+\subsubsection{Erläuterungen zu Forschungsvorhaben an genetischen Ressourcen (oder darauf bezogenem traditionellem Wissen) aus dem Ausland}
 \todo[inline]{Text}
 
 \subsubsection{Erläuterungen zu möglichen sicherheitsrelevanten Aspekten}
@@ -251,18 +248,14 @@ darauf bezogenem traditionellem Wissen) aus dem Ausland}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Angaben zur Dienststellung}
-%for each applicant, state the last name, first name, and employment status
-%(including duration of contract and funding body, if on a fixed-term contract)
-H\"olzer, Martin -- postdoctoral researcher, \todo[inline]{additional information}
+\todo[inline]{Für jede*n Antragsteller*in, unter Angabe von Name, Vorname, Dienststellung (bei befristetem Arbeitsvertrag Angaben zur Laufzeit und ggf. zum Zuwendungsgeber)}
 
 \subsection{Angaben zur Erstantragstellung}
-%only if applicable: Last name, first name of first-time applicant
-H\"olzer, Martin.
+\todo[inline]{Nur angeben, falls zutreffend: Name, Vorname des*der Erstantragsteller*in}
 
 \subsection{Zusammensetzung der Projektarbeitsgruppe}
-%List only those individuals who will work on the project but will not be paid
-%out of the project funds. State each person's name, academic title, employment
-%status, and type of funding. 
+\todo[inline]{Angabe nur der Personen, die im Projekt mitarbeiten, aber nicht aus diesem finanziert werden sollen, mit Name, akademischem Grad, Dienststellung und Art der Finanzierung
+}
 The following individuals will work on the project but will not be paid out of
 the project funds:
 
@@ -271,14 +264,13 @@ the project funds:
 \item Dude2
 \end{itemize}
 
-\subsection{Zusammenarbeit mit Wissenschaftlerinnen und Wissenschaftlern in Deutschland in diesem Projekt}
+\subsection{Zusammenarbeit mit Wissenschaftler*innen in Deutschland in diesem Projekt}
 \todo[inline]{Text}
 
-\subsection{Zusammenarbeit mit Wissenschaftlerinnen und Wissenschaftlern im Ausland in diesem Projekt}
+\subsection{Zusammenarbeit mit Wissenschaftler*innen im Ausland in diesem Projekt}
 \todo[inline]{Text}
 
-\subsection{Wissenschaftlerinnen und Wissenschaftler, mit denen in den letzten 
-drei Jahren wissenschaftlich zusammengearbeitet wurde}
+\subsection{Wissenschaftler*innen, mit denen in den letzten drei Jahren wissenschaftlich zusammengearbeitet wurde}
 % This information will help avoid potential conflicts of interest.
 \begin{itemize}
   \item Prof.\ Dr.\ Dr.\ Foo Bar
@@ -395,7 +387,7 @@ Our laboratory is well equipped; all necessary instruments are available.
 \todo[inline]{Text}
 
 \subsection{Modul Pauschale für Chancengleichheitsmaßnahmen}
-\todo[inline]{Bitte erläutern Sie ausführlich die geplanten Maßnahmen zur Förderung der Vielfalt und Chancengleichheit. Sofern Sie Ihren Sachbeihilfeantrag innerhalb eines Verbundkontextes stellen, so kann diese Pauschale nur gebündelt im Koordinierungsprojekt beantragt werden.}
+\todo[inline]{Bitte erläutern Sie ausführlich die geplanten Maßnahmen zur Förderung der Vielfalt und Chancengleichheit. Sofern Sie Ihren Projektantrag innerhalb eines Verbundkontextes stellen, so kann diese Pauschale nur gebündelt im Koordinierungsprojekt beantragt werden.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% SIGNATURE - OPTIONAL BC NOT IN THE ORIGINAL DFG TEMPLATE
