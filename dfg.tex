@@ -28,14 +28,25 @@
 \newcommand{\applicants}{[First name  last name, city of all applicants]}
 \newcommand{\project}{[Project title]}
 
-% declare bibliography categories
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Declare your Bibliography
+\DeclareBibliographyCategory{reviewed}
+\DeclareBibliographyCategory{nonreviewed}
+\DeclareBibliographyCategory{patents_pending}
+\DeclareBibliographyCategory{patents}
 
-% likely deprecated and these categories are not needed anymore
-%\addtocategory{reviewed}{Hoelzer:16} 
-%\nocite{}
-%\addtocategory{nonreviewed}{Desiro:18} 
-%\addtocategory{patents_pending}{} 
-%\addtocategory{patents}{} 
+% necessary changes to make the selected references bold
+% references that need to be bold, their corresponding citation keys should be added to \addtocategory{important}{%...}
+\DeclareBibliographyCategory{important}
+\colorlet{impentry}{black}% let 'impentry' = Maroon
+\AtEveryBibitem{%
+  \ifcategory{important}%
+    {\bfseries\color{impentry}}%
+    {}%
+  }
+\addtocategory{important}{%
+Hoelzer:16,Hoelzer:17,Smith2023b,Smith2023c,Smith2023d,MIller1900, % Why the trailing comma? See: https://github.com/hoelzer/dfg/issues/69. TLDR; It is not important, but might prevent missing the comma when adding more entries to that list. 
+}
 
 \begin{document}
 \pagestyle{empty}
