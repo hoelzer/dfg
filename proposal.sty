@@ -89,7 +89,7 @@
 \colorlet{impentry}{black}% let 'impentry' = Maroon
 \AtEveryBibitem{%
   \ifcategory{important}%
-    {\hypersetup{urlcolor=impentry}\bfseries\color{impentry}}%
+    {\hypersetup{urlcolor=MidnightBlue}\bfseries\color{impentry}}%
     {}%
   }
 \AtEveryCitekey{%
@@ -106,6 +106,13 @@
     {\mkbibbrackets{#1}}%
   }}
 
+\DeclareFieldFormat{doi}{%
+  DOI\addcolon\space
+  \ifhyperref
+    {\href{https://doi.org/#1}{\nolinkurl{#1}}}
+    {\nolinkurl{#1}}}
+
+\urlstyle{same}
 
 %% von Hurenkindern und Schusterjungen
 \clubpenalty = 10000
