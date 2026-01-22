@@ -1,6 +1,7 @@
 \documentclass{scrartcl}
 
-%This CV template is based on the DFG-form 53.200 – 03/23
+%This CV template is based on the DFG-form 53.200 – 07/25
+% https://www.dfg.de/de/formulare-53-200-elan-246806
 %
 %Author: Oliver Wallscheid, oliver.wallscheid@uni-siegen.de
 %
@@ -13,7 +14,7 @@
 \setboolean{finalcompile}{false}
 
 % show DFG template version the current LaTeX template is based on in the header. Will be deactivated when 'finalcompile' is set 'true'
-\ihead*{DFG-form 53.200 - 03/23}
+\ihead*{DFG-form 53.200 - 07/25}
 
 % all config is done in Header.tex
 \input{Header.tex}
@@ -70,7 +71,7 @@
     \hline
     \textbf{Stages} & \textbf{Periods and Details}\\
     \hline
-    School, country & \ifthenelse{\boolean{finalcompile}}{}{\textcolor{darkgray}{If you spent some or all of your school years abroad, please provide detailed information on times and locations.}}  \\
+    School, country \ifthenelse{\boolean{finalcompile}}{}{\textcolor{red}{required only for the Walter benjamin Programme}} & \ifthenelse{\boolean{finalcompile}}{}{\textcolor{darkgray}{If you spent some or all of your school years abroad, please provide detailed information on times and locations.}}  \\
     \hline
     Degree programme & \ifthenelse{\boolean{finalcompile}}{}{\textcolor{darkgray}{Subject, period, place, country}} \\
     \hline
@@ -83,11 +84,17 @@
 \subsection*{Supplementary Career Information}
 \todo{optional; free text}
 \todo[inline]{%
-    You may voluntarily enter supplementary information relating to your career or special personal circumstances if you feel that this information may be relevant to the appropriate review and evaluation of your academic achievements. Examples of special personal circumstances or delays that can be recognised include periods of absence due to childcare responsibilities, maternity leave, parenting or child-rearing periods, chronic/long-term illness, a disability or particular family obligations such as caring for relatives as well as pandemic-related downtimes. Time delays in an academic career may also be indicated, e.g. for persons who are the first in their families to pursue an academic career (first-generation academics), for various compulsory and voluntary services, language acquisition, migration or integration phases, displacement or asylum procedures. Please do not mention any information about third parties, or as little as possible.\\
+    You may \textbf{voluntarily} enter supplementary information relating to your career or special personal circumstances if you feel that this information may be relevant to the appropriate review and evaluation of your academic achievements. Examples of special personal circumstances or delays that can be recognised include periods of absence due to childcare responsibilities, maternity leave, parenting or child-rearing periods, chronic/long-term illness, a disability or particular family obligations such as caring for relatives as well as pandemic-related downtimes. Time delays in an academic career may also be indicated, e.g. for persons who are the first in their families to pursue an academic career (first-generation academics), for various compulsory and voluntary services, language acquisition, migration or integration phases, displacement or asylum procedures. Please do not mention any information about third parties, or as little as possible.\\
 
     This allows such things as biographical peculiarities or unavoidable delays (of at least 2-3 months per year) in your academic career to be appropriately taken into account in your favour as part of the review and comparative assessment.\\
 
-    If you wish to provide relevant, confidential information on your personal situation (e.g. illness, disability or other hardship) in the context of your proposal, but do not wish this information to be passed on to reviewers or committee members, please only use the separate \href{http://www.dfg.de/formulare/73_01/73_01_en.pdfURL}{DFG form 73.01} (Part A). Please note that in this case, the information will not be taken into account in the review or comparative assessment, or only to a limited extent. In such cases, feel free to contact the DFG Head Office in advance (\url{chancengleichheit@dfg.de}). For further information, see \url{www.dfg.de/faq_cv}.
+    If you wish to provide relevant, confidential information on your personal situation (e.g. illness, disability or other hardship) in the context of your proposal, but do not wish this information to be passed on to reviewers or committee members, please only use the “Form for confidential information to be shared solely with the DFG Head Office” which is available in your proposal overview in the elan portal. Please note that in this case, the information will not be taken into account in the review or comparative assessment, or only to a limited extent. In such cases, feel free to contact the DFG Head Office in advance (\url{chancengleichheit@dfg.de}). For further information, see \url{www.dfg.de/faq_cv}.\\
+
+    If you do not wish for your data relating to special personal circumstances to be processed, you should not provide any data of this nature. Do not provide any or only relevant information about third parties, and make sure to do so only if the necessary legitimation under data protection law exists. The DFG will process your data relating to special personal circumstances based on your consent or the consent of the individual submitting the data in the elan portal. For more information, please refer to our data protection notices at \url{www.dfg.de/privacy_policy}.\\
+
+    \textcolor{red}{Please note the following for proposals in connection with the Emmy Noether and Walter Benjamin programmes: If you wish periods of childcare to be recognised with regard to your eligibility to apply, please provide relevant information here as applicable (number of children, month and year of birth, not indicating any names, e.g. „2 children, born 05/2017 and 12/2020) or provide details relating to periods of parenting and child-raising (see DFG form 50.02 and DFG form 50.10).
+}
+
 }
 
 \subsection*{Activities in the Research System}
@@ -99,26 +106,41 @@
 \subsection*{Supervision of Researchers in Early Career Phases}
 \todo{optional; free text}
 
+\todo[inline]{%
+\textcolor{red}{For proposals relating to the Research Training Groups Programme, these details are required:
+Please provide information here on the supervision of researchers in early career phases in the last five years, specifically a list of supervised doctoral researchers with details of the subject of dissertation, the time to degree (for completed doctoral degrees „from… to…“ and for doctorates in progress „since…“)  and, as far as possible, the subsequent career path of the doctoral candidate. If you have specified delays as a result of birth and childcare under "Supplementary career information", the five-year period is extended by two years for each child.}
+}
+
 \section*{Scientific Results}
 \todo{Part A required, Part B optional; free text}
 \todo[inline]{%
-    Please indicate here your most important published scientific results (see also \textit{Guidelines for Preparing Publication Lists}, DFG form 1.91). If available, please also provide persistent identifiers (e.g. DOI/Digital Object Identifier), preferably by stating the number, otherwise by naming the URL. Open access publications should be designated accordingly.\\
+    Please indicate here your most important published scientific results (see also \textit{Guidelines for Preparing Publication Lists}, DFG form 1.91 \url{https://www.dfg.de/resource/blob/167386/1-91-en.pdf}). If available, please also provide persistent identifiers (e.g. DOI/Digital Object Identifier), preferably by stating the number, otherwise by naming the URL. Open access publications should be designated accordingly.\\
 
     Details of quantitative metrics such as impact factors and h-indices are not required and are not considered as part of the review.
-    Please also explain -- where possible -- how you were involved in the published findings and/or explain why you have listed the publication or the academic contribution here.
+    Please also explain -- where possible -- how you were involved in the published findings and/or explain why you have listed the publication or the academic contribution here.\\
+
+    These details fall into two categories:
 }
 
-\subsection*{Category A}
-\todo{required, free text}
+\subsection*{Category A -- Articles in peer-reviewed journals, contributions to peer-reviewed conferences or to anthology volumes, and book publications}
+\todo{required, list numbered from 1 to a \textbf{maximum of 10}. Commented as required.}
 \todo[inline]{%
-    In this category please enter articles in peer-reviewed journals, peer-reviewed contributions to conferences or anthology volumes, and book publications (see also DFG form 1.91). A maximum of ten items may be listed.
+    In this category please enter articles in peer-reviewed journals, contributions to peer-reviewed conferences or to anthology volumes, and book publications (see also DFG form 1.91, \url{https://www.dfg.de/resource/blob/167386/1-91-en.pdf}).
 }
 
-\subsection*{Category B}
-\todo{optional, free text}
+\begin{enumerate}
+    \item
+\end{enumerate}
+
+\subsection*{Category B -- Any other form of published results}
+\todo{optional, list numbered from 1 to a \textbf{maximum of 10}. Commented as required.}
 \todo[inline]{%
-    Here you can cite any other form of published research results. This might include articles on preprint servers and non-peer-reviewed contributions to conferences or anthology volumes, data sets, protocols of clinical trials, software packages, patents applied for and granted, blog contributions, infrastructures or transfer. You may also indicate other forms of academic output here, such as contributions to the (technical) infrastructure of an academic community (including in an international context) and contributions to science communication. This second category is also restricted to a maximum of ten items.
+    Here you can cite any other form of published research results. This may include contributions to non-peer-reviewed conferences, articles on preprint servers, data sets, protocols of clinical trials, software packages, patents applied for and granted, blog contributions, infrastructures or transfer. You may also indicate other forms of academic output here, such as contributions to the (technical) infrastructure of an academic community (including in an international context) and contributions to science communication. 
 }
+
+\begin{enumerate}
+    \item
+\end{enumerate}
 
 \subsection*{Academic Distinctions}
 \todo{optional, free text}
@@ -132,12 +154,14 @@ Here you can enter details of any distinctions or awards you have won. This also
 Here you can refer to further points that characterise you as an academic or mention other aspects such as dual-career issues (potentially requiring a particular choice of location, for example) which you feel are relevant to the review or evaluation of the proposal.
 }
 
-\section*{Data protection and consent to the processing of optional data}
-If you provide voluntary information (marked as optional) in this CV, your consent is required. Please confirm your consent by checking the box below. 
+%% I think this is old, not part of 07/25 template
 
-$[\hspace{0.5cm}]$ \textbf{I expressly consent to the processing of the voluntary (optional) information, including  ``special categories of personal data''\footnote{Special categories of personal data are those ``revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and (...) genetic data, biometric data for the purpose of uniquely identifying a natural person, data concerning health or data concerning a natural person's sex life or sexual orientation'' (Article 9(1) GDPR).}  in connection with the DFG's review and decision-making process regarding my proposal.} This also includes forwarding my data to the external reviewers, committee members and, where applicable, foreign partner organisations who are involved in the decision-making process. To the extent that these recipients are located in a third country (outside the European Economic Area), I additionally consent to them being granted access to my data for the above-mentioned purposes, even though a level of data protection comparable to EU law may not be guaranteed. For this reason, compliance with the data protection principles of EU law is not guaranteed in such cases. In this respect, there may be a violation of my fundamental rights and freedoms and resulting damages. This may make it more difficult for me to assert my rights under the General Data Protection Regulation (e.g. information, rectification, erasure, compensation) and, if necessary, to enforce these rights with the help of authorities or in court.
+%\section*{Data protection and consent to the processing of optional data}
+%If you provide voluntary information (marked as optional) in this CV, your consent is required. Please confirm your consent by checking the box below. 
 
-I may revoke my consent in whole or in part at any time -- with effect for the future, freely and without giving reasons -- vis-à-vis the DFG (\url{postmaster@dfg.de}). The lawfulness of the processing carried out up to that point remains unaffected. Insofar as I transmit ``special categories of personal data'' relating to third parties, I confirm that the necessary legitimation under data protection law exists (e.g. based on consent).
+%$[\hspace{0.5cm}]$ \textbf{I expressly consent to the processing of the voluntary (optional) information, including  ``special categories of personal data''\footnote{Special categories of personal data are those ``revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and (...) genetic data, biometric data for the purpose of uniquely identifying a natural person, data concerning health or data concerning a natural person's sex life or sexual orientation'' (Article 9(1) GDPR).}  in connection with the DFG's review and decision-making process regarding my proposal.} This also includes forwarding my data to the external reviewers, committee members and, where applicable, foreign partner organisations who are involved in the decision-making process. To the extent that these recipients are located in a third country (outside the European Economic Area), I additionally consent to them being granted access to my data for the above-mentioned purposes, even though a level of data protection comparable to EU law may not be guaranteed. For this reason, compliance with the data protection principles of EU law is not guaranteed in such cases. In this respect, there may be a violation of my fundamental rights and freedoms and resulting damages. This may make it more difficult for me to assert my rights under the General Data Protection Regulation (e.g. information, rectification, erasure, compensation) and, if necessary, to enforce these rights with the help of authorities or in court.
 
-I have taken note of the DFG's Data Protection Notice relating to research funding, which I can access at \url{www.dfg.de/privacy_policy} and I will forward it to such persons whose data the DFG processes as a result of being mentioned in this CV.
+%I may revoke my consent in whole or in part at any time -- with effect for the future, freely and without giving reasons -- vis-à-vis the DFG (\url{postmaster@dfg.de}). The lawfulness of the processing carried out up to that point remains unaffected. Insofar as I transmit ``special categories of personal data'' relating to third parties, I confirm that the necessary legitimation under data protection law exists (e.g. based on consent).
+
+%I have taken note of the DFG's Data Protection Notice relating to research funding, which I can access at \url{www.dfg.de/privacy_policy} and I will forward it to such persons whose data the DFG processes as a result of being mentioned in this CV.
 \end{document}
