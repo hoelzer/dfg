@@ -69,6 +69,16 @@ conda create -n biber -c malramsay biber
 conda activate biber
 ```
 
+### Online (no installation needed)
+If you don't want to install LaTeX locally, you can edit and compile this template entirely in the browser using [SpicyChai LaTeX](https://latex.spicychai.com/). It's a free online LaTeX editor with:
+
+- Real-time PDF preview as you type
+- AI-powered template population — useful for quickly filling in structured sections like work packages, funding tables, and Gantt chart data
+- Pre-built templates for grant proposals and academic documents
+- No account required for basic use (500 free credits on signup, 1 credit per rendered page)
+
+Simply upload your `.tex`, `.sty`, and `.bib` files and compile directly in the browser.
+
 ### Docker
 You can also use a Docker container that comes with all dependencies (pdflatex, biber, ...) to compile the template. Thus, no installation of LaTeX, Biber, etc... is needed on your local system.
 
