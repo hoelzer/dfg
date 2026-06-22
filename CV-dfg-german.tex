@@ -1,0 +1,155 @@
+\documentclass{scrartcl}
+
+%This CV template is based on the DFG-form 53.200 – 07/25
+% https://www.dfg.de/resource/blob/168206/53-01-en-elan.rtf
+%%
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[german]{proposal}
+
+% final version -- deactivate all todo notes and showlabels
+\setboolean{finalcompile}{false}
+
+% show DFG template version the current LaTeX template is based on in the header. Will be deactivated when 'finalcompile' is set 'true'
+\ihead*{DFG-Vordruck 53.200 - 07/25}
+
+% all config is done in Header.tex
+\input{Header.tex}
+
+\tikzset{notestyleraw/.append style={align= justify}} % justify inline todo notes
+\renewcommand{\baselinestretch}{1.2}  % line spacing 1.2 (according to DFG template requirement)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  CV DFG Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\section*{Curriculum Vitae}
+\todo[inline]{%
+    Der wissenschaftliche Lebenslauf dient der Darstellung Ihrer Person. Die Gutachter*innen und Gremien der DFG unterstützt er bei der Begutachtung und Bewertung der (wissenschaftlichen) Leistungen und der wissenschaftlichen Qualifikation. Die Geschäftsstelle der DFG prüft anhand des Lebenslaufs die Antragsberechtigung und den etwaigen Anschein von Befangenheiten gegenüber Gutachter*innen und Gremienmitgliedern. Sämtliche nachfolgenden Angaben sind Pflichtfelder und damit obligatorisch, sofern dies nicht gesondert gekennzeichnet ist. \\
+    Für den konkreten Nachweis der antrags- bzw. themenspezifischen Qualifikation ist der Abschnitt zu „eigenen Vorarbeiten“ im Antragsdokument vorgesehen. \\
+    Der Lebenslauf darf nicht mehr als maximal vier Seiten umfassen. Bitte behalten Sie die vorgegebene Formatierung unbedingt bei, insbesondere soll die Schrift Arial 11 Punkt, Zeilenabstand 1,2 nicht unterschritten werden. Dem Lebenslauf darf kein Foto beigefügt werden. Bitte bezeichnen Sie dieses Dokument mit \textit{CV\textunderscore PubList\textunderscore \textless Nachname der betreffenden Person\textgreater}. Die Texte in grauer bzw. roter Schrift bieten Ihnen Informationen bei der Erstellung des Lebenslaufs. \\
+
+    Weitere Informationen finden Sie unter \url{www.dfg.de/faq_lebenslauf}.
+
+}
+
+\subsection*{Persönliche Daten}
+\todo{rein tabellarisch}
+    
+\begin{longtable}{|p{0.3\textwidth-2\tabcolsep}|p{0.7\textwidth-2\tabcolsep}|}
+    \hline
+    Titel & \\
+    \hline
+    Vorname &  \\
+    \hline
+    Name &  \\
+    \hline
+    Aktuelle Position & \ifthenelse{\boolean{finalcompile}}{}{\textcolor{darkgray}{Ggf. einschließlich Ende der Vertragslaufzeit}} \\
+    \hline
+    Aktuelle Institution(en)/Ort(e), Land & \\
+    \hline
+    Identifikatoren/ORCID & \ifthenelse{\boolean{finalcompile}}{}{\textcolor{darkgray}{ORCID-ID: Antragsteller*innen, die über eine ORCID-ID verfügen, sind aufgefordert, diese anzugeben. Antragsteller*innen, die über keine ORCID-ID verfügen, sind eingeladen, aber nicht verpflichtet, eine solche zu erstellen.}} \\
+    \hline
+\end{longtable}
+
+\subsection*{Qualifizierung und Werdegang}
+\todo{hybrid tabellarisch / Freitextfeld}
+\todo[inline]{%
+    Bitte nennen Sie die Stationen Ihrer (wissenschaftlichen) Karriere inklusive Qualifizierungsstationen. Bitte geben Sie jeweils Position, Institution und Dauer an. Optional können Sie auch auf den wissenschaftlichen Inhalt der Tätigkeiten eingehen. \\
+    Falls Sie sich aktuell in einem Promotionsverfahren befinden, geben Sie bitte den Stand des Verfahrens an.
+}
+
+
+\begin{longtable}{|p{0.35\textwidth-2\tabcolsep}|p{0.65\textwidth-2\tabcolsep}|}
+    \hline
+    \textbf{Stationen} & \textbf{Zeiträume und nähere Einzelheiten}\\
+    \hline
+    Schule, Land \ifthenelse{\boolean{finalcompile}}{}{\textcolor{red}{obligatorisch nur für das Walter Benjamin-Programm}} & \ifthenelse{\boolean{finalcompile}}{}{\textcolor{darkgray}{Sofern ein Teil oder die gesamte Schulzeit im Ausland verbracht wurde, bitte detaillierte Angaben zu Zeiten und Orten machen}}  \\
+    \hline
+    Studium & \ifthenelse{\boolean{finalcompile}}{}{\textcolor{darkgray}{Fach, Zeitraum, Ort, Land}} \\
+    \hline
+    Promotion  & \ifthenelse{\boolean{finalcompile}}{}{\textcolor{darkgray}{Datum, Betreuer*innen/Mentor*innen, Fach (Optional), Einrichtung(en), Land}}  \\
+    \hline
+    Stationen des wissenschaftlichen/beruflichen Werdegangs & \ifthenelse{\boolean{finalcompile}}{}{\textcolor{darkgray}{Für den Antrag relevante Tätigkeiten sind umgekehrt chronologisch (die aktuellste am Anfang) mit der Angabe von Zeitraum, Station/Position und Einrichtung zu nennen, wie z.\,B. Forschungsaufenthalte, Habilitation (Thema/Fach, Betreuer*innen), Tätigkeiten an Hochschulen/außeruniversitären Einrichtungen, klinische Tätigkeit/Tätigkeit in der Versorgung von Patient*innen, Erfahrungen und Qualifikationen in der Durchführung von klinischen Studien (Qualifikation als Prüfer*in oder Prüfungsteam-Mitglied sowie regulatorische und methodische Kenntnisse), Tätigkeit in der Industrieforschung, Tätigkeiten in anderen Berufsbranchen, Unternehmensgründungen, ehrenamtliche Tätigkeiten etc.}}\\
+    \hline
+\end{longtable}
+
+\subsection*{Ergänzende Angaben zum Werdegang}
+\todo{Optional, Freitextfeld}
+\todo[inline]{%
+    Hier können Sie freiwillig ergänzende Informationen zu Ihrem Werdegang oder einer besonderen persönlichen Situation eintragen, sollten Sie den Eindruck haben, dass diese Angaben für die angemessene Begutachtung und Bewertung Ihrer wissenschaftlichen Leistung relevant sein können. Als solche Besonderheiten oder Verzögerungen können beispielsweise Ausfallzeiten aufgrund von Kinderbetreuungsaufgaben, Mutterschutz-, Eltern- oder Erziehungszeiten, chronischen/langfristigen Erkrankungen, einer Behinderung oder besonderen familiären Verpflichtungen, wie der Pflege von Angehörigen, sowie Pandemie-bedingten Ausfallzeiten berücksichtigt werden. Es können auch zeitliche Verzögerungen im wissenschaftlichen Werdegang, z. B. für Personen, die in erster Generation eine akademische Karriere anstreben („first generation academic“), aufgrund von verschiedenen Pflicht- und Freiwilligendiensten, Spracherwerb, Migration oder Integrationsphasen, Flucht oder Asylverfahren und Ähnliches genannt werden. 
+    
+    In der Begutachtung und vergleichenden Bewertung können dann beispielsweise biographische Besonderheiten oder unvermeidbare Verzögerungen (von mindestens 2–3 Monaten pro Jahr) in Ihrer wissenschaftlichen Karriere angemessen zu Ihren Gunsten berücksichtigt werden. 
+    
+    Sollten Sie im Rahmen Ihrer Antragstellung relevante, vertrauliche Hinweise zu Ihrer persönlichen Situation (z. B. Erkrankung, Behinderung oder anderer Härtefall) geben wollen, diese jedoch nicht an Gutachter*innen oder Gremienmitglieder weitergeleitet haben möchten, dann verwenden Sie dafür bitte ausschließlich das „Formular für eine vertrauliche Mitteilung nur an die DFG-Geschäftsstelle“ in Ihrer Antragsübersicht im elan-Portal. Bitte beachten Sie, dass solche Angaben dann nicht oder nur eingeschränkt in der Begutachtung und vergleichenden Bewertung berücksichtigt werden. Kontaktieren Sie in diesen Fällen gerne im Vorfeld der Antragstellung die DFG-Geschäftsstelle (\url{chancengleichheit@dfg.de}). Weitere Informationen finden Sie unter \url{www.dfg.de/faq_lebenslauf}.
+    
+    Wenn Sie keine Verarbeitung besonderer persönlicher Daten wünschen, sollten Sie keine dieser Daten angeben. Geben Sie keine oder nur notwendige Daten von Dritten an und stellen Sie sicher, dass die datenschutzrechtliche Legitimation dafür vorliegt. Die DFG verarbeitet Daten zu besonderen persönlichen Situationen auf Basis Ihrer bzw. der Einwilligung der datenübermittelnden Person im elan-Portal. Weitere Informationen finden Sie in unseren Datenschutzhinweisen unter \url{www.dfg.de/datenschutz}.
+
+
+
+    \textcolor{red}{Für Anträge im Emmy Noether- und Walter Benjamin-Programm beachten Sie bitte Folgendes:
+Wenn Sie eine Berücksichtigung von Kinderbetreuungszeiten hinsichtlich der Antragsberechtigung wünschen, machen Sie bitte an dieser Stelle – sofern zutreffend – entsprechende Angaben (Anzahl der Kinder, Geburtsmonat und -jahr ohne Namen, z. B. „2 Kinder, geb. 05/2017 und 12/2020“) bzw. zu Eltern- und Erziehungszeiten (siehe 
+DFG-Vordruck 50.02 bzw. DFG-Vordruck 50.10).
+}
+
+}
+
+\subsection*{Engagement im Wissenschaftssystem}
+\todo{Optional, Freitextfeld}
+\todo[inline]{%
+    Hier können Sie Angaben zu weiteren Tätigkeiten im Wissenschaftssystem machen. Dazu zählen beispielsweise Gremientätigkeiten, Tätigkeiten in der Selbstverwaltung der Wissenschaft, die Organisation wissenschaftlicher Veranstaltungen, Aktivitäten in der Lehre sowie Tätigkeiten als Mentor*in.
+}
+
+\subsection*{Betreuung von Wissenschaftler*innen in frühen Karrierephasen}
+\todo{Optional, Freitextfeld}
+
+\todo[inline]{%
+\textcolor{red}{Für Anträge im Programm Graduiertenkollegs sind die Angaben obligatorisch:
+Bitte machen Sie an dieser Stelle Angaben zur Betreuung von Wissenschaftler*innen in frühen Karrierephasen in den letzten fünf Jahren, speziell eine Liste der betreuten Doktorand*innen mit Angaben zum Dissertationsthema, zur Promotionsdauer (bei abgeschlossenen Promotionen „von… bis…“ bzw. bei laufenden Promotionen „seit…“) und soweit möglich zum weiteren Karriereweg der Promovierten. Haben Sie unter „Ergänzende Angaben zum Werdegang“ auf Verzögerungen infolge von Geburt und Kinderbetreuung aufmerksam gemacht, so verlängert sich der Fünf-Jahres-Zeitraum pro Kind um jeweils zwei Jahre.}
+}
+
+\section*{Wissenschaftliche Ergebnisse}
+\todo[inline]{%
+    Bitte geben Sie hier Ihre wichtigsten öffentlich gemachten wissenschaftlichen Ergebnisse an (siehe auch die \textit{Hinweise zu Publikationsverzeichnissen}, DFG-Vordruck 1.91, \url{https://www.dfg.de/resource/blob/167384/1-91-de.pdf}). Soweit vorhanden, geben Sie zusätzlich persistente Identifikatoren (z. B. DOI/Digital Object Identifier), vorzugsweise über die Nennung der Nummer, ansonsten über die Nennung der URL, an. Open-Access-Publikationen sollten entsprechend markiert sein.
+    Angaben zu quantitativen Metriken wie Impact-Faktoren und h-Indizes sind nicht erforderlich und werden bei der Begutachtung nicht berücksichtigt.\\
+    
+    Erläutern Sie bitte auch – wo möglich – Ihren Anteil an den öffentlich gemachten Ergebnissen und/oder legen Sie dar, warum Sie die Publikation/bzw. den wissenschaftlichen Beitrag an dieser Stelle nennen. \\
+    
+    Die Angaben erfolgen in zwei Kategorien:
+}
+
+\subsection*{Kategorie A – Fachaufsätze in Peer Review-Zeitschriften, Beiträge zu Konferenzen mit Peer Review oder Sammelbänden sowie Buchpublikationen}
+\todo{obligatorisch, Liste nummeriert von 1. – max. 10. bei Bedarf kommentiert}
+\todo[inline]{% 
+    In dieser Kategorie geben Sie bitte Fachaufsätze in Peer Review-Zeitschriften, Beiträge zu Konferenzen mit Peer  Review oder Sammelbänden sowie Buchpublikationen an (siehe auch DFG-Vordruck 1.91, \url{https://www.dfg.de/resource/blob/167384/1-91-de.pdf}).
+}
+
+\begin{enumerate}
+    \item
+\end{enumerate}
+
+\subsection*{Kategorie B – Jede weitere Form öffentlich gemachter Ergebnisse}
+\todo{optional, Liste nummeriert von 1. – max. 10. bei Bedarf kommentiert}
+\todo[inline]{%
+    An dieser Stelle können Sie die in jeder weiteren Form öffentlich gemachten Ergebnisse aus Ihrer Forschung anführen. Dies könnten z. B. Beiträge zu Konferenzen ohne Peer Review, Artikel auf PrePrint-Servern, Datensätze, Protokolle von Klinischen Studien, Softwarepakete, angemeldete und erteilte Patente oder Blogbeiträge, Infrastrukturen oder Transfer sein. Ebenfalls angeben können Sie hier weitere Formen wissenschaftlichen Outputs wie z. B. Beiträge zur (technischen) Infrastruktur einer wissenschaftlichen Community (auch auf internationaler Ebene) oder Beiträge zur Wissenschaftskommunikation. 
+}
+
+\begin{enumerate}
+    \item
+\end{enumerate}
+
+\subsection*{Anerkennung durch das Wissenschaftssystem}
+\todo{Optional, Freitextfeld}
+\todo[inline]{%
+Hier können Sie Angaben zu Auszeichnungen oder Preisen machen. Dazu zählen auch Einladungen oder Berufungen in herausgehobenen Gremien oder Akademien.
+}
+
+\section*{Sonstige Angaben}
+\todo{Optional, Freitextfeld}
+\todo[inline]{%
+Hier können Sie auf weitere Punkte zur Charakterisierung Ihrer Person als Wissenschaftler*in oder auf andere Aspekte, wie beispielsweise eine Dual-Career-Thematik (die z.  B. die Standortwahl bedingt), hinweisen, die aus Ihrer Sicht relevant für die Begutachtung oder Bewertung des Antrags sind.
+}
+\end{document}
